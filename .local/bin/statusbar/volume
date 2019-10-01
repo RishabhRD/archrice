@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+	1) pavucontrol & ;;
+	2) pulsemixer --toggle-mute ;;
+	4) pulsemixer --change-volume -5 ;;
+	5) pulsemixer --change-volume +5 ;;
+esac
+[ "$(pulsemixer --get-mute)" = "1" ] && printf "<span color='#f00e1d'> muted</span>\\n" && exit
+
+vol=$(pulsemixer --get-volume | awk '{print $1}')
+
+printf ": %s%s\n" "$vol" "%"

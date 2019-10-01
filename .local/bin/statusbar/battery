@@ -1,0 +1,42 @@
+#!/bin/sh
+# Give a battery name (e.g. BAT0) as an argument.
+
+case $BLOCK_BUTTON in
+	1) pgrep -x dunst >/dev/null && notify-send "Battery Status" "$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'to ')";
+esac
+capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
+status=$(cat /sys/class/power_supply/"$1"/status)
+icon=
+if [ "$capacity" -le 50 ]; then
+	icon=
+fi
+if [ "$capacity" -le 10 ]; then
+	icon=
+fi
+if [ "$capacity" -ge 92 ]; then
+	color='#00ff00'
+	if [ "$status" = "Charging" ]; then
+		noitfy-send "Battery Charged"
+	fi
+elif [ "$capacity" -ge 75 ]; then
+	color="#00ff00"
+elif [ "$capacity" -ge 50 ]; then
+	color="#ffffff"
+elif [ "$capacity" -ge 10  ]; then
+	color="#ffff00"
+elif [ "$capacity" -le 9 ]; then
+	color="#ff0000"
+	warn="Low"
+	if [ "$status" = "Discharging" ]; then
+		notify-send "Battery Low"
+	fi
+elif [ "$capacity" -l 3 ]; then
+	warn="Very Low"
+fi
+
+[ -z $warn ] && warn=" "
+
+[ "$status" = "Charging" ] && color="#ffffff"
+
+res=$(printf "<span color='%s'>$icon %s%s%s</span>" "$color" "$(echo "$status" | sed -e "s/,//;s/Discharging/Discharging/;s/Not Charging/Not Charging/;s/Charging/Charging/;s/Unknown/Error/;s/Full/Full/;s/ 0*/ /g;s/ :/ /g")" " $warn " "$(echo "$capacity" | sed -e 's/$/%/')")
+echo $res
