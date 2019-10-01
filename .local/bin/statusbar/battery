@@ -16,7 +16,7 @@ fi
 if [ "$capacity" -ge 92 ]; then
 	color='#00ff00'
 	if [ "$status" = "Charging" ]; then
-		noitfy-send "Battery Charged"
+		notify-send "Battery Charged"
 	fi
 elif [ "$capacity" -ge 75 ]; then
 	color="#00ff00"
