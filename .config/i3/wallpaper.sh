@@ -1,1 +1,1 @@
-feh --randomize --bg-scale /home/rishabh/Pictures/background/*
+feh --randomize --bg-scale ~/Pictures/background/*

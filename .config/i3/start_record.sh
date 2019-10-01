@@ -1,5 +1,5 @@
 #!/bin/bash
-location_dir=/home/rishabh/Videos/screencast
+location_dir=~/Videos/screencast
 T=$(printf -e "" | rdmenu "Screencast name: ")
 T="$T".mkv
 video_window_title="$T"

@@ -6,15 +6,15 @@ markup=pango
 #[music]
 #label=
 #interval=once
-#command=/home/rishabh/.local/bin/statusbar/music
+#command=~/.local/bin/statusbar/music
 #signal=11
 
 [ethernet]
-command=/home/rishabh/.local/bin/statusbar/ethernet.sh
+command=~/.local/bin/statusbar/ethernet.sh
 interval=5
 
 [wifi]
-command=/home/rishabh/.local/bin/statusbar/wifi.sh
+command=~/.local/bin/statusbar/wifi.sh
 interval=5
 
 #[record]
@@ -58,29 +58,29 @@ interval=5
 #[cpu]
 #interval=15
 #label=💻
-#command=/home/rishabh/.local/bin/statusbar/cpu
+#command=~/.local/bin/statusbar/cpu
 
 [record]
 interval=once
-command=/home/rishabh/.local/bin/statusbar/showRecord.sh
+command=~/.local/bin/statusbar/showRecord.sh
 signal=22
 
 [clock]
-command=/home/rishabh/.local/bin/statusbar/clock
+command=~/.local/bin/statusbar/clock
 interval=30
 
 [caps]
-command=/home/rishabh/.local/bin/statusbar/caps.sh
+command=~/.local/bin/statusbar/caps.sh
 interval=once
 signal=21
 
 [volume]
-command=/home/rishabh/.local/bin/statusbar/volume
+command=~/.local/bin/statusbar/volume
 interval=once
 signal=10
 
 [brightness]
-command=/home/rishabh/.local/bin/statusbar/brightness
+command=~/.local/bin/statusbar/brightness
 interval=once
 signal=11
 
@@ -93,12 +93,12 @@ signal=11
 #command=disk /home 🏠
 
 [battery]
-command=/home/rishabh/.local/bin/statusbar/battery BAT0
+command=~/.local/bin/statusbar/battery BAT0
 interval=5
 
 
 #[internet]
-#command=/home/rishabh/.local/bin/statusbar/internet
+#command=~/.local/bin/statusbar/internet
 #interval=10
 
 #[help]
