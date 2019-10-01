@@ -1,0 +1,234 @@
+Aug 25 13:57 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 25 13:57 : exception: Failed to open '/home/rishabh/.config/mpd/state': No such file or directory
+Aug 25 13:57 : client: [0] opened from 127.0.0.1:57766
+Aug 25 13:57 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 25 13:57 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 25 13:58 : client: [0] closed
+Aug 25 13:58 : client: [1] opened from 127.0.0.1:57772
+Aug 25 13:59 : client: [1] closed
+Aug 25 13:59 : client: [2] opened from 127.0.0.1:57776
+Aug 25 14:01 : client: [3] opened from 127.0.0.1:57790
+Aug 25 14:01 : client: [3] closed
+Aug 25 14:02 : player: played "Aa-Zara-(RaagSong.Com).mp3"
+Aug 25 14:03 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 14:03 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 14:03 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 14:03 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 14:03 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 14:05 : client: [2] closed
+Aug 25 14:05 : client: [4] opened from 127.0.0.1:57804
+Aug 25 14:06 : player: played "Daru Badnaam-(Mr-Jatt.com).mp3"
+Aug 25 14:07 : client: [5] opened from 127.0.0.1:57822
+Aug 25 14:07 : client: [6] opened from 127.0.0.1:57826
+Aug 25 14:10 : player: played "Tere Bina Jeena Saza Ho Gaya - Rooh.mp3"
+Aug 25 14:15 : player: played "Baby Marvake Maanegi-(Mr-Jatt.com).mp3"
+Aug 25 14:18 : player: played "Daru Badnaam-(Mr-Jatt.com).mp3"
+Aug 25 14:23 : player: played "Aa-Zara-(RaagSong.Com).mp3"
+Aug 25 14:30 : client: [6] closed
+Aug 25 14:30 : client: [5] closed
+Aug 25 14:30 : client: [4] closed
+Aug 25 14:55 : client: [7] opened from 127.0.0.1:59338
+Aug 25 14:55 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 14:55 : client: [7] closed
+Aug 25 14:55 : client: [8] opened from 127.0.0.1:59344
+Aug 25 14:56 : client: [8] closed
+Aug 25 14:59 : client: [9] opened from 127.0.0.1:59486
+Aug 25 15:00 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:00 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:00 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:00 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:00 : client: [9] closed
+Aug 25 15:00 : client: [10] opened from 127.0.0.1:59492
+Aug 25 15:00 : client: [10] closed
+Aug 25 15:03 : client: [11] opened from 127.0.0.1:59524
+Aug 25 15:03 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:04 : player: played "Daru Badnaam-(Mr-Jatt.com).mp3"
+Aug 25 15:04 : player: played "Aa-Zara-(RaagSong.Com).mp3"
+Aug 25 15:05 : player: played "Aitvaar-Jaz-Dhami.mp3"
+Aug 25 15:05 : player: played "Baby Marvake Maanegi-(Mr-Jatt.com).mp3"
+Aug 25 15:05 : player: played "Aitvaar-Jaz-Dhami.mp3"
+Aug 25 15:06 : client: [11] closed
+Aug 25 15:06 : client: [12] opened from 127.0.0.1:59534
+Aug 25 15:07 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:07 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:07 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:07 : client: [12] closed
+Aug 25 15:08 : client: [13] opened from 127.0.0.1:59540
+Aug 25 15:08 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:08 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:08 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:08 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:08 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:08 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:08 : exception: Failed to open /home/rishabh/.config/mpd/playlists: No such file or directory
+Aug 25 15:10 : client: [13] closed
+Aug 25 15:17 : client: [14] opened from 127.0.0.1:59674
+Aug 25 15:17 : client: [15] opened from 127.0.0.1:59678
+Aug 25 15:18 : client: [16] opened from 127.0.0.1:59682
+Aug 25 15:21 : client: [14] closed
+Aug 25 17:36 : client: [17] opened from 127.0.0.1:59758
+Aug 25 17:36 : client: [17] closed
+Aug 25 19:12 : client: [18] opened from 127.0.0.1:59834
+Aug 25 19:13 : client: [18] closed
+Aug 25 19:21 : client: [16] closed
+Aug 25 19:48 : client: [19] opened from 127.0.0.1:60018
+Aug 25 19:48 : client: [20] opened from 127.0.0.1:60020
+Aug 25 19:48 : client: [20] closed
+Aug 25 19:48 : client: [21] opened from 127.0.0.1:60022
+Aug 25 19:48 : client: [21] closed
+Aug 25 19:49 : client: [22] opened from 127.0.0.1:60024
+Aug 25 19:49 : client: [22] closed
+Aug 25 19:49 : client: [23] opened from 127.0.0.1:60026
+Aug 25 19:49 : client: [23] closed
+Aug 25 19:49 : client: [24] opened from 127.0.0.1:60028
+Aug 25 19:49 : player: played "Baby Marvake Maanegi-(Mr-Jatt.com).mp3"
+Aug 25 19:49 : client: [24] closed
+Aug 25 19:49 : client: [25] opened from 127.0.0.1:60030
+Aug 25 19:49 : client: [25] closed
+Aug 25 19:49 : client: [26] opened from 127.0.0.1:60032
+Aug 25 19:49 : player: played "Baby Marvake Maanegi-(Mr-Jatt.com).mp3"
+Aug 25 19:49 : client: [26] closed
+Aug 25 19:50 : client: [19] closed
+Aug 25 23:17 : client: [27] opened from 127.0.0.1:60316
+Aug 25 23:17 : client: [28] opened from 127.0.0.1:60324
+Aug 25 23:18 : client: [29] opened from 127.0.0.1:60328
+Aug 25 23:23 : client: [28] closed
+Aug 25 23:23 : client: [29] closed
+Aug 25 23:23 : client: [27] closed
+Aug 25 23:23 : client: [30] opened from 127.0.0.1:60358
+Aug 25 23:23 : client: [30] closed
+Aug 25 23:24 : client: [31] opened from 127.0.0.1:60362
+Aug 25 23:24 : client: [31] closed
+Aug 25 23:25 : client: [32] opened from 127.0.0.1:60366
+Aug 26 08:46 : client: [33] opened from 127.0.0.1:60382
+Aug 26 08:46 : client: [34] opened from 127.0.0.1:60386
+Aug 26 08:49 : player: played "Aitvaar-Jaz-Dhami.mp3"
+Aug 26 16:10 : client: [34] closed
+Aug 26 16:10 : client: [32] closed
+Aug 26 16:10 : client: [33] closed
+Aug 26 16:13 : client: [35] opened from 127.0.0.1:60958
+Aug 26 16:18 : player: played "Tere Bina Jeena Saza Ho Gaya - Rooh.mp3"
+Aug 26 16:18 : client: [36] opened from 127.0.0.1:60988
+Aug 26 16:18 : client: [37] opened from 127.0.0.1:60992
+Aug 26 16:18 : client: [37] closed
+Aug 26 16:18 : client: [36] closed
+Aug 26 16:21 : player: played "Daru Badnaam-(Mr-Jatt.com).mp3"
+Aug 26 16:41 : client: [35] closed
+Aug 26 19:28 : client: [38] opened from 127.0.0.1:33686
+Aug 26 19:34 : player: played "Baby Marvake Maanegi-(Mr-Jatt.com).mp3"
+Aug 26 20:10 : client: [39] opened from 127.0.0.1:34082
+Aug 26 20:10 : client: [40] opened from 127.0.0.1:34086
+Aug 26 20:10 : client: [40] closed
+Aug 26 20:10 : client: [41] opened from 127.0.0.1:34090
+Aug 26 20:10 : client: [41] closed
+Aug 26 20:11 : client: [42] opened from 127.0.0.1:34094
+Aug 26 20:11 : client: [42] closed
+Aug 26 20:11 : client: [43] opened from 127.0.0.1:34098
+Aug 26 20:11 : client: [43] closed
+Aug 26 20:11 : client: [44] opened from 127.0.0.1:34102
+Aug 26 20:11 : client: [44] closed
+Aug 26 20:11 : client: [45] opened from 127.0.0.1:34106
+Aug 26 20:11 : client: [45] closed
+Aug 26 20:11 : client: [46] opened from 127.0.0.1:34110
+Aug 26 20:11 : client: [46] closed
+Aug 26 20:11 : client: [47] opened from 127.0.0.1:34114
+Aug 26 20:11 : client: [47] closed
+Aug 26 20:12 : client: [48] opened from 127.0.0.1:34118
+Aug 26 20:12 : client: [48] closed
+Aug 26 20:12 : client: [49] opened from 127.0.0.1:34124
+Aug 26 20:12 : client: [49] closed
+Aug 26 20:13 : client: [50] opened from 127.0.0.1:34134
+Aug 26 20:13 : client: [50] closed
+Aug 26 20:14 : client: [51] opened from 127.0.0.1:34142
+Aug 26 20:14 : client: [51] closed
+Aug 26 20:14 : client: [52] opened from 127.0.0.1:34146
+Aug 26 20:14 : client: [52] closed
+Aug 26 20:14 : client: [53] opened from 127.0.0.1:34150
+Aug 26 20:14 : player: played "Aitvaar-Jaz-Dhami.mp3"
+Aug 26 20:14 : client: [53] closed
+Aug 26 20:14 : client: [54] opened from 127.0.0.1:34154
+Aug 26 20:14 : client: [54] closed
+Aug 26 20:14 : client: [55] opened from 127.0.0.1:34158
+Aug 26 20:14 : client: [55] closed
+Aug 26 20:14 : player: played "Aitvaar-Jaz-Dhami.mp3"
+Sep 07 16:24 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 07 16:24 : client: [0] opened from 127.0.0.1:52586
+Sep 07 16:26 : client: [0] closed
+Sep 09 15:34 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 09 15:34 : client: [0] opened from 127.0.0.1:55864
+Sep 09 15:34 : client: [0] closed
+Sep 12 17:42 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 12 17:42 : client: [0] opened from 127.0.0.1:53838
+Sep 12 17:42 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 12 17:42 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 12 17:42 : client: [0] closed
+Sep 12 17:46 : player: played "Tere Bina Jeena Saza Ho Gaya - Rooh.mp3"
+Sep 12 17:46 : client: [1] opened from 127.0.0.1:53846
+Sep 12 17:51 : player: played "Aa-Zara-(RaagSong.Com).mp3"
+Sep 12 17:51 : client: [1] closed
+Sep 12 22:53 : client: [2] opened from 127.0.0.1:34640
+Sep 12 22:54 : client: [2] closed
+Sep 12 22:54 : client: [3] opened from 127.0.0.1:34646
+Sep 12 22:57 : player: played "Tere Bina Jeena Saza Ho Gaya - Rooh.mp3"
+Sep 12 22:58 : client: [3] closed
+Sep 12 23:00 : player: played "Tere Bina Jeena Saza Ho Gaya - Rooh.mp3"
+Sep 12 23:03 : client: [4] opened from 127.0.0.1:34692
+Sep 12 23:04 : exception: Stored playlists are disabled
+Sep 12 23:09 : client: [5] opened from 127.0.0.1:34708
+Sep 12 23:09 : client: [5] closed
+Sep 12 23:28 : client: [6] opened from 127.0.0.1:34874
+Sep 12 23:28 : client: [7] opened from 127.0.0.1:34878
+Sep 12 23:28 : client: [7] closed
+Sep 12 23:28 : client: [8] opened from 127.0.0.1:34882
+Sep 12 23:29 : client: [8] closed
+Sep 12 23:29 : client: [6] closed
+Sep 12 23:32 : client: [9] opened from 127.0.0.1:34892
+Sep 12 23:33 : client: [10] opened from 127.0.0.1:34896
+Sep 12 23:34 : client: [10] closed
+Sep 12 23:34 : client: [9] closed
+Sep 12 23:36 : client: [4] closed
+Sep 13 01:32 : player: played "Aitvaar-Jaz-Dhami.mp3"
+Sep 14 01:06 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 14 01:06 : client: [0] opened from 127.0.0.1:36026
+Sep 14 01:06 : client: [1] opened from 127.0.0.1:36030
+Sep 14 01:07 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 14 01:07 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 14 01:07 : client: [2] opened from 127.0.0.1:36032
+Sep 14 01:07 : player: played "Aitvaar-Jaz-Dhami.mp3"
+Sep 14 01:07 : client: [2] closed
+Sep 14 01:07 : client: [0] closed
+Sep 14 01:07 : client: [3] opened from 127.0.0.1:36034
+Sep 14 01:07 : client: [1] closed
+Sep 14 01:07 : client: [4] opened from 127.0.0.1:36036
+Sep 14 01:07 : player: played "Daru Badnaam-(Mr-Jatt.com).mp3"
+Sep 14 01:07 : client: [4] closed
+Sep 14 01:08 : client: [5] opened from 127.0.0.1:36038
+Sep 14 01:08 : client: [5] closed
+Sep 14 01:08 : client: [6] opened from 127.0.0.1:36040
+Sep 14 01:08 : player: played "Daru Badnaam-(Mr-Jatt.com).mp3"
+Sep 14 01:08 : client: [6] closed
+Sep 14 01:09 : client: [3] closed
+Sep 14 01:09 : client: [7] opened from 127.0.0.1:36044
+Sep 14 01:09 : client: [7] closed
+Sep 14 01:09 : client: [8] opened from 127.0.0.1:36048
+Sep 14 01:09 : client: [8] closed
+Sep 14 01:33 : client: [9] opened from 127.0.0.1:36264
+Sep 14 01:33 : client: [9] closed
+Sep 14 01:34 : client: [10] opened from 127.0.0.1:36268
+Sep 14 01:34 : client: [10] closed
+Sep 14 01:34 : client: [11] opened from 127.0.0.1:36272
+Sep 14 01:34 : client: [11] closed
+Sep 14 02:02 : client: [12] opened from 127.0.0.1:36480
+Sep 14 02:04 : client: [12] closed
+Sep 14 02:06 : client: [13] opened from 127.0.0.1:36516
+Sep 14 02:07 : client: [13] closed
+Sep 21 21:49 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 21 21:49 : client: [0] opened from 127.0.0.1:42910
+Sep 21 21:50 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 21 21:50 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 22 13:50 : client: [0] closed
+Sep 23 00:35 : player: played "Aa-Zara-(RaagSong.Com).mp3"
+Sep 24 14:06 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Sep 24 14:06 : client: [0] opened from 127.0.0.1:54176
+Sep 24 14:07 : client: [0] closed
+Sep 30 17:12 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
