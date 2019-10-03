@@ -2,6 +2,7 @@
 o(){
 	fzf | xargs -r -o vim
 }
+export PATH=$PATH:$HOME/.scripts/
 export EDITOR="vim"
 export TERMINAL="urxvt"
 if [[ "$(tty)" == "/dev/tty1" ]]; then
