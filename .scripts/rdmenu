@@ -1,0 +1,1 @@
+dmenu -fn 'Awesome-11' -nb '#000000' -nf '#a9d3de' -sb '#3255f1' -sf '#000000' -p "$1"  
