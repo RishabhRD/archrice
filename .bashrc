@@ -23,6 +23,7 @@ set -o vi
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 alias vi='vim'
+alias r='ranger'
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
@@ -82,3 +83,11 @@ shopt -s autocd
 alias god_give_me='sudo'
 source /usr/share/fzf/completion.bash && source /usr/share/fzf/key-bindings.bash
 export HISTCONTROL=ignoreboth:erasedups
+(cat ~/.cache/wal/sequences &)
+
+# Alternative (blocks terminal for 0-3ms)
+cat ~/.cache/wal/sequences
+
+# To add support for TTYs this line can be optionally added.
+source ~/.cache/wal/colors-tty.sh
+export PATH="/home/rishabh/.local/bin:$PATH"
