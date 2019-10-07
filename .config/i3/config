@@ -35,26 +35,27 @@ for_window [instance="dropdown_*"] move position center
 bindsym $mod+d exec dmenu_run -fn 'Awesome-11' -nb '#000000' -nf '#A9D3DE' -sb '#1146ac' -sf '#a9d3de'
 bindsym $mod+f		 	floating toggle
 bindsym $mod+l			layout toggle
-bindsym $mod+Shift+space	exec --no-startup-id ~/.local/bin/i3cmds/dmenuemoji
+bindsym $mod+Shift+space	exec --no-startup-id /home/rishabh/.local/bin/i3cmds/dmenuemoji
 # bindsym $mod+space		focus mode_toggle
-bindsym $mod+o			exec --no-startup-id ~/.config/i3/minopen
+bindsym $mod+o			exec --no-startup-id /home/rishabh/.config/i3/minopen
 bindsym $mod+Escape		focus right
 bindsym $mod+space 		exec urxvt -e ncmpcpp
+bindsym $mod+Shift+m		exec ~/.scripts/man_search.sh
 bindsym $mod+Shift+b		exec /usr/bin/qute/qutebrowser
-bindsym $mod+Ctrl+b		exec --no-startup-id feh --randomize --bg-scale ~/Pictures/background/*
+bindsym $mod+Ctrl+b		exec --no-startup-id ~/.config/i3/background.sh
 bindsym $mod+r			exec urxvt -e ranger
-bindsym $mod+Shift+Escape 	exec --no-startup-id ~/.config/i3/exit.sh
-bindsym $mod+mod1+r		exec ~/.config/i3/start_record.sh 
-bindsym $mod+Ctrl+r		exec ~/.config/i3/stop_record.sh
+bindsym $mod+Shift+Escape 	exec --no-startup-id /home/rishabh/.config/i3/exit.sh
+bindsym $mod+mod1+r		exec /home/rishabh/.config/i3/start_record.sh 
+bindsym $mod+Ctrl+r		exec /home/rishabh/.config/i3/stop_record.sh
 bindsym $mod+Shift+Tab		workspace back_and_forth
-bindsym Print			exec --no-startup-id ~/.config/i3/screenshot.sh
-bindsym $mod+Shift+Print		exec --no-startup-id ~/.config/i3/screenshot-rect.sh
-bindsym $mod+F3			exec --no-startup-id ~/.local/bin/i3cmds/dmenumount
-bindsym $mod+F4			exec --no-startup-id ~/.local/bin/i3cmds/dmenuumount
+bindsym Print			exec --no-startup-id /home/rishabh/.config/i3/screenshot.sh
+bindsym $mod+Print		exec  /home/rishabh/.config/i3/screenshot-rect.sh
+bindsym $mod+F3			exec --no-startup-id /home/rishabh/.local/bin/i3cmds/dmenumount
+bindsym $mod+F4			exec --no-startup-id /home/rishabh/.local/bin/i3cmds/dmenuumount
 bindsym $mod1+F4 		[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym Caps_Lock		exec --no-startup-id pkill -RTMIN+21 i3blocks
 bindsym $mod+m			exec urxvt -e neomutt
-bindsym $mod+Ctrl+d		exec --no-startup-id ~/.local/bin/i3cmds/display-select.sh
+bindsym $mod+Ctrl+d		exec --no-startup-id /home/rishabh/.local/bin/i3cmds/display-select.sh
 #STOP/HIDE EVERYTHING:
 bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-id lmc pause ; exec --no-startup-id pauseallmpv; workspace 0; exec $term -e htop ; exec $term -e $FILE
 
@@ -64,7 +65,7 @@ bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec -
 bindsym $mod+shift+r		exec --no-startup-id winresize
 
 bindsym $mod+t			split toggle
-bindsym $mod+Shift+t		exec ~/apps/thoptv/thoptv
+bindsym $mod+Shift+t		exec /home/rishabh/apps/thoptv/thoptv
 
 bindsym $mod+Shift+y		exec --no-startup-id i3resize left
 
@@ -97,9 +98,9 @@ bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
 bindsym $mod+Return		exec urxvt
 bindsym $mod+Shift+Return	exec "~/.config/i3/respawn.sh"	
-bindsym $mod+c			exec --no-startup-id ~/.config/i3/select.sh ~/.config/i3/copytext
-bindsym $mod+Shift+p		exec --no-startup-id ~/.config/i3/select.sh ~/.config/i3/paths
-bindsym $mod+p			exec --no-startup-id ~/.config/i3/select.sh ~/.config/i3/work-paths
+bindsym $mod+c			exec --no-startup-id /home/rishabh/.config/i3/select.sh /home/rishabh/.config/i3/copytext
+bindsym $mod+Shift+p		exec --no-startup-id /home/rishabh/.config/i3/select.sh /home/rishabh/.config/i3/paths
+bindsym $mod+p			exec --no-startup-id /home/rishabh/.config/i3/select.sh /home/rishabh/.config/i3/work-paths
 bindsym $mod+b			bar mode toggle
 bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
 
@@ -197,7 +198,7 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10;pkill -RTMIN+11 i3blocks"
 bindsym XF86PowerOff exec ~/.config/i3/power.sh
 
 # Background
-exec --no-startup-id feh --randomize --bg-scale '~/Pictures/background/*'
+exec --no-startup-id ~/.config/i3/background.sh
 
 # Mouse Configurations
 exec --no-startup-id xinput set-prop 13 305 1
@@ -212,7 +213,7 @@ exec --no-startup-id xinput set-prop 13 313 1
 exec --no-startup-id nm-applet
 
 # Notification
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id dunst -config /home/rishabh/.config/dunst/dunstrc
 
 # Lock Screen
 exec --no-startup-id xautolock -time 10 -locker '~/.config/i3/lock.sh'
