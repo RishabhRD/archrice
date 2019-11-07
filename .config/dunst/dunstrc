@@ -3,7 +3,6 @@
     allow_markup         = yes
     plain_text           = no
     format               = "<center>%s</center>\n-----------------------------------------------------------------\n%b"
-    transparency         = 30
     ignore_newline       = no
     show_indicators      = yes
     separator_color      = frame
