@@ -1,0 +1,16 @@
+file=$(readlink -f "$1")
+dir=$(dirname "$file")
+base="${file%.*}"
+
+cd "$dir" || exit
+
+
+case "$file" in
+        *\.c) urxvt --hold -e $base   & ;;
+        *\.cc) urxvt --hold -e $base  &  ;;
+        *\.cpp) urxvt --hold -e $base & ;;
+        *\.java) urxvt --hold -e java "$base" &  ;;
+	*\.py) urxvt --hold -e python "$file" & ;;
+	*\.go) urxvt --hold -e go run "$file" & ;;
+	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
+esac

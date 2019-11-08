@@ -1,0 +1,17 @@
+file=$(readlink -f "$1")
+dir=$(dirname "$file")
+base="${file%.*}"
+
+cd "$dir" || exit
+
+
+case "$file" in
+	*config.h) sudo make install ;;
+        *\.c) gcc "$file" -o "$base" ;;
+        *\.cc) g++ "$file" -o "$base" ;;
+        *\.cpp) g++ "$file" -o "$base" ;;
+        *\.java) javac "$file"  && java ;;
+	*\.py) python "$file" ;;
+	*\.go) go run "$file" ;;
+	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
+esac
