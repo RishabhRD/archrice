@@ -10,4 +10,4 @@ esac
 
 vol=$(pulsemixer --get-volume | awk '{print $1}')
 
-printf ": %s%s\n" "$vol" "%"
+printf "<span color='#F40B58'>:</span> %s%s\n" "$vol" "%"

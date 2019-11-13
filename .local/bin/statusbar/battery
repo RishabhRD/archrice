@@ -16,7 +16,7 @@ fi
 if [ "$capacity" -ge 92 ]; then
 	color='#00ff00'
 	if [ "$status" = "Charging" ]; then
-		notify-send "Battery Charged"
+		notify-send --urgency="normal" "Battery Charged"
 	fi
 elif [ "$capacity" -ge 75 ]; then
 	color="#00ff00"
@@ -28,7 +28,7 @@ elif [ "$capacity" -le 9 ]; then
 	color="#ff0000"
 	warn="Low"
 	if [ "$status" = "Discharging" ]; then
-		notify-send "Battery Low"
+		notify-send --urgency="normal" "Battery Low"
 	fi
 elif [ "$capacity" -l 3 ]; then
 	warn="Very Low"
