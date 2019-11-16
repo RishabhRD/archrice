@@ -22,7 +22,9 @@ fins(){
 set -o vi
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-alias vi='vim'
+alias vi='nvim'
+alias ni='nvim'
+alias vim='nvim'
 alias r='ranger'
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
@@ -90,4 +92,18 @@ cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
-export PATH="/home/rishabh/.local/bin:$PATH"
+alias x="xrdb ~/.Xresources"
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+export EDITOR=/usr/bin/vim
+
+# Coloring less command
+export LESS=-R
+export LESS_TERMCAP_me=$(printf '\e[0m')
+export LESS_TERMCAP_se=$(printf '\e[0m')
+export LESS_TERMCAP_ue=$(printf '\e[0m')
+export LESS_TERMCAP_mb=$(printf '\e[1;32m')
+export LESS_TERMCAP_md=$(printf '\e[1;34m')
+export LESS_TERMCAP_us=$(printf '\e[1;32m')
+export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
+export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin/
+VISUAL=nvim; export VISUAL EDITOR=nvim; export EDITOR
