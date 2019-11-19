@@ -1,10 +1,10 @@
 set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'junegunn/fzf.vim'
-call vundle#end()
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'flazz/vim-colorschemes'
+"Plugin 'junegunn/fzf.vim'
+"call vundle#end()
 filetype indent on
 set relativenumber
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

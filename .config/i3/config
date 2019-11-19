@@ -236,4 +236,4 @@ exec compton
 exec --next_on_output
 exec dbus-launch /usr/bin/kdeconnect-indicator
 exec libinput-gestures
-exec --no-startup-id ~/Pictures/background/reflection.jpg
+exec --no-startup-id ~/.config/i3/background.sh
