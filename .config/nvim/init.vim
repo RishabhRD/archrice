@@ -102,3 +102,5 @@ let g:lightline.tabline = {
   \ }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
+nmap gd <C-]>
+nmap gb <C-T>
