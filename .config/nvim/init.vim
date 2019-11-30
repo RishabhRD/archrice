@@ -107,6 +107,7 @@ let g:lightline.tabline = {
   \ }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
+set incsearch
 nnoremap <A-1> :tabn 1<CR>
 nnoremap <A-2> :tabn 2<CR>
 nnoremap <A-3> :tabn 3<CR>
@@ -136,3 +137,5 @@ function! Rename(file)
 endfunction
 noremap <f2> :call Rename(@%)<CR>
 noremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>r :noh<CR><CR>:<backspace>
+nnoremap <leader><space> :colorscheme delek<CR>
