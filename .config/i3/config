@@ -59,7 +59,7 @@ bindsym $mod+d exec dmenu_run -fn 'Awesome-11' -nb '#000000' -nf '#A9D3DE' -sb '
 bindsym $mod+o			exec --no-startup-id ~/.config/i3/minopen
 bindsym $mod+Shift+Escape 	exec --no-startup-id ~/.config/i3/exit.sh
 bindsym Print			exec --no-startup-id ~/.config/i3/screenshot.sh
-bindsym $mod+Print		exec  ~/.config/i3/screenshot-rect.sh
+bindsym $mod+Print		exec  dmenu_run && sleep 1 && xdotool type "screenshot-rect"
 bindsym Caps_Lock		exec --no-startup-id pkill -RTMIN+21 i3blocks
 bindsym $mod+F2			restart
 bindsym F11			fullscreen toggle
@@ -236,4 +236,4 @@ exec compton
 exec --next_on_output
 exec dbus-launch /usr/bin/kdeconnect-indicator
 exec libinput-gestures
-exec --no-startup-id ~/.config/i3/background.sh
+exec --no-startup-id ~/Pictures/background/reflection.jpg
