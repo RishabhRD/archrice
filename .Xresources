@@ -14,7 +14,7 @@ URxvt.urgentOnBell: true
 *.shading:	5	
 !*.alpha: 0.2
 !*.transparent: 	true
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
  URxvt.url-select.launcher:  qutebrowser
  URxvt.url-select.underline: true
  URxvt.keysym.M-u:           perl:url-select:select_next
