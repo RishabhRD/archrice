@@ -4,6 +4,7 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
 Plug 'Valloric/YouCompleteMe'
+Plug 'scrooloose/nerdtree'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/fzf.vim'
@@ -73,13 +74,17 @@ map <leader>w :colorscheme wal<CR>
 map <leader>d :colorscheme 256-jungle<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <leader>h <C-w>h
+map <leader>l <C-w>l
+map <leader>k <C-w>k
+map <leader>j <C-w>j
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>gc :w! \| !clear && ccompile <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>
 colorscheme wal
 let g:lightline = {
-  \   'colorscheme': 'deus',
+  \   'colorscheme': 'wombat',
   \   'active': {
   \     'left':[ [ 'mode', 'paste' ],
   \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
@@ -102,5 +107,32 @@ let g:lightline.tabline = {
   \ }
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
+nnoremap <A-1> :tabn 1<CR>
+nnoremap <A-2> :tabn 2<CR>
+nnoremap <A-3> :tabn 3<CR>
+nnoremap <A-4> :tabn 4<CR>
+nnoremap <A-5> :tabn 5<CR>
+nnoremap <A-6> :tabn 6<CR>
+nnoremap <A-7> :tabn 7<CR>
+nnoremap <A-8> :tabn 8<CR>
+nnoremap <A-9> :tabn 9<CR>
+nnoremap <A-h> gT
+nnoremap <A-l> gt
 nmap gd <C-]>
 nmap gb <C-T>
+function! GetFileName()
+	let fname = system("printf '' | dmenu -p 'Enter file name'")
+	return fname
+endfunction
+
+function! Rename(file)
+	let name = GetFileName()
+	if empty(name)
+		return
+	endif
+	execute "saveas " . name
+	execute "bdelete " . a:file
+	let e = system("rm " . a:file)
+endfunction
+noremap <f2> :call Rename(@%)<CR>
+noremap <leader>t :NERDTreeToggle<CR>
