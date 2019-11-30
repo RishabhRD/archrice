@@ -5,13 +5,13 @@ URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
 URxvt.internalBorder: 12
-URxvt.cursorBlink: true
 URxvt.cursorUnderline: false
 URxvt.saveline: 2048
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.urgentOnBell: true
-*.shading:	5	
+URxvt.cursorBlink: 1
+!*.shading:	5	
 !*.alpha: 0.2
 !*.transparent: 	true
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
