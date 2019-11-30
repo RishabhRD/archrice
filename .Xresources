@@ -11,12 +11,18 @@ URxvt.saveline: 2048
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.urgentOnBell: true
-*.shading:	0	
-!*.alpha: 0.8
-*.transparent: 	true
-URxvt.perl-ext-common: resize-font,default,matcher
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.matcher.button: 1
+*.shading:	5	
+!*.alpha: 0.2
+!*.transparent: 	true
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
+ URxvt.url-select.launcher:  qutebrowser
+ URxvt.url-select.underline: true
+ URxvt.keysym.M-u:           perl:url-select:select_next
+ URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+ URxvt.keysym.M-s:           perl:keyboard-select:search
+!URxvt.perl-ext-common: resize-font,default,matcher
+!URxvt.url-launcher: /usr/bin/qutebrowse:
+!URxvt.matcher.button: 1
 
 ! special
 *.foreground:   #a9bcf7
