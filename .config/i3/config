@@ -56,13 +56,13 @@ bindsym $mod+Shift+Delete	exec --no-startup-id lmc truemute ; exec --no-startup-
 # #---Basic Bindings---# #
 bindsym $mod+b			bar mode toggle
 bindsym $mod+d exec dmenu_run -fn 'Awesome-11' -nb '#000000' -nf '#A9D3DE' -sb '#1146ac' -sf '#a9d3de'
-bindsym $mod+o			exec --no-startup-id ~/.config/i3/minopen
-bindsym $mod+Shift+Escape 	exec --no-startup-id ~/.config/i3/exit.sh
-bindsym Print			exec --no-startup-id ~/.config/i3/screenshot.sh
+bindsym $mod+o			exec --no-startup-id /home/rishabh/.config/i3/minopen
+bindsym $mod+Shift+Escape 	exec --no-startup-id /home/rishabh/.config/i3/exit.sh
+bindsym Print			exec --no-startup-id /home/rishabh/.config/i3/screenshot.sh
 bindsym $mod+Print		exec  dmenu_run && sleep 1 && xdotool type "screenshot-rect"
 bindsym Caps_Lock		exec --no-startup-id pkill -RTMIN+21 i3blocks
 bindsym $mod+F2			restart
-bindsym F11			fullscreen toggle
+#bindsym F11			fullscreen toggle
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute 0 0 && ~/.config/i3/vol_up.sh" 
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-mute 0 0 && pactl -- set-sink-volume 0 -5%;pkill -RTMIN+10 i3blocks" 
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle;pkill -RTMIN+10 i3blocks" 
@@ -93,13 +93,23 @@ bindsym $mod+Shift+b		exec /usr/bin/qute/qutebrowser
 bindsym $mod+Ctrl+b		exec --no-startup-id ~/.config/i3/background.sh
 bindsym $mod+r			exec urxvt -e ranger
 bindsym $mod+Shift+m		exec ~/.scripts/man_search.sh
-bindsym $mod+Shift+r		exec ~/.config/i3/start_record.sh 
-bindsym $mod+Ctrl+r		exec ~/.config/i3/stop_record.sh
+bindsym $mod+Shift+r		exec /home/rishabh/.config/i3/start_record.sh 
+bindsym $mod+Ctrl+r		exec /home/rishabh/.config/i3/stop_record.sh
 bindsym $mod+m			exec urxvt -e neomutt
-bindsym $mod+Shift+t		exec ~/apps/thoptv/thoptv
+bindsym $mod+Shift+t		exec /home/rishabh/apps/thoptv/thoptv
 bindsym $mod+p			exec urxvt -e htop
 bindsym $mod+Return		exec urxvt
-bindsym $mod+n			exec --no-startup-id mbsync -a
+bindsym $mod+Ctrl+n			exec --no-startup-id mbsync -a
+bindsym $mod+Shift+y		exec --no-startup-id screenkey
+bindsym $mod+Ctrl+y	exec --no-startup-id killall screenkey
+bindsym $mod+Ctrl+s exec "mpc stop;pkill -RTMIN+11 i3blocks"
+bindsym $mod+g exec  "mpc play; pkill -RTMIN+11 i3blocks"
+bindsym $mod+Shift+g exec "mpc pause;pkill -RTMIN+11 i3blocks"
+bindsym $mod+n exec "mpc next;pkill -RTMIN+11 i3blocks"
+bindsym $mod+Shift+n exec "mpc prev;pkill -RTMIN+11 i3blocks"
+bindsym $mod+Shift+l exec "mpd_load.sh;pkill -RTMIN+11 i3blocks"
+bindsym $mod+y exec "urxvt -e youtube-download.sh"
+bindsym $mod+u exec "mpd_update"
 
 
 
@@ -113,7 +123,7 @@ bindsym $mod+t			split toggle
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
-bindsym $mod+Shift+f		floating toggle; sticky toggle; exec --no-startup-id hover right
+bindsym $mod+Shift+f		fullscreen toggle
 bindsym $mod+Ctrl+f		sticky toggle
 bindsym $mod+f		 	floating toggle
 bindsym $mod+l			layout toggle
@@ -131,12 +141,12 @@ bindsym $mod+Ctrl+l		focus right
 
 
 # #---dmenu Bindings---# #
-bindsym $mod+Shift+space	exec --no-startup-id ~/.local/bin/i3cmds/dmenuemoji
-bindsym $mod+Ctrl+d		exec --no-startup-id ~/.local/bin/i3cmds/display-select.sh
-bindsym $mod+F3			exec --no-startup-id ~/.local/bin/i3cmds/dmenumount
-bindsym $mod+F4			exec --no-startup-id ~/.local/bin/i3cmds/dmenuumount
-bindsym $mod+c			exec --no-startup-id ~/.config/i3/select.sh ~/.config/i3/copytext
-bindsym $mod+Shift+p		exec --no-startup-id ~/.config/i3/select.sh ~/.config/i3/paths
+bindsym $mod+Shift+space	exec --no-startup-id /home/rishabh/.local/bin/i3cmds/dmenuemoji
+bindsym $mod+Ctrl+d		exec --no-startup-id /home/rishabh/.local/bin/i3cmds/display-select.sh
+bindsym $mod+F3			exec --no-startup-id /home/rishabh/.local/bin/i3cmds/dmenumount
+bindsym $mod+F4			exec --no-startup-id /home/rishabh/.local/bin/i3cmds/dmenuumount
+bindsym $mod+c			exec --no-startup-id /home/rishabh/.config/i3/select.sh /home/rishabh/.config/i3/copytext
+bindsym $mod+Shift+p		exec --no-startup-id /home/rishabh/.config/i3/select.sh /home/rishabh/.config/i3/paths
 
 
 
@@ -144,7 +154,7 @@ bindsym $mod+Shift+p		exec --no-startup-id ~/.config/i3/select.sh ~/.config/i3/p
 
 
 
-# bindsym $mod+p			exec --no-startup-id ~/.config/i3/select.sh ~/.config/i3/work-paths
+# bindsym $mod+p			exec --no-startup-id /home/rishabh/.config/i3/select.sh /home/rishabh/.config/i3/work-paths
 
 # #---Workspace Bindings---# #
 bindsym $mod+Home		workspace $ws1
@@ -221,9 +231,8 @@ bindsym $mod+Shift+c exec mpv --title="mpvfloat" av://v4l2:/dev/video0
 
 
 # Mouse Configurations
-exec --no-startup-id xinput set-prop 13 305 1
-exec --no-startup-id xinput set-porp 13 321 {0 1}
-exec --no-startup-id xinput set-prop 13 313 1
+exec --no-startup-id xinput set-prop 14 308 1
+exec --no-startup-id xinput set-prop 14 324 1
 
 
 
@@ -231,8 +240,8 @@ exec --no-startup-id xinput set-prop 13 313 1
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie -ANt2 &
 exec --no-startup-id parcellite
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec compton
+exec --no-startup-id dunst -config /home/rishabh/.config/dunst/dunstrc
+exec compton --backend glx --paint-on-overlay 
 exec --next_on_output
 exec dbus-launch /usr/bin/kdeconnect-indicator
 exec libinput-gestures

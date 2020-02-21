@@ -3,18 +3,30 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-#[music]
-#label=
-#interval=once
-#command=~/.local/bin/statusbar/music
-#signal=11
+[music]
+label=<span color='#f00e1d'> </span>
+interval=5
+command=/home/rishabh/.local/bin/statusbar/music
+signal=11
+
+[weather]
+label=<span color='#F3AF04'></span>  
+interval=18000
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+signal=5
+
+[mailbox]
+label=<span color='#FF0202'>📧 </span>
+interval=180
+signal=12
+
 
 [ethernet]
-command=~/.local/bin/statusbar/ethernet.sh
+command=/home/rishabh/.local/bin/statusbar/ethernet.sh
 interval=5
 
 [wifi]
-command=~/.local/bin/statusbar/wifi.sh
+command=/home/rishabh/.local/bin/statusbar/wifi.sh
 interval=5
 
 #[record]
@@ -40,16 +52,7 @@ interval=5
 #interval=20
 #signal=7
 
-#[weather]
-#label=📬
-#interval=18000
-#command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-#signal=5
 
-#[mailbox]
-#label=📬
-#interval=180
-#signal=12
 
 #[memory]
 #interval=30
@@ -58,29 +61,29 @@ interval=5
 #[cpu]
 #interval=15
 #label=💻
-#command=~/.local/bin/statusbar/cpu
+#command=/home/rishabh/.local/bin/statusbar/cpu
 
 [record]
 interval=once
-command=~/.local/bin/statusbar/showRecord.sh
+command=/home/rishabh/.local/bin/statusbar/showRecord.sh
 signal=22
 
 [clock]
-command=~/.local/bin/statusbar/clock
+command=/home/rishabh/.local/bin/statusbar/clock
 interval=30
 
 [caps]
-command=~/.local/bin/statusbar/caps.sh
+command=/home/rishabh/.local/bin/statusbar/caps.sh
 interval=once
 signal=21
 
 [volume]
-command=~/.local/bin/statusbar/volume
+command=/home/rishabh/.local/bin/statusbar/volume
 interval=once
 signal=10
 
 [brightness]
-command=~/.local/bin/statusbar/brightness
+command=/home/rishabh/.local/bin/statusbar/brightness
 interval=once
 signal=11
 
@@ -93,12 +96,12 @@ signal=11
 #command=disk /home 🏠
 
 [battery]
-command=~/.local/bin/statusbar/battery BAT0
+command=/home/rishabh/.local/bin/statusbar/battery BAT0
 interval=5
 
 
 #[internet]
-#command=~/.local/bin/statusbar/internet
+#command=/home/rishabh/.local/bin/statusbar/internet
 #interval=10
 
 #[help]
