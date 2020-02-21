@@ -1,0 +1,10 @@
+function mpd_file_update {
+	dir=`basename $1`
+	ls -1 "$1" >> "/home/rishabh/.config/mpd/playlists/${dir}.m3u"
+	mv $1/* ~/Music/
+}
+mpd_file_update ~/Music/new
+mpd_file_update ~/Music/bhajan
+mpd_file_update ~/Music/old
+mpd_file_update ~/Music/bhojpuri
+mpc update
