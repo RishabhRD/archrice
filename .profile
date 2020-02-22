@@ -1,4 +1,4 @@
-[[ -f  ~/.bashrc ]] && . ~/.bashrc
+[[ -f  ~/.zshrc ]] && . ~/.zshrc
 o(){
 	fzf | xargs -r -o vim
 }
