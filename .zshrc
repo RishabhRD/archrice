@@ -140,4 +140,3 @@ echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 # Load zsh-syntax-highlighting; should be last.
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source ~/.config/zsh/git-prompt.plugin.zsh 
