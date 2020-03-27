@@ -1,0 +1,5 @@
+#!/bin/bash
+value=$(xbacklight)
+value=${value%.*}
+
+printf "<span color='#0a6e01'>: </span>%s%%\\n" "$value"

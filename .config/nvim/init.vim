@@ -81,7 +81,7 @@ map <leader>h <C-w>h
 map <leader>l <C-w>l
 map <leader>k <C-w>k
 map <leader>j <C-w>j
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>gc :w! \| !clear && ccompile <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>
@@ -153,8 +153,8 @@ autocmd FileType tex inoremap ,fr \begin{frame}<Enter>\frametitle{}<Enter><Enter
 autocmd FileType tex inoremap ,it \textit{}<++><Esc>F{a
 autocmd FileType tex inoremap ,bo \textbf{}<++><Esc>F{a
 autocmd FileType tex inoremap ,em \emph{}<++><Esc>F{a
-autocmd FileType tex inoremap ,ol \begin{enumerate}<Enter><Enter><Enter><Enter>\end{enumerate}<Enter><++><Esc>3k
-autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter><Enter><Enter>\end{itemize}<Enter><++><Esc>3k
+autocmd FileType tex inoremap ,ol \begin{enumerate}<Enter><Enter>\end{enumerate}<Enter><++><Esc>2kS
+autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><++><Esc>2kS
 autocmd FileType tex inoremap ,li \item<Space>
 autocmd Filetype tex inoremap ,rf \ref{}<++><Esc>F{a
 autocmd Filetype tex inoremap ,lb \label{}<++><Esc>F{a
@@ -167,7 +167,7 @@ autocmd FileType tex inoremap ,tc \textcite{} <++><Esc>F{a
 autocmd FileType tex inoremap ,pc \parencite{} <++><Esc>F{a
 autocmd Filetype tex inoremap ,img \includegraphics[]{<++>}<Enter><++><Esc>kf[a
 autocmd FileType tex inoremap ,ct \begin{center}<Enter><Enter>\end{center}<Enter><++><Esc>2kS
-autocmd FileType tex inoremap ,fig \begin{figure}[]<Enter><Enter>\end{figure}<Enter><++><Esc>3kf[a
+autocmd FileType tex inoremap ,fig \begin{figure}[]<Enter><++><Enter>\end{figure}<Enter><++><Esc>3kf[a
 autocmd FileType tex inoremap ,wf \begin{wrapfigure}{}{}<Enter><Enter>\end{wrapfigure}<Enter><++><Esc>3kf{a
 autocmd FileType tex inoremap ,mc \begin{columns}<Enter><Enter>\end{columns}<Enter><++><Esc>2kS
 autocmd FileType tex inoremap ,nc \column{}<Enter><++><Esc>kf{a

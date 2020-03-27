@@ -1,0 +1,3 @@
+xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
+setxkbmap -option "caps:swapescape"
+exec i3

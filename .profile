@@ -1,13 +1,12 @@
-[[ -f  ~/.zshrc ]] && . ~/.zshrc
 o(){
-	fzf | xargs -r -o vim
+	fzf | xargs -r -o nvim
 }
-export PATH=$PATH:$HOME/.scripts/
-export EDITOR="vim"
+export PATH=$PATH:$HOME/.local/bin/.scripts/
+export EDITOR="nvim"
 export TERMINAL="urxvt"
 if [[ "$(tty)" == "/dev/tty1" ]]; then
 	echo "tty found"
-	startx 
+	startx $HOME/.config/X11/xinitrc
 else
 	echo "NO TTY"
 fi
