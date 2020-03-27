@@ -11,6 +11,8 @@ URxvt.scrollBar: false
 URxvt.scrollBar_right: false
 URxvt.urgentOnBell: true
 URxvt.cursorBlink: 1
+URxvt.keysym.M-k: command:\033]720;1\007
+URxvt.keysym.M-j: command:\033]721;1\007
 !*.shading:	5	
 !*.alpha: 0.8
 !*.transparent: 	true
