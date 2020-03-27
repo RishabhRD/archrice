@@ -1,0 +1,22 @@
+file=$(readlink -f "$1")
+dir=$(dirname "$file")
+base="${file%.*}"
+
+cd "$dir" || exit
+
+case "$file" in
+	*\.tex) pdflatex "$file" ;;
+	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
+	*config.h) sudo make install ;;
+        *\.c) gcc "$file" -o "$base" ;;
+        *\.cc) g++ "$file" -o "$base" ;;
+        *\.cpp) g++ "$file" -o "$base" ;;
+        *\.java) javac "$file"  ;;
+	*\.py) python "$file" ;;
+	*\.go) go run "$file" ;;
+	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
+	*\.ms) refer -PS -e "$file" | groff -me -ms -kept -T pdf > "$base".pdf ;;
+	*\.mom) refer -PS -e "$file" | groff -mom -kept -T pdf > "$base".pdf ;;
+	*\.[0-9]) refer -PS -e "$file" | groff -mandoc -T pdf > "$base".pdf ;;
+	*\.[rR]md) Rscript -e "require(rmarkdown); rmarkdown::render('$file', quiet=TRUE)" ;;
+	esac

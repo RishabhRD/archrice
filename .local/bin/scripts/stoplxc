@@ -1,0 +1,2 @@
+lxc-stop -n $1
+ovs-vsctl del-port $2
