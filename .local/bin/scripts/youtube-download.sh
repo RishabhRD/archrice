@@ -1,4 +1,4 @@
-url=$(xsel --clipboard)
+url="$(xclip -out -selection clipboard)"
 echo $url
 echo "Qualities...."
 youtube-dl -F "$url"
