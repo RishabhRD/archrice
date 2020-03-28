@@ -147,7 +147,8 @@ bindsym $mod+F3			exec --no-startup-id $HOME/.local/bin/i3cmds/dmenumount
 bindsym $mod+F4			exec --no-startup-id $HOME/.local/bin/i3cmds/dmenuumount
 bindsym $mod+c			exec --no-startup-id select.sh $HOME/.local/share/i3/copytext
 bindsym $mod+Shift+p		exec --no-startup-id select.sh $HOME/.local/share/i3/paths
-
+bindsym $mod+a			exec --no-startup-id copytext
+bindsym $mod+Shift+a		exec --no-startup-id deletext
 
 
 
