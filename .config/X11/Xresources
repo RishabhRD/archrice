@@ -22,9 +22,12 @@ URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-
  URxvt.keysym.M-u:           perl:url-select:select_next
  URxvt.keysym.M-Escape:      perl:keyboard-select:activate
  URxvt.keysym.M-s:           perl:keyboard-select:search
-!URxvt.perl-ext-common: resize-font,default,matcher
-!URxvt.url-launcher: /usr/bin/qutebrowse:
-!URxvt.matcher.button: 1
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.keyboard-select.clipboard: true
 
 ! special
 *.foreground:   #a9bcf7
