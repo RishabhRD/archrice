@@ -28,7 +28,7 @@ let g:ycm_semantic_triggers =  {
   \   'erlang' : [':'],
   \ }
 filetype indent on
-filetype detect
+let g:tex_flavor = "latex"
 let g:EclimCompletionMethod = 'omnifunc'
 let g:ycm_global_ycm_extra_conf = '/home/rishabh/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 1
@@ -85,6 +85,7 @@ autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>gc :w! \| !clear && ccompile <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>
+cmap w!! w !sudo tee > /dev/null %
 colorscheme wal
 let g:lightline = {
   \   'colorscheme': 'wombat',
@@ -176,4 +177,5 @@ autocmd FileType tex inoremap ,nc \column{}<Enter><++><Esc>kf{a
 autocmd FileType tex inoremap ,tb \begin{tabular}[h]{}<Enter><++><Enter>\end{tabular}<Enter><++><Esc>3kf{;a
 autocmd FileType tex noremap ,xc :w! \| !clear && xcompile <c-r>%<CR>
 autocmd FileType tex inoremap ,un \underline{}<++><Esc>F{a
+autocmd FileType tex inoremap ,cd \begin{lstlisting}<Enter><Enter>\end{lstlisting}<Enter><++><Esc>2kS
 autocmd FileType tex inoremap ,mpg \begin{minipage}{}<Enter><++><Enter>\end{minipage}<Enter><++><Esc>3kf{;a
