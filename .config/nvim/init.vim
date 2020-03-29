@@ -122,6 +122,8 @@ nnoremap <A-8> :tabn 8<CR>
 nnoremap <A-9> :tabn 9<CR>
 nnoremap <A-h> gT
 nnoremap <A-l> gt
+nnoremap <A-H> :tabmove -1<CR>
+nnoremap <A-L> :tabmove +1<CR>
 nmap gd <C-]>
 nmap gb <C-T>
 function! GetFileName()
