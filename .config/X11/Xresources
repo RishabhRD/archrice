@@ -1,6 +1,6 @@
-!! URxvt Appearance
 URxvt.allow_bold: true
-URxvt.font: xft:Noto Sans Mono:style=Regular:size=11
+*.font: monospace:size=11
+URxvt.font: xft:monospace:style=Regular:size=11
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -14,7 +14,7 @@ URxvt.cursorBlink: 1
 URxvt.keysym.M-k: command:\033]720;1\007
 URxvt.keysym.M-j: command:\033]721;1\007
 !*.shading:	5	
-!*.alpha: 0.8
+*.alpha: 0.92
 !*.transparent: 	true
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
  URxvt.url-select.launcher:  brave
@@ -29,39 +29,43 @@ URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt.keyboard-select.clipboard: true
 
-! special
-*.foreground:   #a9bcf7
-*.background:   #000000
-*.cursorColor:  #ffffff
 
-! black
-*.color0:       #303030
-*.color8:       #5f5f5f
+! *.color0: #1d2021 
+! *.color1: #cc241d 
+! *.color2: #98971a 
+! *.color3: #d79921 
+! *.color4: #458588 
+! *.color5: #b16286 
+! *.color6: #689d6a 
+! *.color7: #a89984 
+! *.color8: #928374 
+! *.color9: #fb4934 
+! *.color10: #b8bb26
+! *.color11: #fabd2f
+! *.color12: #83a598
+! *.color13: #d3869b
+! *.color14: #8ec07c
+! *.color15: #ebdbb2
+! *.color256: #1d2021 
+! *.color257: #ebdbb2 
 
-! red
-*.color1:       #c03000
-*.color9:       #ff3a78
+! *.color0:	#073642 
+! *.color1:	#dc322f 
+! *.color2:	#859900 
+! *.color3:	#b58900 
+! *.color4:	#268bd2 
+! *.color5:	#d33682 
+! *.color6:	#2aa198 
+! *.color7:	#eee8d5 
+! *.color9:	#cb4b16 
+! *.color8:	#fdf6e3 
+! *.color10:	#586e75 
+! *.color11:	#657b83 
+! *.color12:	#839496 
+! *.color13:	#6c71c4 
+! *.color14:	#93a1a1 
+! *.color15:	#fdf6e3 
 
-! green
-*.color2:       #b1d631
-*.color10:      #a6cd07
-
-! yellow
-*.color3:       #fecf35
-*.color11:      #b5c865
-
-! blue
-*.color4:       #426870
-*.color12:      #4a7781
-
-! magenta
-*.color5:       #6d506d
-*.color13:      #ff3b77
-
-! cyan
-*.color6:       #4bb5c1
-*.color14:      #4bb5c1
-
-! white
-*.color7:       #e2e2e5
-*.color15:      #e2e2e5
+! *.background: #1d2021
+! *.color256: 0#1d2021 
+! *.color257: 15#ebdbb2 

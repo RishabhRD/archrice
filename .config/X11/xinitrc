@@ -1,3 +1,13 @@
-xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
 setxkbmap -option "caps:swapescape"
-exec i3
+dunst &
+compton &
+mpd &
+wallpaper.sh &
+sxhkd &
+nm-applet &
+parcellite &
+top --align right
+xinput.sh
+dwmblocks &
+xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
+exec dwm
