@@ -11,6 +11,8 @@ alias compinit='compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION'
 alias startx='startx "$XDG_CONFIG_HOME"/X11/xinitrc'
 alias zshrc='nvim $HOME/.config/zsh/.zshrc'
 alias vimrc='nvim $HOME/.config/nvim/init.vim'
+alias myscripts='cd $HOME/.local/bin/scripts'
+alias ecopytext='nvim $HOME/.local/share/i3/copytext'
 parse_git_dirty() {
 	stat=`git status 2>&1 | tee`
 	dirty=`echo -n "$stat" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
@@ -95,11 +97,9 @@ alias vim='nvim'
 alias r='ranger'
 alias ls='ls --color=auto'
 autoload -U colors && colors
-source ~/.cache/wal/colors-tty.sh
-alias x="xrdb ~/.Xresources"
+alias xre="nvim  $HOME/.config/X11/Xresources"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 export EDITOR=/usr/bin/nvim
-cat ~/.cache/wal/sequences
 setopt PROMPT_SUBST
 precmd(){
 	psvar[1]=$(parse_git_branch)
