@@ -1,7 +1,0 @@
-file=$(readlink -f "$1")
-dir=$(dirname "$file")
-base="${file%.*}"
-
-cd "$dir" || exit
-
-xelatex "$file" 

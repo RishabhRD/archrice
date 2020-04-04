@@ -1,1 +1,0 @@
-cat ~/Pictures/.curwal | xargs rm
