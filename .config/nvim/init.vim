@@ -11,6 +11,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'dylanaraps/wal.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'fcpg/vim-fahrenheit'
 
 call plug#end()
 let g:ycm_global_ycm_extra_conf = '/home/rishabh/.ycm_extra_conf.py'
@@ -73,8 +74,11 @@ noremap gn :tabe<CR>
 noremap gc :tabclose<CR>
 noremap <C-b> :Buffers<Cr>
 noremap zb :bnext<Cr>
-map <leader>w :colorscheme wal<CR>
 map <leader>d :colorscheme 256-jungle<CR>
+colorscheme base16-railscasts
+set termguicolors
+hi Normal guibg=NONE ctermbg=NONE
+hi Error guibg=NONE ctermbg=NONE guifg=red cterm=bold gui=bold
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>h <C-w>h
@@ -82,11 +86,11 @@ map <leader>l <C-w>l
 map <leader>k <C-w>k
 map <leader>j <C-w>j
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
+autocmd BufWritePost sxhkdrc !pkill sxhkd;nohup sxhkd & 2> /dev/null -load %
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>gc :w! \| !clear && ccompile <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>
 cmap w!! w !sudo tee > /dev/null %
-colorscheme wal
 let g:lightline = {
   \   'colorscheme': 'wombat',
   \   'active': {
@@ -179,3 +183,11 @@ autocmd FileType tex noremap ,xc :w! \| !clear && xcompile <c-r>%<CR>
 autocmd FileType tex inoremap ,un \underline{}<++><Esc>F{a
 autocmd FileType tex inoremap ,cd \begin{lstlisting}<Enter><Enter>\end{lstlisting}<Enter><++><Esc>2kS
 autocmd FileType tex inoremap ,mpg \begin{minipage}{}<Enter><++><Enter>\end{minipage}<Enter><++><Esc>3kf{;a
+autocmd FileType tex inoremap ,th \begin{theorem}<Enter><Enter>\end{theorem}<Enter><++><Esc>2kS
+autocmd FileType tex inoremap ,lem \begin{lemma}<Enter><Enter>\end{lemma}<Enter><++><Esc>2kS
+autocmd FileType tex inoremap ,co \begin{corollary}<Enter><Enter>\end{corollary}<Enter><++><Esc>2kS
+autocmd FileType tex inoremap ,pr \begin{proof}<Enter><Enter>\end{proof}<Enter><++><Esc>2kS
+autocmd Filetype tex inoremap ,sum \sum_{}^{<++>}<++><Esc>2F{a
+autocmd Filetype tex inoremap ,prod \prod_{}^{<++>}<++><Esc>2F{a
+autocmd Filetype tex inoremap ,lm \lim_{\to <++>}<++><Esc>F{a
+autocmd Filetype tex inoremap ,bar \bar{\mathbb{}}<++><Esc>F{a
