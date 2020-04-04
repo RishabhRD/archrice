@@ -8,6 +8,7 @@ case "$file" in
 	*\.tex) pdflatex "$file" ;;
 	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
 	*config.h) sudo make install ;;
+	*config.def.h) rm -f config.h;sudo make install ;;
         *\.c) gcc "$file" -o "$base" ;;
         *\.cc) g++ "$file" -o "$base" ;;
         *\.cpp) g++ "$file" -o "$base" ;;
