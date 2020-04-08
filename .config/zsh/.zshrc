@@ -64,7 +64,7 @@ setopt hist_reduce_blanks # remove superfluous blanks from history items
 setopt inc_append_history # save history entries as soon as they are entered
 setopt autocd
 o(){
-	find -type f | fzf | xargs -r -o vim
+	find "$HOME/.local/bin/scripts/" -type f | fzf | xargs -r -o vim
 }
 cdd() {
   local dir
@@ -94,7 +94,7 @@ alias p='sudo pacman'
 alias vi='nvim'
 alias ni='nvim'
 alias vim='nvim'
-alias r='ranger'
+alias r='lf'
 alias ls='ls --color=auto'
 autoload -U colors && colors
 alias xre="nvim  $HOME/.config/X11/Xresources"
@@ -153,3 +153,4 @@ echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 # Load zsh-syntax-highlighting; should be last.
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source ~/.config/zsh/lficons.sh
