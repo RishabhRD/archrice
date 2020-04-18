@@ -13,7 +13,7 @@ case "$file" in
 	*.html) setsid $BROWSER "$basename".html >/dev/null 2>&1 & ;;
 	*.sent) setsid sent "$1" >/dev/null 2>&1 & ;;
         *\.c) urxvt --hold -e $base   & ;;
-        *\.cc) urxvt --hold -e $base  &  ;;
+        *\.cc) urxvt --hold -e $base &  ;;
         *\.cpp) urxvt --hold -e $base & ;;
         *\.java) urxvt --hold -e java "$base" &  ;;
 	*\.py) urxvt --hold -e python "$file" & ;;
