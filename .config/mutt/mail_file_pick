@@ -1,0 +1,24 @@
+#!/bin/sh
+export LF_ATT_FILE="/tmp/lf_mail.xyz"
+if [ -z "$1" ]; then
+	if [ -a "$LF_ATT_FILE" ]; then
+		notify-send "📧 Can't attach" "Some other clients are attaching files"
+	else
+		touch "$LF_ATT_FILE"
+		lf
+		sed -i "s/^/a/g" "$LF_ATT_FILE"
+		numLines=$(wc -l < "$LF_ATT_FILE")
+		for i in $(seq 1 $numLines);
+		do
+			nthLine=$(sed "${i}q;d" "$LF_ATT_FILE")
+			xdotool type "$nthLine"
+			xdotool key Return
+		done
+		rm "$LF_ATT_FILE"
+
+	fi
+elif [ "$1" == "clean" ]; then
+	if [ -a "$LF_ATT_FILE" ]; then
+		rm "$LF_ATT_FILE"
+	fi
+fi
