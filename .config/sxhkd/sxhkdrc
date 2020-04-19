@@ -3,7 +3,7 @@ super + shift + space
 super + e
 	dmenu_run
 super + r
-	$TERMINAL -e ranger
+	$TERMINAL -e lf;
 super + shift + b
 	$BROWSER
 Print
@@ -80,3 +80,7 @@ Print
 	screeenshot.sh
 super + Print
 	dmenu_run;sleep 0.25;echo "screenshot-rect.sh" | xargs xdotool type
+super + shift + t
+	turnOnCompton.sh
+super + control + m
+	mailsync
