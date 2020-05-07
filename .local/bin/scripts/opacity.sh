@@ -59,8 +59,8 @@ argb(){
     xtermset -bg "[$opacity]#303030"
 }
 
-if [ -t 0 ]; then
-    argb
-else
-    x_prop
-fi
+x_prop
+#if [ -t 0 ]; then
+#    argb
+#else
+#fi

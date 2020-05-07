@@ -1,0 +1,39 @@
+#!/bin/sh
+comm='c'
+anycase=0
+while [[ $comm = 'c' ]]
+do
+	printf "\033[31;1mEnter the pattern or command-line option: \033[0m "
+	read line 
+	if [[ "$line" = "-i" ]]; then
+		anycase=1
+		echo "case-insensitive matching enabled...."
+		continue
+	elif [[ "$line" = "-f" ]]; then
+		printf "\033[31;1mEnter bibliography file: \033[0m "
+		read file
+		continue;
+	fi
+	if [[ "$anycase" = "1" ]]; then
+		if [[ -z "$file" ]]; then
+			[[ ! -f "$BIB" ]] && printf "No bibliography\n" && exit
+			awk 'BEGIN { RS = "(^|\n)@" ;  ORS = "\n\n\n" ; IGNORECASE=1 } /'"$line"'/ {print $0}' "$BIB"
+		else
+			[[ ! -f "$file" ]] && printf "No such file\n" && exit
+			awk 'BEGIN { RS = "(^|\n)@" ;  ORS = "\n\n\n" ; IGNORECASE=1 } /'"$line"'/ {print $0}' "$file"
+		fi
+	else
+		if [[ -z "$file" ]]; then
+			[[ ! -f "$BIB" ]] && printf "No bibliography\n" && exit
+			awk 'BEGIN { RS = "(^|\n)@" ;  ORS = "\n\n\n" } /'"$line"'/ {print $0}' "$BIB"
+		else
+			[[ ! -f "$file" ]] && printf "No such file\n" && exit
+			awk 'BEGIN { RS = "(^|\n)@" ;  ORS = "\n\n\n" } /'"$line"'/ {print $0}' "$file"
+		fi
+	fi
+	printf "\033[31;1mEnter c to continue otherwise exit\033[31;1m\n"
+	read comm
+	clear
+	anycase=0
+	file=""
+done

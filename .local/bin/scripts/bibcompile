@@ -1,0 +1,12 @@
+#!/bin/sh
+
+[ -z "$1" ] && exit
+
+filename=$(basename -- "$1")
+extension="${filename##*.}"
+filename="${filename%.*}"
+
+pdflatex "$1"
+biber "$filename"
+pdflatex "$1"
+
