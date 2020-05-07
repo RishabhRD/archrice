@@ -1,0 +1,152 @@
+#!/bin/zsh
+set shell sh
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons
+set ratios 1:2:3
+set preview
+set previewer preview.sh
+map <enter> shell
+map x $$f
+map X !$f
+map o &mimeopen $f
+map O $mimeopen --ask $f
+
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        text/*) $EDITOR $fx;;
+	*.pdf) zathura $fx &;;
+        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+# compress current file or selected files with tar and gunzip
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+# compress current file or selected files with zip
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+cmd openShell ${{
+	$SHELL
+}}
+
+cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
+map cw push :rename<space>
+map a push :rename<space>$f<space>
+
+
+cmd delete ${{
+    set -f
+    printf "$fx\n"
+    printf "delete?[y/n]"
+    read ans
+    [ $ans = "y" ] && rm -rf $fx
+}}
+cmd rifle ${{
+    set -f
+    rifle -l $f
+    read -p "Select runner: " runner
+    rifle -p $runner $f &
+}}
+
+cmd mkdir %mkdir $1
+cmd mkfile ${{
+	touch $1
+}}
+
+cmd drag ${{
+	dragon -a -x $f
+}}
+cmd myPaste &{{
+    load=$(lf -remote 'load')
+    mode=$(echo "$load" | sed -n '1p')
+    list=$(echo "$load" | sed '1d')
+    if [ $mode = 'copy' ]; then
+        rsync -av --ignore-existing --progress $list . \
+        | stdbuf -i0 -o0 -e0 tr '\r' '\n' \
+        | while read line; do
+            lf -remote "send $id echo $line"
+        done
+    elif [ $mode = 'move' ]; then
+        mv -n $list .
+    fi
+    lf -remote 'send load'
+    lf -remote 'send clear'
+}}
+cmd pickMailFile ${{
+	if [ -a "$LF_ATT_FILE" ]; then
+		echo "$fx" > "$LF_ATT_FILE"
+	fi
+}}
+cmd exportMailDirectory ${{
+	if [ -a "$ATT_LF_FILE" ]; then
+		pwd > "$ATT_LF_FILE"
+	fi
+}}
+
+map y
+map p
+map d
+map c
+map w
+map m
+map S openShell
+map cmp tar
+map ext extract
+map dD delete
+map <bs> set hidden!
+map yy push :copy<enter>
+map pp myPaste
+map dd push :cut<enter>
+map md push :mkdir<space>
+map mf push :mkfile<space>
+map ma push !cp<space>~/Templates/article.tex<space>
+map mb push !cp<space>~/Templates/present.tex<space>
+map mp push !cp<space>~/Templates/paper.tex<space>
+map gf cd ~/Documents/research/floodlight
+map gr cd ~/Documents/research/
+map gR cd ~/Documents/research/
+map gF cd ~/Documents/research/floodlight/src/main/java/net/floodlightcontroller
+map gp cd ~/Pictures/background
+map gC cd ~/Documents/C++-Shell
+map gi cd ~/Documents/iiit-dwd
+map gd cd ~/Documents
+map gs cd ~/Documents/research/SDN
+map gG cd ~/git
+map gM cd ~/mnt
+map gm cd ~/Music
+map gv cd ~/Videos
+map gb cd ~/Documents/books
+map yp !printf $f | xclip -selection clipboard
+map yd !printf $PWD | xclip -selection clipboard
+map yn !printf $f | xargs basename | xclip -selection clipboard
+map r rifle
+map - $~/.config/lf/image-preview.sh $f
+map dr drag
+map gn cd ~/git/ns-3-allinone/ns-3-dev/src
+map sf pickMailFile
+map sd exportMailDirectory
