@@ -84,3 +84,7 @@ super + shift + t
 	turnOnCompton.sh
 super + control + m
 	mailsync
+super + control + f
+	hover right 
+super + shift + s
+	st -e bibsearch
