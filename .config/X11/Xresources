@@ -1,6 +1,6 @@
 URxvt.allow_bold: true
 *.font: monospace:size=11
-URxvt.font: xft:monospace:style=Regular:size=11
+URxvt.font: xft:Liberation Mono:size=10
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -13,9 +13,8 @@ URxvt.urgentOnBell: true
 URxvt.cursorBlink: 1
 URxvt.keysym.M-k: command:\033]720;1\007
 URxvt.keysym.M-j: command:\033]721;1\007
-!*.shading:	5	
-*.alpha: 0.92
-!*.transparent: 	true
+*.alpha: 0.84
+*.alphaUnfocussed: 0.81
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
  URxvt.url-select.launcher:  brave
  URxvt.url-select.underline: true
@@ -49,23 +48,26 @@ URxvt.keyboard-select.clipboard: true
 ! *.color256: #1d2021 
 ! *.color257: #ebdbb2 
 
-! *.color0:	#073642 
-! *.color1:	#dc322f 
-! *.color2:	#859900 
-! *.color3:	#b58900 
-! *.color4:	#268bd2 
-! *.color5:	#d33682 
-! *.color6:	#2aa198 
-! *.color7:	#eee8d5 
-! *.color9:	#cb4b16 
-! *.color8:	#fdf6e3 
-! *.color10:	#586e75 
-! *.color11:	#657b83 
-! *.color12:	#839496 
-! *.color13:	#6c71c4 
-! *.color14:	#93a1a1 
-! *.color15:	#fdf6e3 
+URxvt.color0:	#073642 
+URxvt.color1:	#dc322f 
+URxvt.color2:	#859900 
+URxvt.color3:	#b58900 
+URxvt.color4:	#268bd2 
+URxvt.color5:	#d33682 
+URxvt.color6:	#2aa198 
+URxvt.color7:	#eee8d5 
+URxvt.color9:	#cb4b16 
+URxvt.color8:	#fdf6e3 
+URxvt.color10:	#586e75 
+URxvt.color11:	#657b83 
+URxvt.color12:	#839496 
+URxvt.color13:	#6c71c4 
+URxvt.color14:	#93a1a1 
+URxvt.color15:	#fdf6e3 
 
-! *.background: #1d2021
+URxvt.background: #1d2021
 ! *.color256: 0#1d2021 
 ! *.color257: 15#ebdbb2 
+URxvt.foreground: #93a1a1
+URxvt.cursorColor: #afbfbf
+*.background: #131314

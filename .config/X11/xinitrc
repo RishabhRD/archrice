@@ -1,13 +1,14 @@
 setxkbmap -option "caps:swapescape"
+/usr/lib/kdeconnectd &
+indicator-kdeconnect &
 dunst &
 compton &
 mpd &
 wallpaper.sh &
-sxhkd &
 nm-applet &
 parcellite &
-top --align right
-xinput.sh
+xinput.sh &
 dwmblocks &
 xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
+sxhkd &
 exec dwm
