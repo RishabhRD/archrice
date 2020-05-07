@@ -1,0 +1,9 @@
+[Unit]
+Description=A job to greet the world
+
+[Service]
+Type=simple
+ExecStart=/home/rishabh/.local/bin/scripts/mailsync
+
+[Install]
+WantedBy=default.target
