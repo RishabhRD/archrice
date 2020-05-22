@@ -14,7 +14,7 @@ URxvt.cursorBlink: 1
 URxvt.keysym.M-k: command:\033]720;1\007
 URxvt.keysym.M-j: command:\033]721;1\007
 *.alpha: 0.84
-*.alphaUnfocussed: 0.81
+*.alphaUnfocussed: 0.80
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
  URxvt.url-select.launcher:  brave
  URxvt.url-select.underline: true
@@ -70,4 +70,5 @@ URxvt.background: #1d2021
 ! *.color257: 15#ebdbb2 
 URxvt.foreground: #93a1a1
 URxvt.cursorColor: #afbfbf
-*.background: #131314
+*.background: #07080f
+Sxiv.foreground: #191b8a
