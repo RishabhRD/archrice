@@ -3,7 +3,7 @@ super + shift + space
 super + e
 	dmenu_run
 super + r
-	$TERMINAL -e lf;
+	source ~/.config/zsh/lficons.sh;$TERMINAL -e lf;
 super + shift + b
 	$BROWSER
 Print
@@ -39,15 +39,13 @@ super + F3
 super + F4
 	dmenuumount
 super + a
-	copytext
-super + shift + a
-	deletext
+	st -e nvim $HOME/.local/share/copytext
 super + c
 	select.sh $HOME/.local/share/copytext
 super + shift + p
 	select.sh $HOME/.local/share/i3/paths
 super + shift + c
-	mpv --title "webcam" --untimed --no-correct-pts --no-cache --cache-secs=0 --demuxer-readahead-secs=0 av://v4l2:/dev/video0
+	mpv --title="webcam" --untimed --no-correct-pts --no-cache --cache-secs=0 --demuxer-readahead-secs=0 av://v4l2:/dev/video0
 super + control + c
 	pkill mpvfloat
 super + t
@@ -64,7 +62,7 @@ XF86MonBrightnessDown
 	xbacklight -dec 10 && pkill -RTMIN+11 $BAR
 super + g
 	mpc toggle ; pkill -RTMIN+12 $BAR
-super + s
+super + control + g
 	mpc stop ; pkill -RTMIN+12 $BAR
 super + n
 	mpc next ; pkill -RTMIN+12 $BAR
@@ -72,7 +70,7 @@ super + shift + n
 	mpc prev ; pkill -RTMIN+12 $BAR
 super + u
 	mpd_update
-super + shift + l
+super + shift + g
 	mpd_load.sh ; pkill -RTMIN+12 $BAR
 Caps_Lock
 	pkill -RTMIN+15 $BAR
