@@ -153,6 +153,8 @@ nmap gd <C-]>
 nmap gb <C-T>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <leader>en :lnext<CR>
+map <leader>ep :lprevious<CR>
 
 
 
@@ -255,8 +257,6 @@ autocmd FileType tex inoremap ,wf \begin{wrapfigure}{}{}<Enter><Enter>\end{wrapf
 autocmd FileType tex inoremap ,mc \begin{columns}<Enter><Enter>\end{columns}<Enter><++><Esc>2kS
 autocmd FileType tex inoremap ,nc \column{}<Enter><++><Esc>kf{a
 autocmd FileType tex inoremap ,tb \begin{table}[h]<Enter>\begin{tabular}[h]{}<Enter><++><Enter>\end{tabular}<Enter>\end{table}<Enter><++><Esc>4kf{;a
-autocmd FileType tex noremap ,xc :w! \| !clear && xcompile <c-r>%<CR>
-autocmd FileType tex noremap ,b :!clear && bibcompile <c-r>%<CR>
 autocmd FileType tex inoremap ,un \underline{}<++><Esc>F{a
 autocmd FileType tex inoremap ,cd \begin{lstlisting}<Enter><Enter>\end{lstlisting}<Enter><++><Esc>2kS
 autocmd FileType tex inoremap ,mpg \begin{minipage}{}<Enter><++><Enter>\end{minipage}<Enter><++><Esc>3kf{;a
@@ -277,4 +277,8 @@ autocmd FileType tex vmap <space>em c\emph{<C-r>"}<Esc>=%
 autocmd FileType tex vmap <space>ct c\begin{center}<Enter><C-r>"\end{center}<Esc>^=%
 autocmd FileType tex vmap <space>ul c\begin{itemize}<Enter><C-r>"\end{itemize}<Esc>^=%
 autocmd FileType tex vmap <space>ol c\begin{enumerate}<Enter><C-r>"\end{enumerate}<Esc>^=%
-autocmd FileType tex vmap <space>li :s/\%V.*\%V./\\item&/<Enter>
+autocmd FileType tex vmap <space>li :s/\%V.*\%V./\\item &/<Enter>
+
+"Latex Snipped Normal mode
+autocmd FileType tex noremap <leader>b :!clear && bibcompile <c-r>%<CR>
+autocmd FileType tex noremap <leader>x :w! \| !clear && xcompile <c-r>%<CR>
