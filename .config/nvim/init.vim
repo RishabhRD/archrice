@@ -202,15 +202,16 @@ let g:ycm_semantic_triggers =  {
 			\   'erlang' : [':'],
 			\ }
 let g:EclimCompletionMethod = 'omnifunc'
-let g:ycm_global_ycm_extra_conf = '/home/rishabh/.ycm_extra_conf.py'
 let g:ycm_show_diagnostics_ui = 1
 
 
 
 
 "Java Bindings for eclim
-map <leader>i :JavaImport<CR>
-map <leader>v :JavaCorrect<CR>
+autocmd FileType java map <leader>i :JavaImport<CR>
+autocmd FileType java map <leader>v :JavaCorrect<CR>
+autocmd FileType java map <leader>d :JavaDocPreview<CR>
+autocmd FileType java map <leader>x <C-W>j:q<CR>
 
 
 
