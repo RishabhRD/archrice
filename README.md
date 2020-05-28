@@ -1,5 +1,5 @@
 # Arch Rice
-This repository is my ricing setup on my arch with i3.
+This repository is my ricing setup on my arch with dwm.
 
 You can use this setup after fresh arch installtion to rice your arch distro.
 
