@@ -65,8 +65,11 @@ setopt hist_ignore_all_dups # remove older duplicate entries from history
 setopt hist_reduce_blanks # remove superfluous blanks from history items
 setopt inc_append_history # save history entries as soon as they are entered
 setopt autocd
+se(){
+	find "$HOME/.local/bin/scripts/" -type f | fzf --height=30% --border=horizontal | xargs -r -o nvim
+}
 o(){
-	find "$HOME/.local/bin/scripts/" -type f | fzf | xargs -r -o nvim
+	cd `cat ~/.local/share/jumps/work-paths | fzf --height=20% --border=sharp `
 }
 cdd() {
   local dir
