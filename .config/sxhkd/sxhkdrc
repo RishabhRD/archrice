@@ -84,3 +84,5 @@ super + control + f
 	hover right 
 super + shift + s
 	st -e bibsearch
+super + shift + p
+	passmenu
