@@ -1,7 +1,7 @@
+export PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 alias abook='abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_CACHE_HOME"/abook/addressbook'
 alias calcurse='calcurse -C "$XDG_CONFIG_HOME"/calcurse -D "$XDG_DATA_HOME"/calcurse '
 alias gdb='gdb -nh -x "$XDG_CONFIG_HOME"/gdb/init '
-alias gpg2='gpg2 --homedir "$XDG_DATA_HOME"/gnupg '
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
 alias tmum='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
@@ -13,6 +13,8 @@ alias zshrc='nvim $HOME/.config/zsh/.zshrc'
 alias vimrc='nvim $HOME/.config/nvim/init.vim'
 alias myscripts='cd $HOME/.local/bin/scripts'
 alias ecopytext='nvim $HOME/.local/share/i3/copytext'
+alias grep='grep --color=auto'
+alias -g CATO='--color=always'
 parse_git_dirty() {
 	stat=`git status 2>&1 | tee`
 	dirty=`echo -n "$stat" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
@@ -64,7 +66,7 @@ setopt hist_reduce_blanks # remove superfluous blanks from history items
 setopt inc_append_history # save history entries as soon as they are entered
 setopt autocd
 o(){
-	find "$HOME/.local/bin/scripts/" -type f | fzf | xargs -r -o vim
+	find "$HOME/.local/bin/scripts/" -type f | fzf | xargs -r -o nvim
 }
 cdd() {
   local dir
@@ -154,3 +156,4 @@ preexec() { echo -ne '\e[5 q' ;}
 # Load zsh-syntax-highlighting; should be last.
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source ~/.config/zsh/lficons.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
