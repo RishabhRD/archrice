@@ -1,0 +1,5 @@
+net.floodlightcontroller.sdn_arp_spoof_detection.ArpAuthenticator,\
+sudo mn --custom ./host5.py --switch ovs,protocols=OpenFlow14 --topo hexa --controller=remote,ip=127.0.0.1,port=6653
+ovs-ofctl dump-flows -O OpenFlow14 s2
+net.floodlightcontroller.forwarding.Forwarding,\
+ffmpeg -i encryption.mkv -f mp3 -ab 192000 -vn music.mp3
