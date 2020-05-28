@@ -1,5 +1,5 @@
 text/html; brave %s &
-text/*; vim %s &
+text/*; nvim %s &
 image/*; sxiv %s &
 video/*; mpv %s &
 application/pdf; zathura %s &
