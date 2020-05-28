@@ -155,5 +155,6 @@ echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 # Load zsh-syntax-highlighting; should be last.
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+zstyle ':completion:*' rehash true
 source ~/.config/zsh/lficons.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
