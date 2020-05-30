@@ -135,7 +135,8 @@ let g:fzf_layout = { 'down': '~40%' }
 " Clipboard bindings
 noremap cp "+y
 noremap zp "+p
-noremap cpp "+YY
+noremap zP "+P
+noremap cpp "+yy
 
 
 " Other bindings
