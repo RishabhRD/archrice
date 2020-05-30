@@ -57,6 +57,8 @@ filetype plugin on
 set number
 set incsearch
 set autoread
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview 
 
 
 
