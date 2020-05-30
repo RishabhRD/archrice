@@ -128,7 +128,6 @@ let g:fzf_action = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_layout = { 'down': '~40%' }
 "Fuzzy Finder Bindings
-nnoremap <C-p> :Files<Cr>
 
 
 
@@ -140,7 +139,6 @@ noremap cpp "+YY
 
 
 " Other bindings
-noremap zb :bnext<Cr>
 noremap <leader>z :source $HOME/.config/nvim/init.vim<Enter>
 noremap <f2> :call Rename(@%)<CR>
 noremap <leader>t :NERDTreeToggle<CR>
