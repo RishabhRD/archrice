@@ -2,14 +2,11 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
 Plug 'rbgrouleff/bclose.vim'
-Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'ptzz/lf.vim'
 Plug 'flazz/vim-colorschemes'
-Plug 'junegunn/fzf.vim'
 Plug 'dylanaraps/wal.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'fcpg/vim-fahrenheit'
 call plug#end()
 
 
@@ -57,6 +54,7 @@ filetype plugin on
 set number
 set incsearch
 set autoread
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
 
@@ -186,32 +184,12 @@ map <leader>j <C-w>j
 
 
 
-" YCM and eclim stuff
-let g:ycm_global_ycm_extra_conf = '/home/rishabh/.ycm_extra_conf.py'
-let g:ycm_semantic_triggers =  {
-			\   'c' : ['->', '.','re![_a-zA-z0-9]'],
-			\   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-			\             're!\[.*\]\s'],
-			\   'ocaml' : ['.', '#'],
-			\   'cpp,objcpp' : ['->', '.', '::','re![_a-zA-Z0-9]'],
-			\   'perl' : ['->'],
-			\   'php' : ['->', '::'],
-			\   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-			\   'ruby' : ['.', '::'],
-			\   'lua' : ['.', ':'],
-			\   'erlang' : [':'],
-			\ }
-let g:EclimCompletionMethod = 'omnifunc'
-let g:ycm_show_diagnostics_ui = 1
-
-
-
 
 "Java Bindings for eclim
-autocmd FileType java map <leader>i :JavaImport<CR>
-autocmd FileType java map <leader>v :JavaCorrect<CR>
-autocmd FileType java map <leader>d :JavaDocPreview<CR>
-autocmd FileType java map <leader>x <C-W>j:q<CR>
+"autocmd FileType java map <leader>i :JavaImport<CR>
+"autocmd FileType java map <leader>v :JavaCorrect<CR>
+"autocmd FileType java map <leader>d :JavaDocPreview<CR>
+map <leader>x <C-W>j:q<CR>
 
 
 
@@ -283,3 +261,108 @@ autocmd FileType tex vmap <space>li :s/\%V.*\%V./\\item &/<Enter>
 "Latex Snipped Normal mode
 autocmd FileType tex noremap <leader>b :!clear && bibcompile <c-r>%<CR>
 autocmd FileType tex noremap <leader>x :w! \| !clear && xcompile <c-r>%<CR>
+
+
+
+
+"COC settings
+"
+"
+"
+"
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gD <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+
+" Formatting selected code.
+xmap <leader>=  <Plug>(coc-format-selected)
+nmap <leader>=  <Plug>(coc-format-selected)
+" Apply AutoFix to problem on the current line.
+nmap <leader>v  <Plug>(coc-fix-current)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Show all diagnostics.
+nnoremap <silent> <leader>a  :<C-u>CocList diagnostics<cr>
