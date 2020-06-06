@@ -7,6 +7,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ptzz/lf.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'dylanaraps/wal.vim'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 
@@ -144,7 +145,7 @@ noremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>r :noh<CR>
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>
-cmap wsudo w !sudo tee > /dev/null %
+cmap <C-w> w !sudo tee > /dev/null %<CR>
 " ctags mappings
 nmap gd <C-]>
 nmap gb <C-T>
@@ -153,6 +154,10 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>en :lnext<CR>
 map <leader>ep :lprevious<CR>
 map <leader>sf :set foldmethod=syntax<CR>
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-k> <C-w>k
+map <C-j> <C-w>j
 
 
 
@@ -278,7 +283,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -353,7 +358,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>=  <Plug>(coc-format-selected)
 nmap <leader>=  <Plug>(coc-format-selected)
 " Apply AutoFix to problem on the current line.
-nmap <leader>v  <Plug>(coc-fix-current)
+nmap <leader>i  <Plug>(coc-fix-current)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -366,3 +371,5 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Show all diagnostics.
 nnoremap <silent> <leader>a  :<C-u>CocList diagnostics<cr>
+
+nmap <leader>v :CocFix<CR>
