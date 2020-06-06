@@ -3,7 +3,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
 Plug 'rbgrouleff/bclose.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
 Plug 'ptzz/lf.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'dylanaraps/wal.vim'
@@ -48,14 +47,12 @@ endif
 se mouse+=a
 set splitbelow
 set splitright
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 25
 filetype plugin on
 set number
 set incsearch
 set autoread
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+let g:lf_replace_netrw = 1
 
 
 
@@ -141,7 +138,6 @@ noremap cpp "+yy
 " Other bindings
 noremap <leader>z :source $HOME/.config/nvim/init.vim<Enter>
 noremap <f2> :call Rename(@%)<CR>
-noremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>r :noh<CR>
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>
@@ -154,6 +150,11 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>en :lnext<CR>
 map <leader>ep :lprevious<CR>
 map <leader>sf :set foldmethod=syntax<CR>
+
+
+"LF bindings
+map <leader>wf :tab split<CR>:LfCurrentDirectory<CR>
+map <leader>sf :vsp<CR>:LfCurrentDirectory<CR>
 
 
 
