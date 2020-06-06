@@ -154,10 +154,6 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>en :lnext<CR>
 map <leader>ep :lprevious<CR>
 map <leader>sf :set foldmethod=syntax<CR>
-map <C-l> <C-w>l
-map <C-h> <C-w>h
-map <C-k> <C-w>k
-map <C-j> <C-w>j
 
 
 
@@ -185,6 +181,12 @@ map <leader>h <C-w>h
 map <leader>l <C-w>l
 map <leader>k <C-w>k
 map <leader>j <C-w>j
+map <C-h> :vertical resize -3<CR>
+map <C-l> :vertical resize +3 <CR>
+map <C-k> :resize +3<CR>
+map <C-j> :resize -3<CR>
+map <leader>th <C-w>t<C-w>K
+map <leader>tv <C-w>t<C-w>H
 
 
 
