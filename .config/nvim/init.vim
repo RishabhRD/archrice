@@ -6,7 +6,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ptzz/lf.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'dylanaraps/wal.vim'
-Plug 'honza/vim-snippets'
 call plug#end()
 
 
@@ -354,7 +353,7 @@ endfunction
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>nm <Plug>(coc-rename)
 
 
 " Formatting selected code.
