@@ -34,7 +34,6 @@ let mapleader =" "
 syntax on
 set showtabline=2
 set nocompatible
-colorscheme wal
 filetype indent on
 set relativenumber
 let g:system_copy#copy_command='xclip -sel clipboard'
@@ -53,7 +52,12 @@ set incsearch
 set autoread
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:lf_replace_netrw = 1
-
+if has("gui_running")
+	set termguicolors
+	colorscheme walgui
+else
+	colorscheme wal
+endif
 
 
 
