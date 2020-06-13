@@ -99,13 +99,33 @@ cmd myPaste &{{
 }}
 cmd pickMailFile ${{
 	if [ -a "$LF_ATT_FILE" ]; then
-		echo "$fx" > "$LF_ATT_FILE"
+		echo "$fx" >> "$LF_ATT_FILE"
+	fi
+}}
+cmd pickMailImage ${{
+	imgfile="/tmp/sxiv_lf.pics"
+	if [[ -f "$imgfile" ]]; then
+		if [ -a "$LF_ATT_FILE" ]; then
+			notify-send "bhkk"
+			cat "$imgfile" >> "$LF_ATT_FILE"
+		fi
+		rm "$imgfile"
+	else
+		notify-send "🖼No image selected"
 	fi
 }}
 cmd exportMailDirectory ${{
 	if [ -a "$ATT_LF_FILE" ]; then
 		pwd > "$ATT_LF_FILE"
 	fi
+}}
+cmd selectImage ${{
+	imgfile="/tmp/sxiv_lf.pics"
+	rm -f "$imgfile"
+	files="$(sxiv -q -o .)" 
+	while IFS= read -r line; do
+		realpath $line >> $imgfile
+	done <<< "$files"
 }}
 
 map y
@@ -149,4 +169,6 @@ map - $~/.config/lf/image-preview.sh $f
 map dr drag
 map gn cd ~/git/ns-3-allinone/ns-3-dev/src
 map sf pickMailFile
+map si pickMailImage
 map sd exportMailDirectory
+map V selectImage
