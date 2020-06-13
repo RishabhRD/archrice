@@ -4,6 +4,7 @@ call plug#begin()
 Plug 'rbgrouleff/bclose.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ptzz/lf.vim'
+Plug 'honza/vim-snippets'
 Plug 'flazz/vim-colorschemes'
 Plug 'dylanaraps/wal.vim'
 call plug#end()
@@ -286,10 +287,6 @@ set nowritebackup
 
 " Give more space for displaying messages.
 set cmdheight=1
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-"set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
