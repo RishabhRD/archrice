@@ -2,29 +2,31 @@
 set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
 Plug 'rbgrouleff/bclose.vim'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ptzz/lf.vim'
 Plug 'honza/vim-snippets'
 Plug 'flazz/vim-colorschemes'
 Plug 'dylanaraps/wal.vim'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 
 
 " Functions
 function! GetFileName()
-	let fname = system("printf '' | dmenu -p 'Enter file name'")
-	return fname
+				let fname = system("printf '' | dmenu -p 'Enter file name'")
+				return fname
 endfunction
 
 function! Rename(file)
-	let name = GetFileName()
-	if empty(name)
-		return
-	endif
-	execute "saveas " . name
-	execute "bdelete " . a:file
-	let e = system("rm " . a:file)
+				let name = GetFileName()
+				if empty(name)
+								return
+				endif
+				execute "saveas " . name
+				execute "bdelete " . a:file
+				let e = system("rm " . a:file)
 endfunction
 
 
@@ -41,7 +43,7 @@ let g:system_copy#paste_command='xclip -sel clipboard -o'
 set completeopt-=preview
 let g:usemarks=0
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+				au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 se mouse+=a
 set splitbelow
@@ -53,10 +55,10 @@ set autoread
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:lf_replace_netrw = 1
 if has("gui_running")
-	set termguicolors
-	colorscheme walgui
+				set termguicolors
+				colorscheme walgui
 else
-	colorscheme wal
+				colorscheme wal
 endif
 
 
@@ -64,47 +66,47 @@ endif
 
 " Tab Numbering
 if exists("+showtabline")
-	function! MyTabLine()
-		let s = ''
-		let wn = ''
-		let t = tabpagenr()
-		let i = 1
-		while i <= tabpagenr('$')
-			let buflist = tabpagebuflist(i)
-			let winnr = tabpagewinnr(i)
-			let s .= '%' . i . 'T'
-			let s .= (i == t ? '%1*' : '%2*')
-			let s .= ' '
-			let wn = tabpagewinnr(i,'$')
+				function! MyTabLine()
+								let s = ''
+								let wn = ''
+								let t = tabpagenr()
+								let i = 1
+								while i <= tabpagenr('$')
+												let buflist = tabpagebuflist(i)
+												let winnr = tabpagewinnr(i)
+												let s .= '%' . i . 'T'
+												let s .= (i == t ? '%1*' : '%2*')
+												let s .= ' '
+												let wn = tabpagewinnr(i,'$')
 
-			let s .= '%#TabNum#'
-			let s .= i
-			" let s .= '%*'
-			let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
-			let bufnr = buflist[winnr - 1]
-			let file = bufname(bufnr)
-			let buftype = getbufvar(bufnr, 'buftype')
-			if buftype == 'nofile'
-				if file =~ '\/.'
-					let file = substitute(file, '.*\/\ze.', '', '')
-				endif
-			else
-				let file = fnamemodify(file, ':p:t')
-			endif
-			if file == ''
-				let file = '[No Name]'
-			endif
-			let s .= ' ' . file . ' '
-			let i = i + 1
-		endwhile
-		let s .= '%T%#TabLineFill#%='
-		let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
-		return s
-	endfunction
-	set stal=2
-	set tabline=%!MyTabLine()
-	set showtabline=2
-	highlight link TabNum Special
+												let s .= '%#TabNum#'
+												let s .= i
+												" let s .= '%*'
+												let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+												let bufnr = buflist[winnr - 1]
+												let file = bufname(bufnr)
+												let buftype = getbufvar(bufnr, 'buftype')
+												if buftype == 'nofile'
+																if file =~ '\/.'
+																				let file = substitute(file, '.*\/\ze.', '', '')
+																endif
+												else
+																let file = fnamemodify(file, ':p:t')
+												endif
+												if file == ''
+																let file = '[No Name]'
+												endif
+												let s .= ' ' . file . ' '
+												let i = i + 1
+								endwhile
+								let s .= '%T%#TabLineFill#%='
+								let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+								return s
+				endfunction
+				set stal=2
+				set tabline=%!MyTabLine()
+				set showtabline=2
+				highlight link TabNum Special
 endif
 
 
@@ -121,9 +123,9 @@ let g:tex_flavor = "latex"
 
 " Fuzzy finder integration
 let g:fzf_action = {
-			\ 'ctrl-t': 'tab split',
-			\ 'ctrl-x': 'split',
-			\ 'ctrl-v': 'vsplit' }
+												\ 'ctrl-t': 'tab split',
+												\ 'ctrl-x': 'split',
+												\ 'ctrl-v': 'vsplit' }
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_layout = { 'down': '~40%' }
@@ -298,23 +300,23 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+				" Recently vim can merge signcolumn and number column into one
+				set signcolumn=number
 else
-  set signcolumn=yes
+				set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"inoremap <silent><expr> <TAB>
+"												\ pumvisible() ? "\<C-n>" :
+"												\ <SID>check_back_space() ? "\<TAB>" :
+"												\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+				let col = col('.') - 1
+				return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
@@ -324,9 +326,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+				inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+				inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Use `[g` and `]g` to navigate diagnostics
@@ -343,11 +345,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+				if (index(['vim','help'], &filetype) >= 0)
+								execute 'h '.expand('<cword>')
+				else
+								call CocAction('doHover')
+				endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
