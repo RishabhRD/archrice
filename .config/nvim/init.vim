@@ -52,6 +52,7 @@ filetype plugin on
 set number
 set incsearch
 set autoread
+set tabstop=2
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:lf_replace_netrw = 1
 if has("gui_running")
