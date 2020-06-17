@@ -52,7 +52,6 @@ filetype plugin on
 set number
 set incsearch
 set autoread
-set tabstop=4
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:lf_replace_netrw = 1
 if has("gui_running")
@@ -364,8 +363,6 @@ nmap <leader>nm <Plug>(coc-rename)
 xmap <leader>=  <Plug>(coc-format-selected)
 nmap <leader>=  <Plug>(coc-format-selected)
 " Apply AutoFix to problem on the current line.
-nmap <leader>i  <Plug>(coc-fix-current)
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
@@ -393,3 +390,5 @@ let g:coc_snippet_prev = '<c-k>'
 
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+autocmd FileType java nnoremap <leader>i :CocCommand java.action.organizeImports<CR>
