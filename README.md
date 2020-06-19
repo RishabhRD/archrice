@@ -2,6 +2,8 @@
 This repository is my ricing setup on my arch with dwm.
 
 You can use this setup after fresh arch installtion to rice your arch distro.
+NeoVim plugins are installed with vim-plug(in case you are interested).
+
 
 ***For list of application I use in my arch and its dependecies refer to DEPENDENCIES file***
 
