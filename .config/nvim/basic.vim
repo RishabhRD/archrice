@@ -1,18 +1,18 @@
 " Functions
-function! GetFileName()
-	let fname = system("printf '' | dmenu -p 'Enter file name'")
-	return fname
-endfunction
+" function! GetFileName()
+" 	let fname = system("printf '' | dmenu -p 'Enter file name'")
+" 	return fname
+" endfunction
 
-function! Rename(file)
-	let name = GetFileName()
-	if empty(name)
-		return
-	endif
-	execute "saveas " . name
-	execute "bdelete " . a:file
-	let e = system("rm " . a:file)
-endfunction
+" function! Rename(file)
+" 	let name = GetFileName()
+" 	if empty(name)
+" 		return
+" 	endif
+" 	execute \"saveas " . name
+" 	execute \"bdelete " . a:file
+" 	let e = system("rm " . a:file)
+" endfunction
 
 " let t:is_transparent = 1
 " function! Toggle_transparent()
@@ -62,15 +62,15 @@ autocmd BufWritePost sxhkdrc !pkill sxhkd;nohup sxhkd & 2> /dev/null -load %
 
 " Clipboard bindings
 
-noremap cp "+y
-noremap zp "+p
-noremap zP "+P
-noremap cpp "+yy
+vmap cp "+y
+nnoremap cp "+y
+nnoremap zp "+p
+nnoremap zP "+P
+nnoremap cpp "+yy
 
 
 " Other bindings
 noremap <leader>z :source $HOME/.config/nvim/init.vim<Enter>
-noremap <f2> :call Rename(@%)<CR>
 nnoremap <leader>r :noh<CR>
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>

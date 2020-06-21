@@ -70,7 +70,6 @@ endfunction
 "autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>nm <Plug>(coc-rename)
 
 
 " Formatting selected code.
@@ -86,11 +85,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Show all diagnostics.
-nnoremap <silent> <leader>a  :<C-u>CocList diagnostics<cr>
 
-nmap <C-v> :CocFix<CR>
-nmap <leader>a :CocList actions<CR>
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
 
@@ -106,4 +101,13 @@ let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
+
+
+"Custom keybindings for ease
 autocmd FileType java nnoremap <leader>i :CocCommand java.action.organizeImports<CR>
+nmap <leader>af :CocFix<CR>
+nmap <leader>al :CocList actions<CR>
+nmap <leader>ss :CocCommand session.save<CR>
+nmap <leader>sl :CocCommand session.load<CR>
+nnoremap <f2> :CocCommand workspace.renameCurrentFile<CR>
+nnoremap <leader>di :CocDiagnostics<CR>
