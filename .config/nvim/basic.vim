@@ -75,6 +75,7 @@ nnoremap <leader>r :noh<CR>
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+tnoremap <C-w> <C-\><C-n>
 " ctags mappings
 nmap gd <C-]>
 nmap gb <C-T>

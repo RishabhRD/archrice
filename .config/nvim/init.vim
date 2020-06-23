@@ -20,6 +20,7 @@ Plug 'puremourning/vimspector'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'airblade/vim-rooter'
 call plug#end()
 
 
@@ -37,3 +38,4 @@ source $HOME/.config/nvim/commentry.vim
 source $HOME/.config/nvim/colorscheme.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/goyo.vim
+source $HOME/.config/nvim/rooter.vim
