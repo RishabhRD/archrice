@@ -21,6 +21,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
+Plug 'gruvbox-community/gruvbox'
 call plug#end()
 
 

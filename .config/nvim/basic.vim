@@ -14,16 +14,16 @@
 " 	let e = system("rm " . a:file)
 " endfunction
 
-" let t:is_transparent = 1
-" function! Toggle_transparent()
-"     if t:is_transparent == 0
-"         hi Normal guibg=NONE ctermbg=NONE
-"         let t:is_transparent = 1
-"     else
-"         set background=dark
-"         let t:is_tranparent = 0
-"     endif
-" endfunction
+let t:is_transparent = 0
+function! Toggle_transparent()
+    if t:is_transparent == 0
+        hi Normal guibg=NONE ctermbg=NONE
+	let t:is_transparent = 1
+    else
+        set background=dark
+	let t:is_transparent = 0
+    endif
+endfunction
 
 " Basic Settings
 let mapleader =" "
@@ -51,7 +51,16 @@ let g:lf_replace_netrw = 1
 let g:rainbow_active = 1
 
 
-
+if &term =~ "xterm\\|rxvt\\|st"
+  " use an orange cursor in insert mode
+  let &t_SI = "\<Esc>]12;orange\x7"
+  " use a red cursor otherwise
+  let &t_EI = "\<Esc>]12;red\x7"
+  silent !echo -ne "\033]12;red\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  " use \003]12;gray\007 for gnome-terminal
+endif
 
 
 
@@ -85,4 +94,4 @@ map <leader>en :lnext<CR>
 map <leader>ep :lprevious<CR>
 map <leader>sf :set foldmethod=syntax<CR>
 
-
+map <leader>tr :call Toggle_transparent()<CR>
