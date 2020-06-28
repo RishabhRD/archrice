@@ -2,9 +2,8 @@ setxkbmap -option "caps:swapescape"
 /usr/lib/kdeconnectd &
 indicator-kdeconnect &
 dunst &
-compton &
 mpd &
-wallpaper.sh &
+cat $HOME/Pictures/.startWal | xargs feh --bg-scale
 nm-applet &
 parcellite &
 xinput.sh &
