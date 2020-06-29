@@ -25,6 +25,18 @@ function! Toggle_transparent()
     endif
 endfunction
 
+let t:is_listed=0
+function! Toggle_list()
+	if t:is_listed == 0
+		set list
+		let t:is_listed = 1
+	else
+		set nolist
+		let t:is_listed = 0
+	endif
+endfunction
+
+
 " Basic Settings
 let mapleader =" "
 syntax on
@@ -49,7 +61,6 @@ set autoread
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:lf_replace_netrw = 1
 let g:rainbow_active = 1
-set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 
 
@@ -98,3 +109,4 @@ map <leader>ep :lprevious<CR>
 map <leader>sf :set foldmethod=syntax<CR>
 
 map <leader>tr :call Toggle_transparent()<CR>
+map <leader>lc :call Toggle_list()<CR>
