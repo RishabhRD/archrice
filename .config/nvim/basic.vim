@@ -25,17 +25,6 @@ function! Toggle_transparent()
     endif
 endfunction
 
-let t:is_listed=0
-function! Toggle_list()
-	if t:is_listed == 0
-		set list
-		let t:is_listed = 1
-	else
-		set nolist
-		let t:is_listed = 0
-	endif
-endfunction
-
 
 " Basic Settings
 let mapleader =" "
@@ -109,4 +98,4 @@ map <leader>ep :lprevious<CR>
 map <leader>sf :set foldmethod=syntax<CR>
 
 map <leader>tr :call Toggle_transparent()<CR>
-map <leader>lc :call Toggle_list()<CR>
+map <leader>lc :set list!<CR>
