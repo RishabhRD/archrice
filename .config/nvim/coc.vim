@@ -111,4 +111,3 @@ nmap <leader>ss :CocCommand session.save<CR>
 nmap <leader>sl :CocCommand session.load<CR>
 nnoremap <f2> :CocCommand workspace.renameCurrentFile<CR>
 nnoremap <leader>di :CocDiagnostics<CR>
-nnoremap <leader>as :CocCommand cSpell.toggleEnableSpellChecker<CR>
