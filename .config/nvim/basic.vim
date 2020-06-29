@@ -98,4 +98,4 @@ map <leader>sf :set foldmethod=syntax<CR>
 map Q :q!<CR>
 
 map <leader>tr :call Toggle_transparent()<CR>
-map <leader>lc :set list!<CR>
+map <leader>acl :set list!<CR>
