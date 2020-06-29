@@ -49,6 +49,8 @@ set autoread
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:lf_replace_netrw = 1
 let g:rainbow_active = 1
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<
 
 
 if &term =~ "xterm\\|rxvt\\|st"
