@@ -95,6 +95,7 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>en :lnext<CR>
 map <leader>ep :lprevious<CR>
 map <leader>sf :set foldmethod=syntax<CR>
+map Q :q!<CR>
 
 map <leader>tr :call Toggle_transparent()<CR>
 map <leader>lc :set list!<CR>
