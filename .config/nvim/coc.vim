@@ -45,9 +45,6 @@ else
 	inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gD <Plug>(coc-definition)
@@ -111,3 +108,5 @@ nmap <leader>ss :CocCommand session.save<CR>
 nmap <leader>sl :CocCommand session.load<CR>
 nnoremap <f2> :CocCommand workspace.renameCurrentFile<CR>
 nnoremap <leader>di :CocDiagnostics<CR>
+nmap <silent> <leader>ep <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>en <Plug>(coc-diagnostic-next)

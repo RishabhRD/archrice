@@ -92,8 +92,6 @@ nmap gd <C-]>
 nmap gb <C-T>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-map <leader>en :lnext<CR>
-map <leader>ep :lprevious<CR>
 map <leader>sf :set foldmethod=syntax<CR>
 map Q :q!<CR>
 
