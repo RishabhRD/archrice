@@ -1,3 +1,13 @@
+let g:coc_global_extensions = [
+	\ 'coc-snippets',
+	\ 'coc-java',
+	\ 'coc-clangd',
+	\ 'coc-actions',
+	\ 'coc-marketplace',
+	\ 'coc-java-debug',
+	\ 'coc-groovy',
+	\ 'coc-todolist',
+	\]
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -110,3 +120,5 @@ nnoremap <f2> :CocCommand workspace.renameCurrentFile<CR>
 nnoremap <leader>di :CocDiagnostics<CR>
 nmap <silent> <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>en <Plug>(coc-diagnostic-next)
+nmap <leader>tc :CocCommand todolist.create<CR>
+nmap <leader>tl :CocList todolist<CR>

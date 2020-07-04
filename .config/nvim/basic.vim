@@ -51,6 +51,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 let g:lf_replace_netrw = 1
 let g:rainbow_active = 1
 set listchars=tab:>-,trail:~,extends:>,precedes:<
+set inccommand=nosplit
 
 
 if &term =~ "xterm\\|rxvt\\|st"
@@ -86,6 +87,7 @@ nnoremap <leader>r :noh<CR>
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <leader>p :!clear && printVim <c-r>%<CR><CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 tnoremap <C-w> <C-\><C-n>
 " ctags mappings
 nmap gd <C-]>
