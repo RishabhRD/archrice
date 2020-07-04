@@ -1,5 +1,4 @@
 "Plugins
-set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
 Plug 'frazrepo/vim-rainbow'
 Plug 'rbgrouleff/bclose.vim'
@@ -22,6 +21,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
 Plug 'gruvbox-community/gruvbox'
+" Plug 'preservim/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 

@@ -1,0 +1,9 @@
+{
+	"explorer.width": 45,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.previewAction.onHover": false,
+	"explorer.keyMappings": {
+		"<cr>": ["expandable?", "expand", "open"],
+		"v": "open:vsplit"
+	}
+}
