@@ -1,7 +1,7 @@
 let g:tex_flavor = "latex"
 autocmd VimLeave *.tex !texclear %
 "Latex Snippets
-autocmd FileType tex imap ,, <Esc>:call search('<++>')<Enter>cf>
+autocmd FileType tex imap ,, <Esc>:call search('<++>')<Enter>"_cf>
 autocmd FileType tex inoremap ,fr \begin{frame}<Enter>\frametitle{}<Enter><Enter><++><Enter><Enter>\end{frame}<Enter><++><Esc>5kf{a
 autocmd FileType tex inoremap ,it \textit{}<++><Esc>F{a
 autocmd FileType tex inoremap ,bo \textbf{}<++><Esc>F{a

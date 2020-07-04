@@ -32,7 +32,6 @@ source $HOME/.config/nvim/latex.vim
 source $HOME/.config/nvim/coc.vim
 source $HOME/.config/nvim/git.vim
 source $HOME/.config/nvim/tabs.vim
-source $HOME/.config/nvim/tabbar.vim
 source $HOME/.config/nvim/lf.vim
 source $HOME/.config/nvim/airline.vim
 source $HOME/.config/nvim/commentry.vim
