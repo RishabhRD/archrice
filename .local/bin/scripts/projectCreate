@@ -1,0 +1,18 @@
+#!/bin/sh
+
+[[ -z $1 ]] && exit 0
+
+if [[ "$1" == "gradle" ]]; then
+	mkdir -p src/main/java
+	mkdir -p src/main/resources
+	if [[ -z "$2" ]]; then
+		cp ~/Templates/build.gradle .
+	elif [[ "$2" == "jar" ]]; then
+		read -r input
+		printf "plugins{\n\tid 'java'\n}\njar {\n\tmanifest {\n\t\tattributes 'Main-Class': '$input'\n\t}\n}\n" > build.gradle
+		folder="$(echo $input | sed "s/\./\//g" | xargs dirname)"
+		mkdir -p src/main/java/$folder
+		printf "bin/*\n.project\n.gradle/*\n.settings/*\n.classpath\nbuild/*\n" > .gitignore
+		printf "build/*\nbin/*\nsrc/test/*\n" > .fdignore
+	fi
+fi

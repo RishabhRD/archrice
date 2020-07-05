@@ -4,7 +4,7 @@
 if [ -f "$1" ]; then
 	#Try to get DOI from the file
 	doi=$(pdfinfo "$1" | grep -io "doi:.*") ||
-	doi=$(pdftotext "$1" 2>/dev/null - | grep -o "doi:.*" --line-number) ||
+	doi=$(pdftotext "$1" 2>/dev/null - | grep -io "doi:.*" --line-number) ||
 	exit 1
 else
 	doi="$1"
