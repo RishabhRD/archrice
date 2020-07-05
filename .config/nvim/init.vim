@@ -29,6 +29,7 @@ call plug#end()
 
 
 
+
 source $HOME/.config/nvim/basic.vim
 source $HOME/.config/nvim/gutentags.vim
 source $HOME/.config/nvim/latex.vim
@@ -42,3 +43,4 @@ source $HOME/.config/nvim/colorscheme.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/goyo.vim
 source $HOME/.config/nvim/rooter.vim
+source $HOME/.config/nvim/vimspector.vim
