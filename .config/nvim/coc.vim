@@ -160,3 +160,4 @@ nmap <leader>tt :CocCommand terminal.Toggle<CR>
 nmap <leader>ef :CocCommand explorer --preset floating<CR>
 nmap <C-f> :CocCommand explorer<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+autocmd FileType java nmap <leader>ajl :CocCommand java.open.serverlog<CR>

@@ -88,3 +88,4 @@ map Q :q!<CR>
 
 map <leader>tr :call Toggle_transparent()<CR>
 map <leader>acl :set list!<CR>
+tnoremap ,, <C-\><C-n>
