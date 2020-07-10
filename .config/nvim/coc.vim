@@ -10,7 +10,7 @@ let g:coc_global_extensions = [
 	\]
 " TextEdit might fail if hidden is not set.
 set hidden
-set updatetime=300
+set updatetime=50
 
 " Some servers have issues with backup files, see #649.
 set nobackup
