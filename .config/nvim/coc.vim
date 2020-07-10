@@ -8,22 +8,6 @@ let g:coc_global_extensions = [
 	\ 'coc-groovy',
 	\ 'coc-todolist',
 	\]
-" TextEdit might fail if hidden is not set.
-set hidden
-set updatetime=50
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=1
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
 if has("patch-8.1.1564")
 	" Recently vim can merge signcolumn and number column into one
 	set signcolumn=number
@@ -44,7 +28,6 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
@@ -58,10 +41,6 @@ endif
 
 
 " GoTo code navigation.
-nmap <silent> gD <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -96,16 +75,12 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Use <C-l> for trigger snippet expand.
 imap <C-l> <Plug>(coc-snippets-expand)
-
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
-
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
-
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
-
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
@@ -147,6 +122,10 @@ let g:coc_explorer_global_presets = {
 
 "Custom keybindings for ease
 autocmd FileType java nnoremap <leader>i :CocCommand java.action.organizeImports<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 nmap <leader>af :CocFix<CR>
 nmap <leader>al :CocList actions<CR>
 nmap <leader>ss :CocCommand session.save<CR>

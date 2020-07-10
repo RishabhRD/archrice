@@ -35,13 +35,10 @@ filetype indent on
 set relativenumber
 let g:system_copy#copy_command='xclip -sel clipboard'
 let g:system_copy#paste_command='xclip -sel clipboard -o'
-set completeopt-=preview
 set noswapfile
 set scrolloff=6
-let g:usemarks=0
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
+set nowrap
+let g:rainbow_active = 1
 se mouse+=a
 set tabstop=4
 set shiftwidth=4
@@ -52,15 +49,22 @@ set number
 set incsearch
 set autoread
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-let g:lf_replace_netrw = 1
-let g:rainbow_active = 1
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set inccommand=nosplit
-    set undofile
+set undofile
+set hidden
+set updatetime=50
+set nobackup
+set nowritebackup
+set shortmess+=c
+set nowrap
 
 " Settings for specific files
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
 autocmd BufWritePost sxhkdrc !pkill sxhkd;nohup sxhkd & 2> /dev/null -load %
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
 
 
 " Clipboard bindings
@@ -81,7 +85,7 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 tnoremap <C-w> <C-\><C-n>
 " ctags mappings
-nmap gd <C-]>
+nmap gD <C-]>
 nmap gb <C-T>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>

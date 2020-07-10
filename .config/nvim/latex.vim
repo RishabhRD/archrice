@@ -1,3 +1,4 @@
+autocmd FileType tex set wrap
 let g:tex_flavor = "latex"
 autocmd VimLeave *.tex !texclear %
 "Latex Snippets
