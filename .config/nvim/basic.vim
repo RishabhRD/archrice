@@ -36,6 +36,7 @@ set relativenumber
 let g:system_copy#copy_command='xclip -sel clipboard'
 let g:system_copy#paste_command='xclip -sel clipboard -o'
 set completeopt-=preview
+set noswapfile
 let g:usemarks=0
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
