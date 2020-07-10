@@ -21,10 +21,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'airblade/vim-rooter'
 Plug 'gruvbox-community/gruvbox'
-" Plug 'preservim/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'ryanoasis/vim-devicons'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'vim-utils/vim-man'
+Plug 'mbbill/undotree'
 call plug#end()
 
 
@@ -33,10 +31,10 @@ call plug#end()
 source $HOME/.config/nvim/basic.vim
 source $HOME/.config/nvim/gutentags.vim
 source $HOME/.config/nvim/latex.vim
-source $HOME/.config/nvim/coc.vim
 source $HOME/.config/nvim/git.vim
 source $HOME/.config/nvim/tabs.vim
 source $HOME/.config/nvim/lf.vim
+source $HOME/.config/nvim/coc.vim
 source $HOME/.config/nvim/airline.vim
 source $HOME/.config/nvim/commentry.vim
 source $HOME/.config/nvim/colorscheme.vim

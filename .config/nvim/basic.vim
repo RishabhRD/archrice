@@ -41,6 +41,8 @@ if has("autocmd")
 	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 se mouse+=a
+set tabstop=4
+set shiftwidth=4
 set splitbelow
 set splitright
 filetype plugin on
@@ -52,9 +54,7 @@ let g:lf_replace_netrw = 1
 let g:rainbow_active = 1
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set inccommand=nosplit
-
-
-
+    set undofile
 
 " Settings for specific files
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
@@ -86,6 +86,6 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <leader>sf :set foldmethod=syntax<CR>
 map Q :q!<CR>
 
-map <leader>tr :call Toggle_transparent()<CR>
 map <leader>acl :set list!<CR>
 tnoremap ,, <C-\><C-n>
+nnoremap <leader>un :UndotreeToggle<cr>

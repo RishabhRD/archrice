@@ -154,10 +154,8 @@ nnoremap <f2> :CocCommand workspace.renameCurrentFile<CR>
 nnoremap <leader>di :CocDiagnostics<CR>
 nmap <silent> <leader>ep <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>en <Plug>(coc-diagnostic-next)
-nmap <leader>tc :CocCommand todolist.create<CR>
-nmap <leader>tl :CocList todolist<CR>
-nmap <leader>tt :CocCommand terminal.Toggle<CR>
+nmap <leader>t :CocCommand terminal.Toggle<CR>
 nmap <leader>ef :CocCommand explorer --preset floating<CR>
-nmap <C-f> :CocCommand explorer<CR>
+nmap <leader>f :CocCommand explorer<CR>
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 autocmd FileType java nmap <leader>ajl :CocCommand java.open.serverlog<CR>

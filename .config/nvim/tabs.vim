@@ -26,6 +26,4 @@ map <C-h> :vertical resize -3<CR>
 map <C-l> :vertical resize +3 <CR>
 map <C-k> :resize +3<CR>
 map <C-j> :resize -3<CR>
-map <leader>th <C-w>t<C-w>K
-map <leader>tv <C-w>t<C-w>H
 
