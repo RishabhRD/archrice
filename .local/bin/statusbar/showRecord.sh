@@ -1,3 +1,3 @@
 #!/bin/bash
 exist=$(pgrep ffmpeg)
-[ ! -z "$exist" ] && printf " Recording\n"
+[ ! -z "$exist" ] && printf "🛑 Recording\n"

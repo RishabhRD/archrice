@@ -4,4 +4,4 @@
 
 vol=$(pulsemixer --get-volume | awk '{print $1}')
 
-printf ": %s%s\n" "$vol" "%"
+printf "🔉: %s%s\n" "$vol" "%"

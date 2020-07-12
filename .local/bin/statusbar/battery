@@ -3,21 +3,15 @@
 
 capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
 status=$(cat /sys/class/power_supply/"$1"/status)
-icon=
-if [ "$capacity" -le 50 ]; then
-	icon=
-fi
-if [ "$capacity" -le 10 ]; then
-	icon=
-fi
+icon=🔋
 if [ "$capacity" -ge 92 ]; then
 	if [ "$status" = "Charging" ]; then
-		notify-send --urgency="normal" "Battery Charged"
+		notify-send --urgency="critical" "Battery Charged"
 	fi
 elif [ "$capacity" -le 9 ]; then
 	warn="Low"
 	if [ "$status" = "Discharging" ]; then
-		notify-send --urgency="normal" "Battery Low"
+		notify-send --urgency="critical" "Battery Low"
 	fi
 elif [ "$capacity" -l 3 ]; then
 	warn="Very Low"
