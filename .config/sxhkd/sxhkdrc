@@ -9,9 +9,9 @@ super + shift + b
 Print
 	screenshot.sh
 super + shift + r
-	start_record.sh ; pkill -RTMIN+14 $BAR
+	record screen; pkill -RTMIN+14 $BAR
 super + ctrl + r
-	stop_record.sh ; pkill -RTMIN+14 $BAR
+	record screencastpause; pkill -RTMIN+14 $BAR
 super + shift + m
 	man_search.sh
 super + space
@@ -26,10 +26,8 @@ super + p
 	$TERMINAL -e htop
 super + control + n
 	mailsync 
-super + shift + y
-	screenkey
-super + control + y
-	killall screenkey
+super + shift + k
+	killall screenkey || screenkey -p fixed -g 20%x6%-1%-1% -t 0.5
 super + y
 	$TERMINAL -e youtube-download.sh
 super + control + d
@@ -43,9 +41,11 @@ super + a
 super + c
 	select.sh $HOME/.local/share/jumps/copytext
 super + shift + c
-	mpv --title="webcam" --untimed --no-correct-pts --no-cache --cache-secs=0 --demuxer-readahead-secs=0 av://v4l2:/dev/video0
-super + control + c
-	pkill mpvfloat
+	record webcam
+super + ctrl + c
+	record androidcam
+super + ctrl + shift + c
+	record androiddmenu
 super + t
 	showtray.sh
 XF86AudioLowerVolume
@@ -55,9 +55,9 @@ XF86AudioRaiseVolume
 XF86AudioMute
 	volume.sh mute && pkill -RTMIN+10 $BAR
 XF86MonBrightnessUp
-	xbacklight -inc 10 && pkill -RTMIN+11 $BAR
+	xbacklight -inc 5 && pkill -RTMIN+11 $BAR
 XF86MonBrightnessDown
-	xbacklight -dec 10 && pkill -RTMIN+11 $BAR
+	xbacklight -dec 5 && pkill -RTMIN+11 $BAR
 super + g
 	mpc toggle ; pkill -RTMIN+12 $BAR
 super + control + g

@@ -1,0 +1,90 @@
+#!/bin/sh
+# ffmpeg setpts=N/FR/TB -y -f x11grab -s \
+# `xdpyinfo | grep 'dimensions:'|awk '{print $2}'` \
+# -i :0.0 -f pulse \
+# -i default $location_dir/$T &
+
+# ffmpeg -video_size 1920x1080 -framerate 60 -f x11grab -i :0.0 -vf pulse \
+# 	setpts=N/FR/TB asetpts=N/FR/TB -c:v libx264rgb -crf 0 -preset ultrafast "$location_dir/$T"
+
+# ffmpeg -y \
+# -f x11grab \
+# -framerate 60 \
+# -s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" \
+# -i "$DISPLAY" \
+# -f pulse -i default \
+# -r 30 \
+# -c:v h264 -crf 0 -preset ultrafast -c:a aac \
+# "$location_dir/$T" &
+webcamtoggle(){
+	windowid=$(xdotool search --name webcam)
+	if [[ -z $windowid ]]; then
+		mpv --title="webcam" --untimed --no-correct-pts --no-cache --cache-secs=0 --demuxer-readahead-secs=0 av://v4l2:/dev/video0 
+	else
+		pid=$(xdotool getwindowpid "$windowid")
+		kill -9 $pid
+	fi
+}
+
+androidtoggle(){
+	windowid=$(xdotool search --name androidcam)
+	if [[ -z $windowid ]]; then
+		droidcam-cli 192.168.43.1 4747 &
+		mpv --title="androidcam" --untimed --no-correct-pts --no-cache --cache-secs=0 --demuxer-readahead-secs=0 av://v4l2:/dev/video2 
+	else
+		pid=$(xdotool getwindowpid "$windowid")
+		kill -9 $pid
+		pkill droidcam-cli
+	fi
+}
+
+androiddmenutoggle(){
+	windowid=$(xdotool search --name androidcam)
+	if [[ -z $windowid ]]; then
+		ip=$(echo "192.168.43.1" | dmenu -p "Enter phone IP: ")
+		if [[ -z $ip ]]; then
+			return
+		fi
+		droidcam-cli $ip  4747 &
+		mpv --title="androidcam" --untimed --no-correct-pts --no-cache --cache-secs=0 --demuxer-readahead-secs=0 av://v4l2:/dev/video2 
+	else
+		pid=$(xdotool getwindowpid "$windowid")
+		kill -9 $pid
+		pkill droidcam-cli
+	fi
+}
+
+screencast(){
+	if [[ -f /tmp/recordingpid ]]; then
+		cat /tmp/recordingpid | xargs kill -15
+		rm /tmp/recordingpid /tmp/recordingpaused
+	else
+		location_dir=$HOME/Videos/screencast
+		T=$(printf "" | dmenu -p "Screencast name:")
+		T="$T".mkv
+		ffmpeg -y -f x11grab -s \
+		`xdpyinfo | grep 'dimensions:'|awk '{print $2}'` \
+		-i :0.0 -f pulse \
+		-i default $location_dir/$T &
+		echo $! > /tmp/recordingpid 
+	fi
+}
+
+screencastpause(){
+	if [[ -f /tmp/recordingpaused ]]; then
+		[ -f "/tmp/recordingpid" ] && cat /tmp/recordingpid | xargs kill -CONT 
+		rm  -f /tmp/recordingpaused
+	else
+		[ -f "/tmp/recordingpid" ] && cat /tmp/recordingpid | xargs kill -STOP 
+		touch /tmp/recordingpaused
+	fi
+}
+
+case "$1" in
+	screen) screencast;;
+	screencastpause) screencastpause;;
+	webcam) webcamtoggle;;
+	androidcam) androidtoggle;;
+	androiddmenu) androiddmenutoggle;;
+	*) echo "record or pause?"
+esac
