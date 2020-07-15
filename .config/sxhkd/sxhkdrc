@@ -12,8 +12,6 @@ super + shift + r
 	record screen; pkill -RTMIN+14 $BAR
 super + ctrl + r
 	record screencastpause; pkill -RTMIN+14 $BAR
-super + shift + m
-	man_search.sh
 super + space
 	$TERMINAL -e ncmpcpp
 super + control + b
