@@ -1,9 +1,0 @@
-toDelete="$(cat $HOME/.local/share/i3/copytext | dmenu -l 10 -p "Delete entry: ")"
-lineNums="$(grep -nF "$toDelete" $HOME/.local/share/i3/copytext | cut -f1 -d:)"
-sedlines=""
-for num in $lineNums;
-do
-	sedlines="$sedlines"\;"$num"d
-done
-lines="$(printf "$sedlines" | cut -c 2-)"
-sed -i -e "$lines" "$HOME/.local/share/i3/copytext"
