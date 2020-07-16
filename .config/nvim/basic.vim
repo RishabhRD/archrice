@@ -29,7 +29,8 @@ endfunction
 " Basic Settings
 let mapleader =" "
 syntax on
-set showtabline=2
+set colorcolumn=80
+set showtabline=1
 set nocompatible
 filetype indent on
 set relativenumber

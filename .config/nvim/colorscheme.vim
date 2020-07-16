@@ -19,7 +19,7 @@ set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
-highlight Search guifg='#018c0e' guibg='white'
+highlight Search guifg='#4ea2f5' guibg='white'
 
 " let g:gruvbox_material_background = 'hard'
 " colorscheme gruvbox-material
