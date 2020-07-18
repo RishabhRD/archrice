@@ -1,0 +1,18 @@
+#!/bin/sh
+
+if [[ -z $1 ]]; then
+	mkdir -p bin
+	cd bin
+	cmake ..
+	make
+elif [[ "$1" == "install" ]]; then
+	mkdir -p bin
+	cd bin
+	cmake ..
+	sudo make install
+elif [[ "$1" == "debug" ]]; then
+	mkdir -p debug
+	cd debug
+	cmake -DCMAKE_BUILD_TYPE=Debug ..
+	make
+fi
