@@ -27,6 +27,7 @@ endfunction
 
 
 " Basic Settings
+map <Space> <NOP>
 let mapleader =" "
 syntax on
 set colorcolumn=80
@@ -37,7 +38,6 @@ set relativenumber
 let g:system_copy#copy_command='xclip -sel clipboard'
 let g:system_copy#paste_command='xclip -sel clipboard -o'
 set noswapfile
-set scrolloff=6
 set nowrap
 let g:rainbow_active = 1
 se mouse+=a
