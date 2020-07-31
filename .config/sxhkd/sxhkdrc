@@ -1,7 +1,5 @@
 super + shift + space
 	dmenuemoji 
-super + e
-	dmenu_run
 super + r
 	source ~/.config/zsh/lficons.sh;$TERMINAL -e lf;
 super + shift + b
@@ -50,11 +48,21 @@ XF86AudioLowerVolume
 	volume.sh down && pkill -RTMIN+10 $BAR
 XF86AudioRaiseVolume
 	volume.sh up && pkill -RTMIN+10 $BAR
+super + ctrl + minus
+	volume.sh down && pkill -RTMIN+10 $BAR
+super + ctrl + equal
+	volume.sh up && pkill -RTMIN+10 $BAR
 XF86AudioMute
+	volume.sh mute && pkill -RTMIN+10 $BAR
+super + ctrl + shift + equal
 	volume.sh mute && pkill -RTMIN+10 $BAR
 XF86MonBrightnessUp
 	xbacklight -inc 5 && pkill -RTMIN+11 $BAR
 XF86MonBrightnessDown
+	xbacklight -dec 5 && pkill -RTMIN+11 $BAR
+super + shift + equal
+	xbacklight -inc 5 && pkill -RTMIN+11 $BAR
+super + shift + minus
 	xbacklight -dec 5 && pkill -RTMIN+11 $BAR
 super + g
 	mpc toggle ; pkill -RTMIN+12 $BAR
