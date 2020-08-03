@@ -138,7 +138,7 @@ nmap <silent> <leader>en <Plug>(coc-diagnostic-next)
 nmap <leader>t :CocCommand terminal.Toggle<CR>
 nmap <leader>ef :CocCommand explorer --preset floating<CR>
 nmap <leader>f :CocCommand explorer<CR>
-autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 autocmd FileType java nmap <leader>ajl :CocCommand java.open.serverlog<CR>
 autocmd FileType cpp nmap <leader>gh :CocCommand clangd.switchSourceHeader<CR>
 autocmd FileType c nmap <leader>gh :CocCommand clangd.switchSourceHeader<CR>
+nmap <silent> <C-s> <Plug>(coc-range-select)

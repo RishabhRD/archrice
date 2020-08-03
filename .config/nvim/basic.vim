@@ -59,7 +59,6 @@ set nobackup
 set nowritebackup
 set shortmess+=c
 set nowrap
-
 " Settings for specific files
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
 autocmd BufWritePost sxhkdrc !pkill sxhkd;nohup sxhkd & 2> /dev/null -load %
@@ -81,7 +80,7 @@ nnoremap cpp "+yy
 noremap <leader>z :source $HOME/.config/nvim/init.vim<Enter>
 nnoremap <leader>r :noh<CR>
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
-map <leader>p :!clear && printVim <c-r>%<CR><CR>
+map <C-p> :!clear && printVim <c-r>%<CR><CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 tnoremap <C-w> <C-\><C-n>
@@ -90,7 +89,6 @@ nmap gD <C-]>
 nmap gb <C-T>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-map <leader>sf :set foldmethod=syntax<CR>
 map Q :q!<CR>
 
 map <leader>acl :set list!<CR>
