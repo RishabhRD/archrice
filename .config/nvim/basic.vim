@@ -42,7 +42,7 @@ nmap gD <C-]>
 nmap gb <C-T>
 map Q :q!<CR>
 map <leader>acl :set list!<CR>
-map <leader>f :Lexplore<CR>
+nnoremap <leader>f :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 
 tnoremap ,, <C-\><C-n>
 function! Toggle_transparent()
