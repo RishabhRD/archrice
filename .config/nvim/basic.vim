@@ -1,96 +1,56 @@
-" Functions
-" function! GetFileName()
-" 	let fname = system("printf '' | dmenu -p 'Enter file name'")
-" 	return fname
-" endfunction
-
-" function! Rename(file)
-" 	let name = GetFileName()
-" 	if empty(name)
-" 		return
-" 	endif
-" 	execute \"saveas " . name
-" 	execute \"bdelete " . a:file
-" 	let e = system("rm " . a:file)
-" endfunction
-
-let t:is_transparent = 0
-function! Toggle_transparent()
-    if t:is_transparent == 0
-        hi Normal guibg=NONE ctermbg=NONE
-	let t:is_transparent = 1
-    else
-        set background=dark
-	let t:is_transparent = 0
-    endif
-endfunction
-
-
-" Basic Settings
 map <Space> <NOP>
 let mapleader =" "
 syntax on
 set colorcolumn=80
-set showtabline=1
-set nocompatible
-filetype indent on
-set relativenumber
-let g:system_copy#copy_command='xclip -sel clipboard'
-let g:system_copy#paste_command='xclip -sel clipboard -o'
 set noswapfile
-set nowrap
-let g:rainbow_active = 1
-se mouse+=a
-set tabstop=4
-set shiftwidth=4
-set splitbelow
-set splitright
-filetype plugin on
-set number
-set incsearch
+set tabstop=4 shiftwidth=4
+set number relativenumber
+set nohlsearch incsearch
 set autoread
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-set listchars=tab:>-,trail:~,extends:>,precedes:<
-set inccommand=nosplit
 set undofile
 set hidden
 set updatetime=50
 set nobackup
-set nowritebackup
-set shortmess+=c
 set nowrap
-" Settings for specific files
+set shortmess+=c
+set smartcase
+set termguicolors
+set smartindent
+let g:netrw_browse_split = 2
+let g:netrw_banner = 0
+let g:netrw_winsize = 25
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
-autocmd BufWritePost sxhkdrc !pkill sxhkd;nohup sxhkd & 2> /dev/null -load %
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
 
 
-" Clipboard bindings
 
+let g:system_copy#copy_command='xclip -sel clipboard'
+let g:system_copy#paste_command='xclip -sel clipboard -o'
 vmap cp "+y
 nnoremap cp "+y
+nnoremap cpp "+yy
 nnoremap zp "+p
 nnoremap zP "+P
-nnoremap cpp "+yy
 
 
-" Other bindings
-noremap <leader>z :source $HOME/.config/nvim/init.vim<Enter>
-nnoremap <leader>r :noh<CR>
 map <leader>c :w! \| !clear && compiler <c-r>%<CR>
 map <C-p> :!clear && printVim <c-r>%<CR><CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 tnoremap <C-w> <C-\><C-n>
-" ctags mappings
+nnoremap <leader>un :UndotreeToggle<cr>
 nmap gD <C-]>
 nmap gb <C-T>
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map Q :q!<CR>
-
 map <leader>acl :set list!<CR>
+map <leader>f :Lexplore<CR>
+
 tnoremap ,, <C-\><C-n>
-nnoremap <leader>un :UndotreeToggle<cr>
+function! Toggle_transparent()
+    if g:is_transparent == 0
+        hi Normal guibg=NONE ctermbg=NONE
+	let g:is_transparent = 1
+    else
+        set background=dark
+	let g:is_transparent = 0
+    endif
+endfunction
