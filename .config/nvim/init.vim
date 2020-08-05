@@ -19,7 +19,6 @@ call plug#end()
 source $HOME/.config/nvim/basic.vim
 source $HOME/.config/nvim/git.vim
 source $HOME/.config/nvim/coc.vim
-source $HOME/.config/nvim/latex.vim
 source $HOME/.config/nvim/commentry.vim
 source $HOME/.config/nvim/colorscheme.vim
 source $HOME/.config/nvim/fzf.vim

@@ -34,7 +34,7 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 imap ,, <Plug>(coc-snippets-expand-jump)
-noremap gd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 autocmd FileType java nnoremap <leader>i :CocCommand java.action.organizeImports<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)

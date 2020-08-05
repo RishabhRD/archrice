@@ -31,6 +31,7 @@ map <C-c> :w! \| !clear && compiler <c-r>%<CR>
 map <C-p> :!clear && printVim <c-r>%<CR><CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 tnoremap <C-w> <C-\><C-n>
+tnoremap ,, <C-\><C-n>
 nnoremap <leader>un :UndotreeToggle<cr>
 nmap gD <C-]>
 nmap gB <C-T>
@@ -52,4 +53,3 @@ augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
-
