@@ -1,1 +1,1 @@
-cat $HOME/Pictures/.curwal > $HOME/Pictures/.startwal
+cat $HOME/Pictures/.curwal > $HOME/Pictures/.startWal
