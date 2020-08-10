@@ -37,8 +37,8 @@ nmap gD <C-]>
 nmap gB <C-T>
 map Q :q!<CR>
 map <leader>acl :set list!<CR>
-nmap <leader>f :Vex<CR>
-nmap <leader>ef :Ex<CR>
+nmap <leader>f :Ex<CR>
+nmap <leader>ef :Vex<CR>
 map <leader>h <C-w>h
 map <leader>l <C-w>l
 map <leader>k <C-w>k

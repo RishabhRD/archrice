@@ -23,3 +23,4 @@ source $HOME/.config/nvim/commentry.vim
 source $HOME/.config/nvim/colorscheme.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/vimspector.vim
+source $HOME/.config/nvim/airline.vim
