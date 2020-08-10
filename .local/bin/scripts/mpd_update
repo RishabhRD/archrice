@@ -7,4 +7,5 @@ mpd_file_update ~/Music/new
 mpd_file_update ~/Music/bhajan
 mpd_file_update ~/Music/old
 mpd_file_update ~/Music/bhojpuri
+mpd_file_update ~/Music/foreign
 mpc update

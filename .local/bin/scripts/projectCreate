@@ -3,18 +3,20 @@
 [[ -z $1 ]] && exit 0
 
 if [[ "$1" == "gradle" ]]; then
+	printf "Project name: "
+	read -r project
+	mkdir -p $project || exit
+	cd $project
+	printf "Main class: "
+	read -r project
 	mkdir -p src/main/java
 	mkdir -p src/main/resources
-	if [[ -z "$2" ]]; then
-		cp ~/Templates/build.gradle .
-	elif [[ "$2" == "jar" ]]; then
-		read -r input
-		printf "plugins{\n\tid 'java'\n}\njar {\n\tmanifest {\n\t\tattributes 'Main-Class': '$input'\n\t}\n}\n" > build.gradle
-		folder="$(echo $input | sed "s/\./\//g" | xargs dirname)"
-		mkdir -p src/main/java/$folder
-		printf "bin/*\n.project\n.gradle/*\n.settings/*\n.classpath\nbuild/*\n" > .gitignore
-		printf "build/*\nbin/*\nsrc/test/*\n" > .fdignore
-	fi
+	printf "bin/*\n.project\n.gradle/*\n.settings/*\n.classpath\nbuild/*\n" > .gitignore
+	printf "plugins{\n\tid 'java'\n}\njar {\n\tmanifest {\n\t\tattributes 'Main-Class': '$project'\n\t}\n}\n" > build.gradle
+	folder="$(echo $project | sed "s/\./\//g" | xargs dirname)"
+	class="$(echo $project | sed "s/\./\//g" | xargs basename)"
+	mkdir -p src/main/java/$folder
+	touch src/main/java/$folder/$class.java
 elif [ "$1" == "cpp" ] || [ "$1" = "c"]; then
 	printf "Project name: "
 	read -r pname
