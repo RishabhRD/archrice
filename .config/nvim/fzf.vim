@@ -1,5 +1,5 @@
 nnoremap <leader>p :GitFiles<CR>
-nnoremap <leader><leader>p :GitFiles<CR>
+nnoremap <A-p> :Files<CR>
 nnoremap <leader>bl :Rg<CR>
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <C-y> :History:<CR>
