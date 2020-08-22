@@ -7,6 +7,7 @@ if [[ "$1" == "gradle" ]]; then
 	read -r project
 	mkdir -p $project || exit
 	cd $project
+	git init
 	printf "Main class: "
 	read -r project
 	mkdir -p src/main/java
