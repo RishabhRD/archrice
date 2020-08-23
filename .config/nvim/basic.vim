@@ -3,7 +3,8 @@ let mapleader =" "
 syntax on
 set colorcolumn=80
 set noswapfile
-set tabstop=4 shiftwidth=4
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set number relativenumber
 set nohlsearch incsearch
 set autoread
