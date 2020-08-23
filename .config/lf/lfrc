@@ -53,6 +53,13 @@ cmd openShell ${{
 	$SHELL
 }}
 
+cmd clipPaste ${{
+	sourceFile=`xclip -out -selection clipboard`
+	destFile="`pwd`"
+	destFile="${destFile}/"
+	cp $sourceFile $destFile
+}}
+
 cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
 map cw push :rename<space>
 map a push :rename<space>$f<space>
@@ -171,3 +178,4 @@ map sf pickMailFile
 map si pickMailImage
 map sd exportMailDirectory
 map V selectImage
+map pP clipPaste
