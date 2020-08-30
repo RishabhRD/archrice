@@ -34,3 +34,9 @@ nmap <silent> <leader>en <Plug>(coc-diagnostic-next)
 nmap <leader>t :CocCommand terminal.Toggle<CR>
 autocmd FileType cpp nmap <leader>gh :CocCommand clangd.switchSourceHeader<CR>
 autocmd FileType c nmap <leader>gh :CocCommand clangd.switchSourceHeader<CR>
+nmap <leader>as :CocSearch 
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
