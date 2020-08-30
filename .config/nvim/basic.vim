@@ -19,7 +19,6 @@ set termguicolors
 set smartindent
 set inccommand=nosplit
 set noshowmode
-set cmdheight=2
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
