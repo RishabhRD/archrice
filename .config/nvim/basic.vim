@@ -2,23 +2,16 @@ map <Space> <NOP>
 let mapleader =" "
 syntax on
 set colorcolumn=80
-set noswapfile
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=4 softtabstop=4 shiftwidth=4
 set number relativenumber
 set nohlsearch incsearch
-set autoread
-set undofile
-set hidden
-set updatetime=50
-set nobackup
-set nowrap
-set shortmess+=c
-set smartcase
-set termguicolors
-set smartindent
 set inccommand=nosplit
-set noshowmode
+set autoread undofile hidden
+set updatetime=50
+set shortmess+=c
+set smartcase smartindent
+set noswapfile noshowmode nobackup nowrap
+set termguicolors
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
