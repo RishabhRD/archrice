@@ -40,14 +40,14 @@ map Q :q!<CR>
 map <leader>acl :set list!<CR>
 nmap <leader>f :Ex<CR>
 nmap <leader>ef :Vex<CR>
-map <leader>h <C-w>h
-map <leader>l <C-w>l
-map <leader>k <C-w>k
-map <leader>j <C-w>j
-map <C-h> :vertical resize -3<CR>
-map <C-l> :vertical resize +3 <CR>
-map <C-k> :resize +3<CR>
-map <C-j> :resize -3<CR>
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+map <A-h> :vertical resize -3<CR>
+map <A-l> :vertical resize +3 <CR>
+map <A-k> :resize +3<CR>
+map <A-j> :resize -3<CR>
 
 " Nightly build
 augroup highlight_yank
