@@ -27,8 +27,6 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 tnoremap <C-w> <C-\><C-n>
 tnoremap ,, <C-\><C-n>
 nnoremap <leader>un :UndotreeToggle<cr>
-nmap gD <C-]>
-nmap gB <C-T>
 map Q :q!<CR>
 map <leader>acl :set list!<CR>
 nmap <leader>f :Ex<CR>
