@@ -35,6 +35,7 @@ nmap <leader>t :CocCommand terminal.Toggle<CR>
 autocmd FileType cpp nmap <leader>gh :CocCommand clangd.switchSourceHeader<CR>
 autocmd FileType c nmap <leader>gh :CocCommand clangd.switchSourceHeader<CR>
 nmap <leader>as :CocSearch 
+nmap <silent> <leader>= :call CocAction('format')<CR>
 if exists('*complete_info')
   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else

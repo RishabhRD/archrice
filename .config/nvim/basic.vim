@@ -9,7 +9,7 @@ set inccommand=nosplit
 set autoread undofile hidden
 set updatetime=50
 set shortmess+=c
-set smartcase smartindent
+set smartcase smartindent ignorecase
 set noswapfile noshowmode nobackup nowrap
 set termguicolors
 let g:netrw_banner = 0
