@@ -40,7 +40,7 @@ androiddmenuconnect(){
 		pkill droidcam-cli
 		rm /tmp/androidcampid
 	else
-		ip=$(echo "192.168.43.1" | dmenu -p "Enter phone IP: ")
+		ip=$(echo "127.0.0.1" | dmenu -p "Enter phone IP: ")
 		if [[ -z $ip ]]; then
 			return
 		fi
