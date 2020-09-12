@@ -1,0 +1,2 @@
+find ~/.config/nvim/ -maxdepth 1 -mindepth 1 | grep -v "plugged" | grep -v ".netrwhist" | xargs rm -rf
+cp -r ~/git/archrice/.config/nvim/* ~/.config/nvim/
