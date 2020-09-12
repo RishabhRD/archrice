@@ -11,7 +11,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'puremourning/vimspector'
 Plug 'mbbill/undotree'
 Plug 'gruvbox-community/gruvbox'
-Plug 'vim-utils/vim-man'
 Plug 'flazz/vim-colorschemes'
 call plug#end()
 
