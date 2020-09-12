@@ -24,6 +24,8 @@ nnoremap zP "+P
 map <C-c> :w! \| !clear && compiler <c-r>%<CR>
 map <C-p> :!clear && printVim <c-r>%<CR><CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command Dot :execute ':!dotInstall'
+command So :execute ':so $HOME/.config/nvim/init.vim' | :edit!
 tnoremap <C-w> <C-\><C-n>
 tnoremap ,, <C-\><C-n>
 nnoremap <leader>un :UndotreeToggle<cr>
