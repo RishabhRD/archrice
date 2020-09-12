@@ -1,5 +1,0 @@
-{
-	"clangd.arguments": [
-		"--completion-style=detailed"
-	]
-}
