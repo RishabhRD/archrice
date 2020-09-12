@@ -1,5 +1,6 @@
 {
 	"clangd.arguments": [
-		"--completion-style=detailed"
+		"--completion-style=detailed",
+		"--std=c++17"
 	]
 }
