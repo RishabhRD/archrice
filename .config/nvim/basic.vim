@@ -1,6 +1,6 @@
 map <Space> <NOP>
 let mapleader =" "
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noselect,longest
 syntax on
 set colorcolumn=80
 set tabstop=4 softtabstop=4 shiftwidth=4
