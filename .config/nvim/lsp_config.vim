@@ -15,5 +15,3 @@ nnoremap <leader>af <cmd>lua print(vim.lsp.util.get_line_diagnostics())<CR>
 nnoremap <leader>ai <cmd>lua organize_imports(300)<CR>
 nnoremap <leader>as <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <leader>af <cmd>lua quickfix(300)<CR>
-
-autocmd BufWritePost * lua vim.lsp.buf.formatting()

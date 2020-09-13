@@ -40,8 +40,8 @@ map <C-k> <C-w>k
 map <C-j> <C-w>j
 map <A-h> :vertical resize -3<CR>
 map <A-l> :vertical resize +3 <CR>
-map <A-k> :resize +3<CR>
-map <A-j> :resize -3<CR>
+map - :resize -3<CR>
+map + :resize +3<CR>
 
 " Nightly build
 augroup highlight_yank
