@@ -32,7 +32,7 @@ local custom_attach = function(client)
 	map('n','<leader>i', '<cmd>lua vim.lsp.buf.code_action({ source = { organizeImports = true } })<CR>')
 end
 
-lsp.tsserver.setup{on_attach=on_attach_common}
+lsp.tsserver.setup{on_attach=custom_attach}
 
 lsp.sumneko_lua.setup{
 	on_attach=on_attach_common,
@@ -57,3 +57,9 @@ lsp.sumneko_lua.setup{
 lsp.jdtls.setup{
 	on_attach = custom_attach,
 }
+
+local strategy = {}
+strategy[1] = 'exact'
+strategy[2] = 'substring'
+strategy[3] = 'fuzzy'
+vim.g.completion_matching_strategy_list = strategy
