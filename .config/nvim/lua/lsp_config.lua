@@ -2,7 +2,7 @@ local lsp = require'nvim_lsp'
 
 local popup_buffer = {}
 
-reference_handler = function()
+Reference_handler = function()
 	local params = vim.lsp.util.make_position_params()
 	params.context = { includeDeclaration = true }
 
@@ -40,7 +40,7 @@ local popup_closed = function(buffer,line,selected)
 	popup_buffer[buffer] = nil
 end
 
-code_action_handler = function()
+Code_action_handler = function()
 	local context = { diagnostics = vim.lsp.util.get_line_diagnostics() }
 	local params = vim.lsp.util.make_range_params()
 	params.context = context
@@ -49,9 +49,16 @@ code_action_handler = function()
 		print("No code actions available")
 		return
 	end
+	if lsp_result[1] == nil then
+		print("No code actions available")
+	end
 	local actions = {}
 	local index = 1
 	for _,clientActions in ipairs(lsp_result) do
+		if clientActions.result == nil then
+			print("No code actions available")
+			return
+		end
 		for _,possibleActions in ipairs(clientActions.result) do
 			actions[index] = possibleActions
 			index = index + 1
@@ -83,13 +90,13 @@ local on_attach_common = function(client)
 	map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
 	map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
 	map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
-	map('n','gr','<cmd>lua require\'lsp_config\'reference_handler()<CR><cmd>wincmd p<CR>')
+	map('n','gr','<cmd>lua require\'lsp_config\'Reference_handler()<CR><cmd>wincmd p<CR>')
 	map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
 	map('n','<leader>gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
 	map('n','<leader>gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
 	map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 	map('n','<leader>as','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-	map('n','<leader>af', '<cmd>lua code_action_handler()<CR>')
+	map('n','<leader>af', '<cmd>lua Code_action_handler()<CR>')
 	map('n','<leader>aF', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 	map('n','<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
 	-- if diagnostic plugin is installed
