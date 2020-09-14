@@ -1,6 +1,8 @@
 local lsp = require'nvim_lsp'
 
-reference_handler = function(opts)
+local popup_buffer = {}
+
+reference_handler = function()
 	local params = vim.lsp.util.make_position_params()
 	params.context = { includeDeclaration = true }
 
@@ -20,6 +22,55 @@ reference_handler = function(opts)
 	vim.api.nvim_command("wincmd p")
 end
 
+local popup_closed = function(buffer,line,selected)
+	if selected then
+		local actions = popup_buffer[buffer]
+		local action = actions[line]
+		if action.edit or type(action.command) == "table" then
+			if action.edit then
+				vim.util.apply_workspace_edit(action.edit)
+			end
+			if type(action.command) == "table" then
+				vim.lsp.buf.execute_command(action.command)
+			end
+		else
+			vim.lsp.buf.execute_command(action)
+		end
+	end
+	popup_buffer[buffer] = nil
+end
+
+code_action_handler = function()
+	local context = { diagnostics = vim.lsp.util.get_line_diagnostics() }
+	local params = vim.lsp.util.make_range_params()
+	params.context = context
+	local lsp_result = vim.lsp.buf_request_sync(0,'textDocument/codeAction',params,1000)
+	if lsp_result == nil or vim.tbl_isempty(lsp_result) then
+		print("No code actions available")
+		return
+	end
+	local actions = {}
+	local index = 1
+	for _,clientActions in ipairs(lsp_result) do
+		for _,possibleActions in ipairs(clientActions.result) do
+			actions[index] = possibleActions
+			index = index + 1
+		end
+	end
+	if actions == nil or vim.tbl_isempty(actions) then
+		print("No code actions available")
+		return
+	end
+	local data = {}
+	for i, action in ipairs(actions) do
+		local title = action.title:gsub('\r\n', '\\r\\n')
+		title = title:gsub('\n','\\n')
+		data[i] = title
+	end
+	local buf = require'popfix'.popup_window(data,popup_closed)
+	popup_buffer[buf] = actions
+end
+
 local map = function(type, key, value)
 	vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
 end
@@ -32,19 +83,20 @@ local on_attach_common = function(client)
 	map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
 	map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
 	map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
-	map('n','gr','<cmd>lua reference_handler()<CR><cmd>wincmd p<CR>')
+	map('n','gr','<cmd>lua require\'lsp_config\'reference_handler()<CR><cmd>wincmd p<CR>')
 	map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
 	map('n','<leader>gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
 	map('n','<leader>gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
 	map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 	map('n','<leader>as','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-	map('n','<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+	map('n','<leader>af', '<cmd>lua code_action_handler()<CR>')
+	map('n','<leader>aF', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+	map('n','<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
 	-- if diagnostic plugin is installed
-	map('n','<leader>dp','<cmd>PrevDiagnostic<CR>')
-	map('n','<leader>dn','<cmd>NextDiagnostic<CR>')
-	map('n','<leader>dP','<cmd>PrevDiagnosticCycle<CR>')
-	map('n','<leader>dN','<cmd>NextDiagnosticCycle<CR>')
-	map('n','<leader>dd', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+	map('n','<leader>ep','<cmd>PrevDiagnostic<CR>')
+	map('n','<leader>en','<cmd>NextDiagnostic<CR>')
+	map('n','<leader>eP','<cmd>PrevDiagnosticCycle<CR>')
+	map('n','<leader>eN','<cmd>NextDiagnosticCycle<CR>')
 end
 
 local custom_attach = function(client)
@@ -78,9 +130,11 @@ lsp.jdtls.setup{
 	on_attach = custom_attach,
 }
 
+
 local strategy = {}
 strategy[1] = 'exact'
 strategy[2] = 'substring'
 strategy[3] = 'fuzzy'
 vim.g.completion_matching_strategy_list = strategy
-vim.g.diagnostic_enable_underline = 0
+vim.g.diagnostic_enable_virtual_text = 1
+vim.g.space_before_virtual_text = 5
