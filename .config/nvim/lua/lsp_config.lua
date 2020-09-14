@@ -1,5 +1,25 @@
 local lsp = require'nvim_lsp'
 
+reference_handler = function(opts)
+	local params = vim.lsp.util.make_position_params()
+	params.context = { includeDeclaration = true }
+
+	local results_lsp = vim.lsp.buf_request_sync(0,'textDocument/references',params,1000)
+	local locations = {}
+	for _, server_results in pairs(results_lsp) do
+		vim.list_extend(locations,vim.lsp.util.locations_to_items(server_results.result) or {})
+	end
+
+	if vim.tbl_isempty(locations) then
+		print("no references found.")
+		return
+	end
+
+	vim.lsp.util.set_qflist(locations)
+	vim.api.nvim_command("copen")
+	vim.api.nvim_command("wincmd p")
+end
+
 local map = function(type, key, value)
 	vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
 end
@@ -12,8 +32,8 @@ local on_attach_common = function(client)
 	map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
 	map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
 	map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
-	map('n','gr','<cmd>lua vim.lsp.buf.references()<CR><cmd>wincmd p<CR>')
-	map('n','<C-k>','<cmd>lua vim.lsp.buf.signature_help()<CR>')
+	map('n','gr','<cmd>lua reference_handler()<CR><cmd>wincmd p<CR>')
+	map('n','<leader>gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
 	map('n','<leader>gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
 	map('n','<leader>gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
 	map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
@@ -63,3 +83,4 @@ strategy[1] = 'exact'
 strategy[2] = 'substring'
 strategy[3] = 'fuzzy'
 vim.g.completion_matching_strategy_list = strategy
+vim.g.diagnostic_enable_underline = 0
