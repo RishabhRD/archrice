@@ -1,5 +1,6 @@
 "Plugins
 call plug#begin()
+Plug 'nvim-lua/diagnostic-nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'honza/vim-snippets'
