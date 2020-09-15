@@ -28,7 +28,7 @@ local popup_closed = function(buffer,line,selected)
 		local action = actions[line]
 		if action.edit or type(action.command) == "table" then
 			if action.edit then
-				vim.util.apply_workspace_edit(action.edit)
+				vim.lsp.util.apply_workspace_edit(action.edit)
 			end
 			if type(action.command) == "table" then
 				vim.lsp.buf.execute_command(action.command)
@@ -40,30 +40,7 @@ local popup_closed = function(buffer,line,selected)
 	popup_buffer[buffer] = nil
 end
 
-Code_action_handler = function()
-	local context = { diagnostics = vim.lsp.util.get_line_diagnostics() }
-	local params = vim.lsp.util.make_range_params()
-	params.context = context
-	local lsp_result = vim.lsp.buf_request_sync(0,'textDocument/codeAction',params,1000)
-	if lsp_result == nil or vim.tbl_isempty(lsp_result) then
-		print("No code actions available")
-		return
-	end
-	if lsp_result[1] == nil then
-		print("No code actions available")
-	end
-	local actions = {}
-	local index = 1
-	for _,clientActions in ipairs(lsp_result) do
-		if clientActions.result == nil then
-			print("No code actions available")
-			return
-		end
-		for _,possibleActions in ipairs(clientActions.result) do
-			actions[index] = possibleActions
-			index = index + 1
-		end
-	end
+local code_action_handler = function(_,_,actions)
 	if actions == nil or vim.tbl_isempty(actions) then
 		print("No code actions available")
 		return
@@ -91,13 +68,13 @@ local on_attach_common = function(client)
 	map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
 	map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
 	map('n','gr','<cmd>lua require\'lsp_config\'Reference_handler()<CR><cmd>wincmd p<CR>')
+	map('n','<leader>i','<cmd>lua require\'lsp_config\'.Organize_imports()')
 	map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
 	map('n','<leader>gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
 	map('n','<leader>gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
 	map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 	map('n','<leader>as','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-	map('n','<leader>af', '<cmd>lua Code_action_handler()<CR>')
-	map('n','<leader>aF', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+	map('n','<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 	map('n','<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
 	-- if diagnostic plugin is installed
 	map('n','<leader>ep','<cmd>PrevDiagnostic<CR>')
@@ -137,6 +114,7 @@ lsp.jdtls.setup{
 	on_attach = custom_attach,
 }
 
+vim.lsp.callbacks['textDocument/codeAction'] = code_action_handler
 
 local strategy = {}
 strategy[1] = 'exact'
