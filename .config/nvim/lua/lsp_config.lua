@@ -2,27 +2,26 @@ local lsp = require'nvim_lsp'
 
 local popup_buffer = {}
 
-Reference_handler = function()
-	local params = vim.lsp.util.make_position_params()
-	params.context = { includeDeclaration = true }
-
-	local results_lsp = vim.lsp.buf_request_sync(0,'textDocument/references',params,1000)
-	local locations = {}
-	for _, server_results in pairs(results_lsp) do
-		vim.list_extend(locations,vim.lsp.util.locations_to_items(server_results.result) or {})
-	end
-
-	if vim.tbl_isempty(locations) then
-		print("no references found.")
-		return
-	end
-
-	vim.lsp.util.set_qflist(locations)
-	vim.api.nvim_command("copen")
-	vim.api.nvim_command("wincmd p")
+local reference_handler = function(_,_,result)
+	require'popfix.preview'.popup_preview(result)
 end
 
-local popup_closed = function(buffer,line,selected)
+local definition_handler = function(_,_,result)
+	if result == nil or vim.tbl_isempty(result) then
+		return
+	end
+	if vim.tbl_islist(result) then
+		if #result > 1 then
+			require'popfix.preview'.popup_preview(result)
+		else
+			vim.lsp.util.jump_to_location(result[1])
+		end
+	else
+		vim.lsp.util.jump_to_location(result)
+	end
+end
+
+local popup_closed = function(buffer,selected,line)
 	if selected then
 		local actions = popup_buffer[buffer]
 		local action = actions[line]
@@ -51,7 +50,7 @@ local code_action_handler = function(_,_,actions)
 		title = title:gsub('\n','\\n')
 		data[i] = title
 	end
-	local buf = require'popfix'.popup_window(data,popup_closed)
+	local buf = require'popfix.popup'.popup_window(data,popup_closed)
 	popup_buffer[buf] = actions
 end
 
@@ -67,7 +66,7 @@ local on_attach_common = function(client)
 	map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
 	map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
 	map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
-	map('n','gr','<cmd>lua require\'lsp_config\'Reference_handler()<CR><cmd>wincmd p<CR>')
+	map('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
 	map('n','<leader>i','<cmd>lua require\'lsp_config\'.Organize_imports()')
 	map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
 	map('n','<leader>gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
@@ -115,6 +114,8 @@ lsp.jdtls.setup{
 }
 
 vim.lsp.callbacks['textDocument/codeAction'] = code_action_handler
+vim.lsp.callbacks['textDocument/references'] = reference_handler
+vim.lsp.callbacks['textDocument/definition'] = definition_handler
 
 local strategy = {}
 strategy[1] = 'exact'
