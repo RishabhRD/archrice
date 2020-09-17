@@ -3,6 +3,9 @@ local lsp = require'nvim_lsp'
 local popup_buffer = {}
 
 local reference_handler = function(_,_,result)
+	if result == nil or vim.tbl_isempty(result) then
+		return
+	end
 	require'popfix.preview'.popup_preview(result)
 end
 
