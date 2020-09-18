@@ -1,5 +1,6 @@
 "Plugins
 call plug#begin()
+Plug 'RishabhRD/nvim-lsputils'
 Plug 'RishabhRD/popfix'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
