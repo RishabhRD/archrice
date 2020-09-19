@@ -1,7 +1,9 @@
 map <Space> <NOP>
 let mapleader =" "
+set completeopt=menuone,noselect,longest
 syntax on
 set colorcolumn=80
+set signcolumn=yes
 set tabstop=4 softtabstop=4 shiftwidth=4
 set number relativenumber
 set nohlsearch incsearch
@@ -39,8 +41,8 @@ map <C-k> <C-w>k
 map <C-j> <C-w>j
 map <A-h> :vertical resize -3<CR>
 map <A-l> :vertical resize +3 <CR>
-map <A-k> :resize +3<CR>
-map <A-j> :resize -3<CR>
+map - :resize -3<CR>
+map + :resize +3<CR>
 
 " Nightly build
 augroup highlight_yank
