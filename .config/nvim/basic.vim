@@ -71,5 +71,5 @@ function! TermToggle(height)
         let g:term_win = win_getid()
     endif
 endfunction
-nnoremap <A-t> :call TermToggle(15)<CR>
+nnoremap <leader>t :call TermToggle(15)<CR>
 tnoremap <A-t> <C-\><C-n>:call TermToggle(15)<CR>
