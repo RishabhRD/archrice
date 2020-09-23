@@ -38,13 +38,15 @@ end
 
 local custom_attach = function(client)
 	on_attach_common(client)
-	map('n','<leader>i', '<cmd>lua vim.lsp.buf.code_action({ source = { organizeImports = true } })<CR>')
+	map('n','<leader>i', '<cmd>lua vim.lsp.buf.code_action({source = { organizeImports = true }})<CR>')
 end
 
 lsp.tsserver.setup{on_attach=custom_attach}
 
+lsp.gopls.setup{on_attach=custom_attach}
+
 lsp.sumneko_lua.setup{
-	on_attach=on_attach_common,
+	on_attach=custom_attach,
 	settings = {
 		Lua = {
 			runtime = { version = "LuaJIT", path = vim.split(package.path, ';'), },
@@ -70,6 +72,9 @@ lsp.jdtls.setup{
 require'nvim_lsp'.clangd.setup{
 	on_attach = custom_attach,
 }
+require'nvim_lsp'.pyls.setup{
+	on_attach = custom_attach,
+}
 
 local strategy = { 'exact', 'substring', 'fuzzy' }
 vim.g.completion_matching_strategy_list = strategy
@@ -78,6 +83,10 @@ vim.g.space_before_virtual_text = 5
 
 vim.lsp.callbacks['textDocument/codeAction'] =
 require'lsputil.codeAction'.code_action_handler
+-- vim.lsp.callbacks['textDocument/codeAction'] =
+-- function(_,_,action)
+-- 	print(vim.inspect(action))
+-- end
 
 vim.lsp.callbacks['textDocument/references'] =
 require'lsputil.locations'.references_handler
