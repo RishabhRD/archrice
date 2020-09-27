@@ -30,4 +30,5 @@ source $HOME/.config/nvim/vimspector.vim
 source $HOME/.config/nvim/airline.vim
 source $HOME/.config/nvim/latex.vim
 source $HOME/.config/nvim/fzf.vim
+source $HOME/.config/nvim/snippets.vim
 lua require("lsp_config")
