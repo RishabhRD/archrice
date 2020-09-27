@@ -109,4 +109,3 @@ require'lsputil.symbols'.document_handler
 vim.lsp.callbacks['workspace/symbol'] =
 require'lsputil.symbols'.workspace_handler
 
-vim.g.completion_enable_snippet = 'UltiSnips'
