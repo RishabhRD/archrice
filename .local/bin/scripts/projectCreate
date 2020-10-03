@@ -1,5 +1,11 @@
 #!/bin/sh
 
+function help(){
+  echo "usage: projectCreate -l lang -p projectName -c className"
+  echo "optional : -g intialise a git repo inside project folder"
+  echo "         : -h show this help message"
+}
+
 [[ -z $1 ]] && help
 
 git_init='false'
@@ -27,15 +33,9 @@ while getopts "l:hgp:c:e:" flag; do
     esac
 done
 
-echo $git_init
-echo $lang
-echo "$project_name"
-echo "$class_name"
 
 function gradle_init(){ # pass project name and class name
 
-    echo "$project_name"
-    echo "$class_name"
 
   [[  -z $project_name || -z $class_name ]] && help && exit
 
@@ -151,7 +151,6 @@ function cpp_init(){ # pass pname and exe_name
 function py_init(){
 
   [[  -z "$project_name" ]] && help && exit
-  echo $project_name
   mkdir $project_name || exit
   _project_name=$(echo $project_name | sed -e 's/-/_/g')
   mkdir -p $project_name/docs
@@ -170,11 +169,6 @@ function py_init(){
 
 }
 
-function help(){
-  echo "usage: projectCreate -l lang -p projectName -c className"
-  echo "optional : -g intialise a git repo inside project folder"
-  echo "         : -h show this help message"
-}
 
 case $lang in
   py )
