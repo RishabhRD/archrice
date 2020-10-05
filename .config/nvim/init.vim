@@ -16,6 +16,7 @@ Plug 'mbbill/undotree'
 Plug 'gruvbox-community/gruvbox'
 Plug 'flazz/vim-colorschemes'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/playground' "Just for testing purpose
 call plug#end()
 
 
