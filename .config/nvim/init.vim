@@ -11,11 +11,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-commentary'
-Plug 'sheerun/vim-polyglot'
 Plug 'puremourning/vimspector'
 Plug 'mbbill/undotree'
 Plug 'gruvbox-community/gruvbox'
 Plug 'flazz/vim-colorschemes'
+Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
 
@@ -31,3 +31,4 @@ source $HOME/.config/nvim/latex.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/snippets.vim
 lua require("lsp_config")
+lua require("ts_config")
