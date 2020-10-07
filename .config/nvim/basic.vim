@@ -14,6 +14,7 @@ set shortmess+=c
 set smartcase smartindent ignorecase
 set noswapfile noshowmode nobackup nowrap
 set termguicolors
+set splitbelow splitright
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
