@@ -85,5 +85,5 @@ nnoremap <A-6> <cmd>tabn 6<CR>
 nnoremap <A-7> <cmd>tabn 7<CR>
 nnoremap <A-8> <cmd>tabn 8<CR>
 nnoremap <A-9> <cmd>tabn 9<CR>
-nnoremap <A-h> <cmd>tabprev<CR>
-nnoremap <A-l> <cmd>tabnext<CR>
+nnoremap <A-n> <cmd>tabprev<CR>
+nnoremap <A-p> <cmd>tabprev<CR>
