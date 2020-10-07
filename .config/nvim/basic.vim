@@ -73,3 +73,17 @@ function! TermToggle(height)
 endfunction
 nnoremap <leader>t :call TermToggle(15)<CR>
 tnoremap <A-t> <C-\><C-n>:call TermToggle(15)<CR>
+
+
+" Tabs configuration
+nnoremap <A-1> <cmd>tabn 1<CR>
+nnoremap <A-2> <cmd>tabn 2<CR>
+nnoremap <A-3> <cmd>tabn 3<CR>
+nnoremap <A-4> <cmd>tabn 4<CR>
+nnoremap <A-5> <cmd>tabn 5<CR>
+nnoremap <A-6> <cmd>tabn 6<CR>
+nnoremap <A-7> <cmd>tabn 7<CR>
+nnoremap <A-8> <cmd>tabn 8<CR>
+nnoremap <A-9> <cmd>tabn 9<CR>
+nnoremap <A-h> <cmd>tabprev
+nnoremap <A-l> <cmd>tabnext
