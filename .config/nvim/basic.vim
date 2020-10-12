@@ -53,6 +53,7 @@ augroup END
 
 autocmd CursorMoved,CursorMovedI * set nohlsearch
 nnoremap <silent> n n:set hlsearch<cr>
+nnoremap <silent> N n:set hlsearch<cr>
 
 
 let g:term_buf = 0
