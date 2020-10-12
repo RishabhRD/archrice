@@ -6,7 +6,7 @@ set colorcolumn=80
 set signcolumn=yes
 set tabstop=4 softtabstop=4 shiftwidth=4
 set number relativenumber
-set nohlsearch incsearch
+set hlsearch incsearch
 set inccommand=nosplit
 set autoread undofile hidden
 set updatetime=50
@@ -47,30 +47,34 @@ map + :resize +3<CR>
 
 " Nightly build
 augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+	autocmd!
+	autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
+
+autocmd CursorMoved,CursorMovedI * set nohlsearch
+nnoremap <silent> n n:set hlsearch<cr>
+
 
 let g:term_buf = 0
 let g:term_win = 0
 function! TermToggle(height)
-    if win_gotoid(g:term_win)
-        hide
-    else
-        botright new
-        exec "resize " . a:height
-        try
-            exec "buffer " . g:term_buf
-        catch
-            call termopen($SHELL, {"detach": 0})
-            let g:term_buf = bufnr("")
-            set nonumber
-            set norelativenumber
-            set signcolumn=no
-        endtry
-        startinsert!
-        let g:term_win = win_getid()
-    endif
+	if win_gotoid(g:term_win)
+		hide
+	else
+		botright new
+		exec "resize " . a:height
+		try
+			exec "buffer " . g:term_buf
+		catch
+			call termopen($SHELL, {"detach": 0})
+			let g:term_buf = bufnr("")
+			set nonumber
+			set norelativenumber
+			set signcolumn=no
+		endtry
+		startinsert!
+		let g:term_win = win_getid()
+	endif
 endfunction
 nnoremap <leader>t :call TermToggle(15)<CR>
 tnoremap <A-t> <C-\><C-n>:call TermToggle(15)<CR>
