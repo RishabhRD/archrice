@@ -18,6 +18,7 @@ let g:netrw_banner = 0
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
 
+inoremap <C-f> <C-x><C-f>
 vmap <leader>p "_dP
 vmap cp "+y
 nnoremap cp "+y
