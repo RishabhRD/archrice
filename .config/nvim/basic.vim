@@ -6,7 +6,7 @@ set colorcolumn=80
 set signcolumn=yes
 set tabstop=4 softtabstop=4 shiftwidth=4
 set number relativenumber
-set hlsearch incsearch
+set incsearch
 set inccommand=nosplit
 set autoread undofile hidden
 set updatetime=50
@@ -52,9 +52,9 @@ augroup highlight_yank
 	autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 
-autocmd CursorMoved,CursorMovedI * set nohlsearch
-nnoremap <silent> n n:set hlsearch<cr>
-nnoremap <silent> N n:set hlsearch<cr>
+" autocmd CursorMoved,CursorMovedI * set nohlsearch
+" nnoremap <silent> n n:set hlsearch<cr>
+" nnoremap <silent> N N:set hlsearch<cr>
 
 
 let g:term_buf = 0
