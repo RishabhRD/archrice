@@ -52,9 +52,9 @@ augroup highlight_yank
 	autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 
-" autocmd CursorMoved,CursorMovedI * set nohlsearch
-" nnoremap <silent> n n:set hlsearch<cr>
-" nnoremap <silent> N N:set hlsearch<cr>
+autocmd CursorMoved,CursorMovedI * set nohlsearch
+nnoremap <silent> n n:set hlsearch<cr>
+nnoremap <silent> N N:set hlsearch<cr>
 
 
 let g:term_buf = 0
