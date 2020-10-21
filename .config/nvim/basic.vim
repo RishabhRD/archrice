@@ -12,7 +12,7 @@ set autoread undofile hidden
 set updatetime=50
 set shortmess+=c
 set smartcase smartindent ignorecase
-set noswapfile noshowmode nobackup nowrap
+set noswapfile noshowmode nobackup
 set splitbelow splitright
 let g:netrw_banner = 0
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
