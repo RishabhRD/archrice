@@ -2,10 +2,10 @@ local lsp = require'nvim_lsp'
 local map = function(type, key, value)
 	vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
 end
+vim.cmd('autocmd BufEnter * lua require\'completion\'.on_attach()')
 
-local on_attach_common = function(client)
+local on_attach_common = function(_)
 	print("LSP started.");
-	require'completion'.on_attach(client)
 
 	-- GOTO mappings
 	map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
@@ -29,9 +29,9 @@ local on_attach_common = function(client)
 	map('n','<leader>ai',  '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
 	map('n','<leader>ao',  '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
 
-	-- -- if diagnostic plugin is installed
-	-- map('n','<leader>ep','<cmd>PrevDiagnosticCycle<CR>')
-	-- map('n','<leader>en','<cmd>NextDiagnosticCycle<CR>')
+	-- if diagnostic plugin is installed
+	map('n','<leader>ep','<cmd>PrevDiagnosticCycle<CR>')
+	map('n','<leader>en','<cmd>NextDiagnosticCycle<CR>')
 end
 
 local on_attach_clangd = function(client)
@@ -76,8 +76,63 @@ require'nvim_lsp'.pyls.setup{
 
 local strategy = { 'exact', 'substring', 'fuzzy' }
 vim.g.completion_matching_strategy_list = strategy
--- vim.g.diagnostic_enable_virtual_text = 1
--- vim.g.space_before_virtual_text = 5
+vim.g.diagnostic_enable_virtual_text = 1
+vim.g.completion_auto_change_source = 1
+vim.g.completion_matching_ignore_case = 1
+vim.g.completion_chain_complete_list = {
+  { complete_items = { 'lsp' , 'path' } },
+  { mode = '<c-n>' },
+  { complete_items = { 'snippet'} },
+}
+vim.cmd('imap  <c-j> <Plug>(completion_next_source)')
+vim.cmd('imap  <c-k> <Plug>(completion_prev_source)')
+
+local border_chars = {
+	TOP_LEFT = '┌',
+	TOP_RIGHT = '┐',
+	MID_HORIZONTAL = '─',
+	MID_VERTICAL = '│',
+	BOTTOM_LEFT = '└',
+	BOTTOM_RIGHT = '┘',
+}
+vim.g.lsp_utils_location_opts = {
+	height = 24,
+	mode = 'split',
+	list = {
+		border = true,
+		numbering = true
+	},
+	preview = {
+		title = 'Location Preview',
+		border = true,
+		border_chars = border_chars
+	},
+	keymaps = {
+		n = {
+			['<C-n>'] = 'j',
+			['<C-p>'] = 'k',
+		}
+	}
+}
+vim.g.lsp_utils_symbols_opts = {
+	height = 24,
+	mode = 'editor',
+	list = {
+		border = true,
+		numbering = true,
+	},
+	preview = {
+		title = 'Symbols Preview',
+		border = true,
+		border_chars = border_chars
+	},
+	keymaps = {
+		n = {
+			['<C-n>'] = 'j',
+			['<C-p>'] = 'k',
+		}
+	}
+}
 
 vim.lsp.callbacks['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
 vim.lsp.callbacks['textDocument/references'] = require'lsputil.locations'.references_handler
