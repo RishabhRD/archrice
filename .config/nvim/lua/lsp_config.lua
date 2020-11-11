@@ -80,8 +80,8 @@ vim.g.diagnostic_enable_virtual_text = 1
 vim.g.completion_matching_ignore_case = 0
 vim.g.completion_chain_complete_list = {
   { complete_items = { 'lsp' } },
+  { mode = { '<c-n>', '<c-p>' } },
   { complete_items = { 'path'} },
-  { mode = '<c-n>' },
   { complete_items = { 'snippet'} },
 }
 vim.cmd('imap  <c-j> <Plug>(completion_next_source)')
