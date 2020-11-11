@@ -11,7 +11,6 @@ set inccommand=split
 set autoread undofile hidden
 set updatetime=50
 set shortmess+=c
-set wrap
 set smartcase smartindent ignorecase
 set noswapfile noshowmode nobackup
 set splitbelow splitright

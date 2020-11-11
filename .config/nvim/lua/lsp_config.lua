@@ -77,9 +77,10 @@ require'nvim_lsp'.pyls.setup{
 local strategy = { 'exact', 'substring', 'fuzzy' }
 vim.g.completion_matching_strategy_list = strategy
 vim.g.diagnostic_enable_virtual_text = 1
-vim.g.completion_matching_ignore_case = 1
+vim.g.completion_matching_ignore_case = 0
 vim.g.completion_chain_complete_list = {
-  { complete_items = { 'lsp' , 'path' } },
+  { complete_items = { 'lsp' } },
+  { complete_items = { 'path'} },
   { mode = '<c-n>' },
   { complete_items = { 'snippet'} },
 }
