@@ -9,10 +9,9 @@ set number relativenumber
 set incsearch
 set inccommand=split
 set autoread undofile hidden
-set updatetime=50
 set shortmess+=c
 set smartcase smartindent ignorecase
-set noswapfile noshowmode nobackup
+set noshowmode nobackup
 set splitbelow splitright
 set colorcolumn=80
 " let g:netrw_banner = 0
@@ -29,7 +28,10 @@ map <C-c> :w! \| !clear && compiler <c-r>%<CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command Dot :execute ':!dotInstall'
 command So :execute ':so $HOME/.config/nvim/init.vim' | :edit!
-tnoremap <C-w> <C-\><C-n>
+tnoremap <C-w>j <cmd>wincmd j<CR>
+tnoremap <C-w>k <cmd>wincmd k<CR>
+tnoremap <C-w>h <cmd>wincmd h<CR>
+tnoremap <C-w>l <cmd>wincmd l<CR>
 tnoremap ,, <C-\><C-n>
 nnoremap <leader>un :UndotreeToggle<cr>
 map Q :q!<CR>
