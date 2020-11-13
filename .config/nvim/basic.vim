@@ -3,7 +3,6 @@ let mapleader =" "
 set completeopt=menuone,noselect,longest
 syntax on
 set autoread
-set signcolumn=yes
 set tabstop=4 softtabstop=4 shiftwidth=4
 set number relativenumber
 set incsearch
@@ -11,7 +10,7 @@ set inccommand=split
 set autoread undofile hidden
 set shortmess+=c
 set smartcase smartindent ignorecase
-set noshowmode nobackup
+set noswapfile noshowmode nobackup
 set splitbelow splitright
 set colorcolumn=80
 " let g:netrw_banner = 0

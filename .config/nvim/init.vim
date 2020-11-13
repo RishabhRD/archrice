@@ -16,7 +16,6 @@ Plug 'mbbill/undotree'
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug 'flazz/vim-colorschemes'
-Plug 'nvim-lua/diagnostic-nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/playground' "Just for testing purpose
 Plug 'nvim-lua/popup.nvim'
@@ -28,11 +27,13 @@ Plug 'Th3Whit3Wolf/onebuddy'
 Plug 'tjdevries/gruvbuddy.nvim'
 Plug 'tjdevries/express_line.nvim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'steelsojka/completion-buffers'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'VimDeathmatch/client'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'RishabhRD/nvim-gruvbox'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'glacambre/firenvim'
 call plug#end()
 
 

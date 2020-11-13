@@ -1,9 +1,25 @@
 local lsp = require'nvim_lsp'
+
+-- Utility servers
 local map = function(type, key, value)
 	vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
 end
-vim.cmd('autocmd BufEnter * lua require\'completion\'.on_attach()')
 
+
+
+-- configuring diagnostics
+vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+		underline = true,
+		virtual_text = true,
+		signs = true,
+		update_in_insert = false,
+	}
+)
+
+
+
+-- configuring LSP servers
 local on_attach_common = function(_)
 	print("LSP started.");
 
@@ -17,84 +33,50 @@ local on_attach_common = function(_)
 	map('n','<leader>gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
 	map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
 	map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-
 	-- ACTION mappings
 	map('n','<leader>ah',  '<cmd>lua vim.lsp.buf.hover()<CR>')
 	map('n','<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-	map('n','<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
 	map('n','<leader>ar',  '<cmd>lua vim.lsp.buf.rename()<CR>')
-
 	-- Few language severs support these three
 	map('n','<leader>=',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
 	map('n','<leader>ai',  '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
 	map('n','<leader>ao',  '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+	-- Diagnostics mapping
+	map('n','<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+	map('n','<leader>en', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+	map('n','<leader>ep', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 
-	-- if diagnostic plugin is installed
-	map('n','<leader>ep','<cmd>PrevDiagnosticCycle<CR>')
-	map('n','<leader>en','<cmd>NextDiagnosticCycle<CR>')
 end
-
 local on_attach_clangd = function(client)
 	map('n', '<leader>sh', '<cmd>ClangdSwitchSourceHeader<CR>')
 	on_attach_common(client)
 end
-
-lsp.tsserver.setup{on_attach=on_attach_common}
-
-lsp.gopls.setup{on_attach=on_attach_common}
-
-lsp.sumneko_lua.setup{
-	on_attach=on_attach_common,
-	settings = {
-		Lua = {
-			runtime = { version = "LuaJIT", path = vim.split(package.path, ';'), },
-			completion = { keywordSnippet = "Disable", },
-			diagnostics = { enable = true, globals = {
-				"vim", "describe", "it", "before_each", "after_each" },
-			},
-			workspace = {
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("~/git/neovim/src/nvim/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-				}
-			}
-		}
-	}
-}
-
-lsp.jdtls.setup{
-	on_attach = on_attach_common,
-}
-
-require'nvim_lsp'.clangd.setup{
+lsp.clangd.setup{
 	on_attach = on_attach_clangd
 }
-require'nvim_lsp'.pyls.setup{
+lsp.tsserver.setup{on_attach=on_attach_common}
+lsp.gopls.setup{on_attach=on_attach_common}
+lsp.pyls.setup{
 	on_attach = on_attach_common,
 }
+lsp.sumneko_lua.setup({
+	settings = {
+		Lua = {
+			diagnostics = {
+				enable = true,
+				globals = { "vim" },
+			},
+		}
+	},
 
-local strategy = { 'exact', 'substring', 'fuzzy' }
-vim.g.completion_matching_strategy_list = strategy
-vim.g.diagnostic_enable_virtual_text = 1
-vim.g.completion_matching_ignore_case = 0
-vim.g.completion_chain_complete_list = {
-  { complete_items = { 'lsp' } },
-  { mode = { '<c-n>', '<c-p>' } },
-  { complete_items = { 'path'} },
-  { complete_items = { 'snippet'} },
-}
-vim.cmd('imap  <c-j> <Plug>(completion_next_source)')
-vim.cmd('imap  <c-k> <Plug>(completion_prev_source)')
+	on_attach = on_attach_common
+})
 
-local border_chars = {
-	TOP_LEFT = '┌',
-	TOP_RIGHT = '┐',
-	MID_HORIZONTAL = '─',
-	MID_VERTICAL = '│',
-	BOTTOM_LEFT = '└',
-	BOTTOM_RIGHT = '┘',
-}
+
+
+
+
+-- nvim-lsputils configuration
 vim.g.lsp_utils_location_opts = {
 	height = 24,
 	mode = 'split',
@@ -105,7 +87,6 @@ vim.g.lsp_utils_location_opts = {
 	preview = {
 		title = 'Location Preview',
 		border = true,
-		border_chars = border_chars
 	},
 	keymaps = {
 		n = {
@@ -124,7 +105,6 @@ vim.g.lsp_utils_symbols_opts = {
 	preview = {
 		title = 'Symbols Preview',
 		border = true,
-		border_chars = border_chars
 	},
 	keymaps = {
 		n = {
@@ -133,12 +113,30 @@ vim.g.lsp_utils_symbols_opts = {
 		}
 	}
 }
+vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
+vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
+vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
+vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
+vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
+vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
+vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
+vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 
-vim.lsp.callbacks['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
-vim.lsp.callbacks['textDocument/references'] = require'lsputil.locations'.references_handler
-vim.lsp.callbacks['textDocument/definition'] = require'lsputil.locations'.definition_handler
-vim.lsp.callbacks['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
-vim.lsp.callbacks['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
-vim.lsp.callbacks['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
-vim.lsp.callbacks['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
-vim.lsp.callbacks['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
+
+
+
+
+
+-- completion-nvim configuration
+local strategy = { 'exact', 'substring', 'fuzzy' }
+vim.g.completion_matching_strategy_list = strategy
+vim.g.diagnostic_enable_virtual_text = 1
+vim.g.completion_matching_ignore_case = 0
+vim.g.completion_chain_complete_list = {
+  { complete_items = { 'lsp' } },
+  { complete_items = { 'path', 'buffer' } },
+  { complete_items = { 'snippet'} },
+}
+vim.cmd('imap  <c-j> <Plug>(completion_next_source)')
+vim.cmd('imap  <c-k> <Plug>(completion_prev_source)')
+vim.cmd('autocmd BufEnter * lua require\'completion\'.on_attach()')
