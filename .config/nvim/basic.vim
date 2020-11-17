@@ -13,35 +13,58 @@ set smartcase smartindent ignorecase
 set noswapfile noshowmode nobackup
 set splitbelow splitright
 set colorcolumn=80
+set autoindent
+set cindent
+set wrap
+set breakindent
+let &showbreak=repeat(' ', 3)
 " let g:netrw_banner = 0
 " let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
 
+" Navigate and resize windows easily
+nnoremap <C-h> :wincmd h<CR>
+nnoremap <C-j> :wincmd j<CR>
+nnoremap <C-k> :wincmd k<CR>
+nnoremap <C-l> :wincmd l<CR>
+nnoremap <a-.> <cmd>vertical resize +3<CR>
+nnoremap <a-,> <cmd>vertical resize -3<CR>
+nnoremap <a-=> <cmd>resize +3<CR>
+nnoremap <a--> <cmd>resize -3<CR>
+
+" Navigate through terminal windows easily
+tnoremap <C-h> <cmd>wincmd h<CR>
+tnoremap <C-j> <cmd>wincmd j<CR>
+tnoremap <C-k> <cmd>wincmd k<CR>
+tnoremap <C-l> <cmd>wincmd l<CR>
+tnoremap ,, <C-\><C-n>
+
+nnoremap <leader>t :call TermToggle(15)<CR>
+
 vmap <leader>p "_dP
+
+" Clipboard operation easy
 vmap cp "+y
 nnoremap cp "+y
 nnoremap cpp "+yy
 nnoremap zp "+p
 nnoremap zP "+P
+vnoremap zp "+p
+vnoremap zP "+P
+
+nnoremap <leader><leader>r :ColorizerReloadAllBuffers<CR>
+nnoremap <leader><leader>t :ColorizerToggle<CR>
 map <C-c> :w! \| !clear && compiler <c-r>%<CR>
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command Dot :execute ':!dotInstall'
 command So :execute ':so $HOME/.config/nvim/init.vim' | :edit!
-tnoremap <C-w>j <cmd>wincmd j<CR>
-tnoremap <C-w>k <cmd>wincmd k<CR>
-tnoremap <C-w>h <cmd>wincmd h<CR>
-tnoremap <C-w>l <cmd>wincmd l<CR>
-tnoremap ,, <C-\><C-n>
+command Col :execute 'echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg")'
 nnoremap <leader>un :UndotreeToggle<cr>
 map Q :q!<CR>
 map <leader>acl :set list!<CR>
-nmap <leader>f :Ex<CR>
-nmap <leader>ef :Vex<CR>
-map <C-l> <cmd>vertical resize +3<CR>
-map <C-h> <cmd>vertical resize -3<CR>
-map <C-k> <cmd>resize +3<CR>
-map <C-j> <cmd>resize -3<CR>
+
 map <leader>r <cmd>set hlsearch<CR>
+
 
 " Nightly build
 augroup highlight_yank
@@ -75,10 +98,9 @@ function! TermToggle(height)
 		let g:term_win = win_getid()
 	endif
 endfunction
-nnoremap <leader>t :call TermToggle(15)<CR>
 
 " nvim-tree
 nnoremap <leader>f :LuaTreeToggle<CR>
-let g:lua_tree_width = 50
+let g:lua_tree_width = 40
 let g:lua_tree_follow = 1
 let g:lua_tree_git_hl = 1
