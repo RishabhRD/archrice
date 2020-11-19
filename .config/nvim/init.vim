@@ -40,7 +40,9 @@ Plug 'rockerBOO/boo-colorscheme-nvim'
 Plug 'glepnir/zephyr-nvim'
 Plug 'RishabhRD/nvim-rdark'
 Plug 'tpope/vim-sleuth'
-Plug 'dhruvasagar/vim-zoom'
+Plug 'szw/vim-maximizer'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'mfussenegger/nvim-dap'
 call plug#end()
 
 
@@ -55,7 +57,9 @@ source $HOME/.config/nvim/latex.vim
 source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/snippets.vim
 lua require("lsp_config")
+lua require("ts_config")
 lua require("statusline")
+lua require("debug_config")
 nnoremap <Leader>] <cmd>lua require'telescope.builtin'.find_files{}<CR>
 " nnoremap <Leader>; <cmd>lua require'telescope.builtin'.git_files{}<CR>
 nnoremap <leader>; <cmd> lua require'telescope.builtin'.live_grep{}<CR>

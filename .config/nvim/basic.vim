@@ -13,14 +13,11 @@ set smartcase smartindent ignorecase
 set noswapfile noshowmode nobackup
 set splitbelow splitright
 set colorcolumn=80
-set autoindent
-set cindent
 set wrap
-set breakindent
-let &showbreak=repeat(' ', 3)
 " let g:netrw_banner = 0
 " let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
+au FileType LuaTree set cursorline
 
 " Navigate and resize windows easily
 nnoremap <C-h> :wincmd h<CR>
@@ -64,6 +61,7 @@ map Q :q!<CR>
 map <leader>acl :set list!<CR>
 
 map <leader>r <cmd>set hlsearch<CR>
+nnoremap <leader>lc :<up>
 
 
 " Nightly build
@@ -104,3 +102,8 @@ nnoremap <leader>f :LuaTreeToggle<CR>
 let g:lua_tree_width = 40
 let g:lua_tree_follow = 1
 let g:lua_tree_git_hl = 1
+let g:lua_tree_indent_markers = 1 
+
+nnoremap <A-L> :tabnext<CR>
+nnoremap <A-H> :tabprevious<CR>
+nnoremap <C-w>m :MaximizerToggle<CR>
