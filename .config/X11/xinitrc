@@ -1,9 +1,9 @@
-setxkbmap -option "caps:swapescape"
-/usr/lib/kdeconnectd &
-indicator-kdeconnect &
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'
+[[ -f $HOME/.config/X11/xmodmap ]] && xmodmap $HOME/.config/X11/xmodmap
 dunst &
 mpd &
-cat $HOME/Pictures/.startWal | xargs feh --bg-scale
+cat $HOME/Pictures/.startWal | xargs feh --bg-scale &
 nm-applet &
 parcellite &
 xinput.sh &

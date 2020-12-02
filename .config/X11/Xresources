@@ -4,7 +4,7 @@
 *.alpha: 0.92
 *.alphaUnfocussed: 0.90
 !*.background: #07080f
-!*.cursorColor:   #01940b
+*.cursorColor:   #fcfcd7
 
 !*.color0:	#073642 
 !*.color1:	#dc322f 
@@ -66,7 +66,7 @@
 
 
 URxvt.allow_bold: true
-URxvt.font: xft:Liberation Mono:size=10
+URxvt.font: xft:Liberation Mono:size=22
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
@@ -91,9 +91,5 @@ URxvt*scrollTtyKeypress: true
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt.keyboard-select.clipboard: true
-URxvt.foreground: #000000
-URxvt.cursorColor: #ffff12
-URxvt.background: #ffffff
-URxvt.alpha: 1
 
 
