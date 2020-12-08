@@ -1,4 +1,4 @@
-local lsp = require'nvim_lsp'
+local lsp = require'lspconfig'
 
 -- Utility servers
 local map = function(type, key, value)
@@ -77,6 +77,7 @@ lsp.sumneko_lua.setup({
 
 
 -- nvim-lsputils configuration
+local actions = require'lsputil.actions'
 vim.g.lsp_utils_location_opts = {
   height = 24,
   mode = 'split',
@@ -88,33 +89,21 @@ vim.g.lsp_utils_location_opts = {
     title = 'Location Preview',
     border = true,
   },
-  keymaps = {
-    n = {
-      ['<C-n>'] = 'j',
-      ['<C-p>'] = 'k',
-    }
-  }
 }
+
+
 vim.g.lsp_utils_symbols_opts = {
   height = 24,
   mode = 'editor',
   list = {
     border = true,
-    numbering = true,
+    numbering = false,
   },
   preview = {
     title = 'Symbols Preview',
     border = true,
   },
-  -- prompt = {
-  --   border = true
-  -- },
-  keymaps = {
-    n = {
-      ['<C-n>'] = 'j',
-      ['<C-p>'] = 'k',
-    }
-  }
+  prompt = {}
 }
 vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
 vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler

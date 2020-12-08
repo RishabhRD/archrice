@@ -14,10 +14,9 @@ set noswapfile noshowmode nobackup
 set splitbelow splitright
 set colorcolumn=80
 set wrap
-" let g:netrw_banner = 0
-" let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:netrw_banner = 0
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %
-au FileType LuaTree set cursorline
 
 " Navigate and resize windows easily
 nnoremap <C-h> :wincmd h<CR>
@@ -30,10 +29,6 @@ nnoremap <a-=> <cmd>resize +3<CR>
 nnoremap <a--> <cmd>resize -3<CR>
 
 " Navigate through terminal windows easily
-tnoremap <C-h> <cmd>wincmd h<CR>
-tnoremap <C-j> <cmd>wincmd j<CR>
-tnoremap <C-k> <cmd>wincmd k<CR>
-tnoremap <C-l> <cmd>wincmd l<CR>
 tnoremap ,, <C-\><C-n>
 
 nnoremap <leader>t :call TermToggle(15)<CR>
@@ -97,13 +92,7 @@ function! TermToggle(height)
 	endif
 endfunction
 
-" nvim-tree
-nnoremap <leader>f :LuaTreeToggle<CR>
-let g:lua_tree_width = 40
-let g:lua_tree_follow = 1
-let g:lua_tree_git_hl = 1
-let g:lua_tree_indent_markers = 1 
-
+nnoremap <leader>f :Ex<CR>
 nnoremap <A-L> :tabnext<CR>
 nnoremap <A-H> :tabprevious<CR>
 nnoremap <C-w>m :MaximizerToggle<CR>

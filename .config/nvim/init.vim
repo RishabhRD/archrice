@@ -1,10 +1,12 @@
+
 "Plugins
 call plug#begin()
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-finder'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -13,36 +15,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'puremourning/vimspector'
 Plug 'mbbill/undotree'
-Plug 'gruvbox-community/gruvbox'
-Plug 'ayu-theme/ayu-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/playground' "Just for testing purpose
-Plug '/home/rishabh/Documents/neovim/poptest'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/telescope.nvim'
 Plug 'mhinz/vim-startify'
+Plug 'tjdevries/express_line.nvim'
+Plug 'glacambre/firenvim'
+Plug 'szw/vim-maximizer'
+Plug 'lervag/vimtex'
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tjdevries/colorbuddy.vim'
+Plug 'RishabhRD/nvim-rdark'
 Plug 'Th3Whit3Wolf/onebuddy'
 Plug 'tjdevries/gruvbuddy.nvim'
-Plug 'tjdevries/express_line.nvim'
-Plug 'ryanoasis/vim-devicons'
-" Plug 'steelsojka/completion-buffers'
-" Plug 'mfussenegger/nvim-jdtls'
-Plug 'VimDeathmatch/client'
-Plug 'norcalli/nvim-colorizer.lua'
 Plug 'RishabhRD/nvim-gruvbox'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'glacambre/firenvim'
-Plug 'bluz71/vim-moonfly-colors'
-Plug 'rockerBOO/boo-colorscheme-nvim'
-Plug 'glepnir/zephyr-nvim'
-Plug 'RishabhRD/nvim-rdark'
-Plug 'tpope/vim-sleuth'
-Plug 'szw/vim-maximizer'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'mfussenegger/nvim-dap'
+Plug 'gruvbox-community/gruvbox'
+Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 
@@ -54,12 +42,9 @@ source $HOME/.config/nvim/commentry.vim
 source $HOME/.config/nvim/colorscheme.vim
 source $HOME/.config/nvim/vimspector.vim
 source $HOME/.config/nvim/latex.vim
-source $HOME/.config/nvim/fzf.vim
 source $HOME/.config/nvim/snippets.vim
+source $HOME/.config/nvim/markdownPreview.vim
+source $HOME/.config/nvim/finder.vim
 lua require("lsp_config")
 lua require("ts_config")
 lua require("statusline")
-lua require("debug_config")
-nnoremap <Leader>] <cmd>lua require'telescope.builtin'.find_files{}<CR>
-" nnoremap <Leader>; <cmd>lua require'telescope.builtin'.git_files{}<CR>
-nnoremap <leader>; <cmd> lua require'telescope.builtin'.live_grep{}<CR>
