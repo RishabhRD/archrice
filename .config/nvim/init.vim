@@ -18,6 +18,7 @@ Plug 'mbbill/undotree'
 Plug 'flazz/vim-colorschemes'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'mhinz/vim-startify'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'tjdevries/express_line.nvim'
 Plug 'glacambre/firenvim'
 Plug 'szw/vim-maximizer'
@@ -31,6 +32,7 @@ Plug 'tjdevries/gruvbuddy.nvim'
 Plug 'RishabhRD/nvim-gruvbox'
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
+Plug '/home/rishabh/Documents/neovim/async'
 call plug#end()
 
 
