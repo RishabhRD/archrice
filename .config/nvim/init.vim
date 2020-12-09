@@ -1,9 +1,9 @@
 
 "Plugins
 call plug#begin()
-Plug 'RishabhRD/nvim-lsputils'
+" Plug 'RishabhRD/nvim-lsputils'
 Plug 'RishabhRD/popfix'
-Plug 'RishabhRD/nvim-finder'
+" Plug 'RishabhRD/nvim-finder'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
