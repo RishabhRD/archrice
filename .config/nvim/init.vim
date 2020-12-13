@@ -32,7 +32,7 @@ Plug 'tjdevries/gruvbuddy.nvim'
 Plug 'RishabhRD/nvim-gruvbox'
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
-Plug '/home/rishabh/Documents/neovim/async'
+Plug '/home/rishabh/Documents/neovim/poptest'
 call plug#end()
 
 
