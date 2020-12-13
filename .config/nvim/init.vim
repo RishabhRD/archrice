@@ -1,8 +1,8 @@
-
 "Plugins
 call plug#begin()
+Plug 'norcalli/typeracer.nvim'
 Plug 'RishabhRD/nvim-lsputils'
-Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/popfix', { 'do' : 'make' }
 Plug 'RishabhRD/nvim-finder'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
@@ -33,6 +33,9 @@ Plug 'RishabhRD/nvim-gruvbox'
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 Plug '/home/rishabh/Documents/neovim/async'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 
