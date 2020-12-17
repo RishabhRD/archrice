@@ -125,8 +125,7 @@ vim.g.diagnostic_enable_virtual_text = 1
 vim.g.completion_matching_ignore_case = 0
 vim.g.completion_chain_complete_list = {
 	{ complete_items = { 'lsp' } },
-	{ complete_items = { 'path', 'buffer' } },
-	{ complete_items = { 'snippet'} },
+	{ complete_items = { 'buffer', 'snippet' } },
 }
 vim.cmd('imap  <c-j> <Plug>(completion_next_source)')
 vim.cmd('imap  <c-k> <Plug>(completion_prev_source)')
