@@ -2,42 +2,41 @@ vim.cmd [[packadd packer.nvim]]
 
 vim.g.mapleader = ' '
 local  o   =  vim.o
-local  bo  =  vim.bo
-local  wo  =  vim.wo
 
 -- Necessary to work
-o.hidden       =  true
-wo.wrap     =  true
-o.autoread     =  true
-bo.undofile    =  true
-bo.swapfile    =  false -- They disturb too much. But I also want them
-o.backup       =  false
-o.completeopt  =  'menuone,longest,noselect,noinsert'
+o.hidden          =  true
+o.wrap            =  true
+o.autoread        =  true
+o.undofile        =  true
+o.swapfile        =  false -- They disturb too much. But I also want them
+o.backup          =  false
+o.completeopt     =  'menuone,longest,noselect,noinsert'
 
 -- Tabs configuration
-bo.softtabstop  =  4
-bo.shiftwidth   =  4
-bo.autoindent   =  true
-bo.cindent      =  true
+o.softtabstop     =  4
+o.shiftwidth      =  4
+o.autoindent      =  true
+o.cindent         =  true
 
 -- Search configuration
-o.incsearch   =  true
-o.hlsearch    =  false
-o.ignorecase  =  true
-o.smartcase   =  true
-o.inccommand  =  'split'
+o.hlsearch        =  false
+o.ignorecase      =  true
+o.smartcase       =  true
+o.inccommand      =  'split'
+o.incsearch       =  true
 
 -- Looks and feels
-o.cmdheight        =  1
-wo.number          =  true
-wo.relativenumber  =  true
-o.showmatch        =  true
-o.splitright       =  true
-o.splitbelow       =  true
-o.updatetime       =  1000
-o.showcmd          =  true
-o.showmode         =  false
-wo.colorcolumn     =  '80'
+o.cmdheight       =  1
+o.number          =  true
+o.relativenumber  =  true
+o.showmatch       =  true
+o.splitright      =  true
+o.splitbelow      =  true
+o.updatetime      =  1000
+o.showcmd         =  true
+o.showmode        =  false
+o.colorcolumn     =  '80'
+
 
 -- Text behaviour
 -- o.formatoptions = o.formatoptions
