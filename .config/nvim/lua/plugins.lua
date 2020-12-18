@@ -1,5 +1,8 @@
+vim.cmd [[packadd packer.nvim]]
+
 local packer = require('packer')
 return packer.startup(function()
+    use {'wbthomason/packer.nvim', opt = true}
     use {
 	'RishabhRD/nvim-finder',
 	'RishabhRD/nvim-lsputils',

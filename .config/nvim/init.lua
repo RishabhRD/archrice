@@ -1,5 +1,3 @@
-vim.cmd [[packadd packer.nvim]]
-
 vim.g.mapleader = ' '
 local  o   =  vim.o
 
@@ -58,6 +56,7 @@ vim.g.text_flavor = "latex"
 vim.g.netrw_banner = 0
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
+require'plugins'
 require'mappings'
 require'commands'
 require'autocommand'
