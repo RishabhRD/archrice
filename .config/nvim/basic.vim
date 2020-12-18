@@ -13,18 +13,18 @@ set shortmess+=c
 set smartcase ignorecase
 set noswapfile noshowmode nobackup
 set splitbelow splitright
-set colorcolumn=80
+" set colorcolumn=80
 set wrap
 set cindent autoindent
-set fo+=t	" auto-wrap text using textwidth
-set fo+=c	" auto-wrap comments using textwidth
-set fo+=r	" auto insert comment leader on pressing enter
-set fo-=o	" don't insert comment leader on pressing o
-set fo+=q	" format comments with gq
-set fo-=a	" don't autoformat the paragraphs (use some formatter instead)
-set fo+=n	" autoformat numbered list
-set fo-=2	" I am a programmer and not a writer
-set fo+=j	" Join comments smartly
+set fo+=t	
+set fo+=c	
+set fo+=r	
+set fo-=o	
+set fo+=q	
+set fo-=a	
+set fo+=n	
+set fo-=2	
+set fo+=j	
 set nojoinspaces
 set mouse=nc
 
