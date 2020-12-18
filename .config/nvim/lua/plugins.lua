@@ -1,25 +1,20 @@
+vim.cmd[[autocmd BufWritePost plugins.lua PackerCompile]]
 vim.cmd [[packadd packer.nvim]]
+
 
 local packer = require('packer')
 return packer.startup(function()
+    local use = use
     use {'wbthomason/packer.nvim', opt = true}
-    use {
-	'RishabhRD/nvim-finder',
-	'RishabhRD/nvim-lsputils',
-	requires = {
-	    'RishabhRD/popfix'
-	},
-    }
-    use {
-	'RishabhRD/nvim-rdark',
-	'RishabhRD/nvim-gruvbox',
-	requires = {
-	    'tjdevries/colorbuddy.nvim'
-	}
-    }
+    use 'RishabhRD/nvim-finder'
+    use 'RishabhRD/nvim-lsputils'
+    use 'RishabhRD/popfix'
+    use 'RishabhRD/nvim-rdark'
+    use 'RishabhRD/nvim-gruvbox'
+    use '/home/rishabh/Documents/neovim/async'
+    use 'tjdevries/colorbuddy.nvim'
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/completion-nvim'
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
     use 'honza/vim-snippets'
     use 'SirVer/ultisnips'
     use 'tpope/vim-fugitive'

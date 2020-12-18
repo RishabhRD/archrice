@@ -19,6 +19,7 @@ end
 
 function M.files(str)
     finder.files{
+	init_text = str,
 	sorter = native_sorter,
     }
 end
