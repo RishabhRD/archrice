@@ -69,7 +69,7 @@ set ('showmode', false)
 set ('colorcolumn', '80')
 
 
--- Text behaviour
+-- Text behaviour (think more on this)
 -- o.formatoptions = o.formatoptions
 --                    + 't'    -- auto-wrap text using textwidth
 --                    + 'c'    -- auto-wrap comments using textwidth
@@ -82,8 +82,6 @@ set ('colorcolumn', '80')
 --                    + 'j'    -- Join comments smartly
 -- o.formatoptions = o.formatoptions..'tcrqnj'
 -- o.joinspaces = false
-set ('formatoptions', 'tcrqnj')
-set ('joinspaces', false)
 
 
 vim.g.text_flavor = "latex"

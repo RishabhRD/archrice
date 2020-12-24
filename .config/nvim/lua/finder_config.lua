@@ -61,7 +61,16 @@ function M.colors(str)
     }
 end
 
+function M.files_nvim(str)
+    finder.files{
+	init_text = str,
+	sorter = native_sorter,
+	cwd = '/home/rishabh/.config/nvim'
+    }
+end
+
 finderMap('<leader>p', 'files')
+finderMap('<leader>;', 'files_nvim')
 finderMap('<leader>[', 'git_files')
 finderMap('<leader>bl', 'fuzzy_grep')
 finderMap('<leader>bb', 'buffers')
