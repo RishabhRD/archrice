@@ -23,12 +23,11 @@ return packer.startup(function()
     use 'mbbill/undotree'
     use 'flazz/vim-colorschemes'
     use 'nvim-treesitter/nvim-treesitter'
-    use 'mhinz/vim-startify'
     use 'nvim-lua/plenary.nvim'
     use 'tjdevries/express_line.nvim'
     use 'glacambre/firenvim'
     use 'szw/vim-maximizer'
     use 'lervag/vimtex'
     use 'ryanoasis/vim-devicons'
-    use 'gruvbox-community/gruvbox'
+    use 'glepnir/dashboard-nvim'
 end)

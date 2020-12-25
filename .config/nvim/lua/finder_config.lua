@@ -65,6 +65,8 @@ function M.files_nvim(str)
     finder.files{
 	init_text = str,
 	sorter = native_sorter,
+	height = 30,
+	preview_disabled = true,
 	cwd = '/home/rishabh/.config/nvim'
     }
 end

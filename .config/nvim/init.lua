@@ -92,6 +92,7 @@ vim.g.completion_enable_snippet = 'UltiSnips'
 vim.g.UltiSnipsExpandTrigger="<C-l>"
 vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
 vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
+vim.g.dashboard_default_executive ='finder'
 
 require'plugins'
 require'mappings'
@@ -102,3 +103,4 @@ require'ts_config'
 require'statusline'
 require'colorscheme_config'
 require'finder_config'
+require('telescope').load_extension('fzy_native')
