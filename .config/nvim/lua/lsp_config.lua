@@ -131,14 +131,14 @@ vim.cmd('imap  <c-j> <Plug>(completion_next_source)')
 vim.cmd('imap  <c-k> <Plug>(completion_prev_source)')
 vim.cmd('autocmd BufEnter * lua require\'completion\'.on_attach()')
 
-local function lsp_reload()
-    vim.lsp.stop_client(vim.lsp.get_active_clients())
+local function lsp_reload(buffer)
+    vim.lsp.stop_client(vim.lsp.get_active_clients(buffer))
     vim.cmd("edit")
 end
 
-local function lsp_stop()
-    vim.lsp.diagnostic.clear()
-    vim.lsp.stop_client(vim.lsp.get_active_clients())
+local function lsp_stop(buffer)
+    vim.lsp.diagnostic.clear(buffer)
+    vim.lsp.stop_client(vim.lsp.get_active_clients(buffer))
 end
 
 return{
