@@ -9,6 +9,12 @@ local function finderMap(key, func, str)
     map.nmap(key, cmd)
 end
 
+local function finderDirectMap(key, func, str)
+    str = str or ''
+    local cmd = string.format([[<cmd>lua require'finder'.%s(%s)<CR>]], func, str)
+    map.nmap(key, cmd)
+end
+
 function M.git_files(str)
     finder.git_files{
 	preview_disabled = true,
@@ -71,13 +77,16 @@ function M.files_nvim(str)
     }
 end
 
-finderMap('<leader>p', 'files')
-finderMap('<leader>;', 'files_nvim')
-finderMap('<leader>[', 'git_files')
-finderMap('<leader>bl', 'fuzzy_grep')
-finderMap('<leader>bb', 'buffers')
-finderMap('<leader>bL', 'grep')
+finderMap('<leader>ff', 'files')
+finderMap('<leader>fn', 'files_nvim')
+finderMap('<leader>fgf', 'git_files')
+finderMap('<leader>fl', 'fuzzy_grep')
+finderMap('<leader>fb', 'buffers')
+finderMap('<leader>fL', 'grep')
 finderMap('<A-y>', 'help')
 finderMap('<C-y>', 'colors')
+finderDirectMap('<leader>fbl', 'buffer_lines')
+finderDirectMap('<leader>fm', 'man_pages')
+finderDirectMap('<leader>fc', 'finder_commands')
 
 return M

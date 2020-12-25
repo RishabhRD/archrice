@@ -39,7 +39,7 @@ nmap([[<a-.>]], [[<cmd>vertical resize +3<CR>]])
 nmap([[<a-,>]], [[<cmd>vertical resize -3<CR>]])
 nmap([[<a-=>]], [[<cmd>resize +3<CR>]])
 nmap([[<a-->]], [[<cmd>resize -3<CR>]])
-nmap('<leader>f', ':Ex<CR>')
+nmap('<leader>fd', ':Ex<CR>')
 
 return {
     nmap = nmap,

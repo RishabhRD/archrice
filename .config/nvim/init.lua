@@ -93,6 +93,7 @@ vim.g.UltiSnipsExpandTrigger="<C-l>"
 vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
 vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
 vim.g.dashboard_default_executive ='finder'
+vim.g.enable_finder_native_sorter = true
 
 require'plugins'
 require'mappings'
