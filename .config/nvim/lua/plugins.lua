@@ -11,6 +11,7 @@ return packer.startup(function()
     use 'RishabhRD/popfix'
     use 'RishabhRD/nvim-rdark'
     use 'RishabhRD/nvim-gruvbox'
+    use 'RishabhRD/nvim-cheat.sh'
     use 'tjdevries/colorbuddy.nvim'
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/completion-nvim'

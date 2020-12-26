@@ -40,6 +40,8 @@ nmap([[<a-,>]], [[<cmd>vertical resize -3<CR>]])
 nmap([[<a-=>]], [[<cmd>resize +3<CR>]])
 nmap([[<a-->]], [[<cmd>resize -3<CR>]])
 nmap('<leader>fd', ':Ex<CR>')
+nmap('<leader>sC', [[:CheatWithoutComments<CR>]])
+nmap('<leader>sc', [[:Cheat<CR>]])
 
 return {
     nmap = nmap,
