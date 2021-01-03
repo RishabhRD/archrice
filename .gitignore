@@ -1,3 +1,4 @@
 tags
 .config/nvim/.netrwhist
 .config/nvim/plugin/*
+.config/nvim/spell/*
