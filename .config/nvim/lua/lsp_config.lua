@@ -5,6 +5,10 @@ local map = function(type, key, value)
     vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
 end
 
+-- For snippet support
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 
 
 -- configuring diagnostics
@@ -52,9 +56,17 @@ local on_attach_clangd = function(client)
     on_attach_common(client)
 end
 lsp.clangd.setup{
-    on_attach = on_attach_clangd
+    on_attach = on_attach_clangd,
 }
 lsp.tsserver.setup{on_attach=on_attach_common}
+lsp.html.setup{
+    on_attach=on_attach_common,
+    capabilities = capabilities,
+}
+lsp.cssls.setup{
+    on_attach=on_attach_common,
+    capabilities = capabilities,
+}
 lsp.gopls.setup{on_attach=on_attach_common}
 lsp.pyls.setup{
     on_attach = on_attach_common,
@@ -120,16 +132,7 @@ vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handle
 
 -- completion-nvim configuration
 local strategy = { 'exact', 'substring', 'fuzzy' }
-vim.g.completion_matching_strategy_list = strategy
 vim.g.diagnostic_enable_virtual_text = 1
-vim.g.completion_matching_ignore_case = 0
-vim.g.completion_chain_complete_list = {
-    { complete_items = { 'lsp' } },
-    { complete_items = { 'buffer', 'snippet' } },
-}
-vim.cmd('imap  <c-j> <Plug>(completion_next_source)')
-vim.cmd('imap  <c-k> <Plug>(completion_prev_source)')
-vim.cmd('autocmd BufEnter * lua require\'completion\'.on_attach()')
 
 local function lsp_reload(buffer)
     vim.lsp.stop_client(vim.lsp.get_active_clients(buffer))
@@ -141,7 +144,33 @@ local function lsp_stop(buffer)
     vim.lsp.stop_client(vim.lsp.get_active_clients(buffer))
 end
 
+require'compe'.setup {
+  enabled = true,
+  debug = false,
+  min_length = 1,
+  preselect = 'disable',
+  allow_prefix_unmatch = false,
+
+  source = {
+    path = {
+	priority = 9
+    },
+    buffer = {
+	priority = 8
+    },
+    vsnip = {
+	priority = 9
+    },
+    nvim_lsp = {
+	priority = 10,
+	sort = false
+    },
+    -- nvim_lua = { ... overwrite source configuration ... };
+  };
+}
+
 return{
     lsp_reload = lsp_reload,
     lsp_stop = lsp_stop
 }
+

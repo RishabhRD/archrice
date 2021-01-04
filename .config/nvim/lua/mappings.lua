@@ -1,17 +1,17 @@
-local function nmap(command, value)
-    vim.fn.nvim_set_keymap('n',command,value,{noremap = true, silent = true})
+local function nmap(command, value, expr)
+    vim.fn.nvim_set_keymap('n',command,value,{noremap = true, silent = true, expr = expr})
 end
 
-local function imap(command, value)
-    vim.fn.nvim_set_keymap('i',command,value,{noremap = true, silent = true})
+local function imap(command, value, expr)
+    vim.fn.nvim_set_keymap('i',command,value,{noremap = true, silent = true, expr = expr})
 end
 
-local function vmap(command, value)
-    vim.fn.nvim_set_keymap('v',command,value,{noremap = true, silent = true})
+local function vmap(command, value, expr)
+    vim.fn.nvim_set_keymap('v',command,value,{noremap = true, silent = true, expr = expr})
 end
 
-local function tmap(command, value)
-    vim.fn.nvim_set_keymap('t',command,value,{noremap = true, silent = true})
+local function tmap(command, value, expr)
+    vim.fn.nvim_set_keymap('t',command,value,{noremap = true, silent = true, expr = expr})
 end
 
 nmap('<A-L>', ':tabnext<CR>')
@@ -42,6 +42,9 @@ nmap([[<a-->]], [[<cmd>resize -3<CR>]])
 nmap('<leader>fd', ':Ex<CR>')
 nmap('<leader>sC', [[:CheatWithoutComments<CR>]])
 nmap('<leader>sc', [[:Cheat<CR>]])
+imap('<C-Space>', [[compe#complete()]], true)
+imap('<CR>', [[compe#confirm('<CR>')]], true)
+imap('<C-e>',[[compe#close('<C-e>')]], true)
 
 return {
     nmap = nmap,
