@@ -28,5 +28,5 @@ plug {
     'szw/vim-maximizer',
     'lervag/vimtex',
     'ryanoasis/vim-devicons',
-    'glepnir/dashboard-nvim',
+    'mhinz/vim-startify',
 }
