@@ -17,7 +17,7 @@ set 'autoread'
 set 'undofile'
 set ('swapfile', false)
 set ('backup', false)
-set ('completeopt', 'menuone,longest,noselect,noinsert')
+set ('completeopt', 'menuone,noselect,noinsert')
 
 -- Tabs configuration
 set ('softtabstop', 4)
