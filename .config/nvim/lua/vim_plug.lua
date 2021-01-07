@@ -29,4 +29,5 @@ plug {
     'lervag/vimtex',
     'ryanoasis/vim-devicons',
     'mhinz/vim-startify',
+    'norcalli/nvim-colorizer.lua',
 }

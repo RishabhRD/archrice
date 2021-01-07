@@ -144,8 +144,6 @@ vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handle
 
 
 
--- completion-nvim configuration
-local strategy = { 'exact', 'substring', 'fuzzy' }
 vim.g.diagnostic_enable_virtual_text = 1
 
 local function lsp_reload(buffer)
@@ -163,7 +161,6 @@ require'compe'.setup {
   debug = false,
   min_length = 1,
   preselect = 'disable',
-  allow_prefix_unmatch = false,
 
   source = {
     path = {
