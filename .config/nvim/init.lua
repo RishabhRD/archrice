@@ -62,11 +62,9 @@ vim.g.text_flavor = "latex"
 
 vim.g.netrw_banner = 0
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-vim.g.completion_enable_snippet = 'UltiSnips'
 vim.g.UltiSnipsExpandTrigger="<C-l>"
 vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
 vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
-vim.g.dashboard_default_executive ='finder'
 vim.g.enable_finder_native_sorter = true
 
 -- require'plugins'

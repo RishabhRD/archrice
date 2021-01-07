@@ -30,4 +30,6 @@ plug {
     'ryanoasis/vim-devicons',
     'mhinz/vim-startify',
     'norcalli/nvim-colorizer.lua',
+    'honza/vim-snippets',
+    'SirVer/ultisnips',
 }

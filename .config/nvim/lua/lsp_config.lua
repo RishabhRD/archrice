@@ -159,7 +159,7 @@ end
 require'compe'.setup {
   enabled = true,
   debug = false,
-  min_length = 1,
+  -- min_length = 1,
   preselect = 'disable',
 
   source = {
