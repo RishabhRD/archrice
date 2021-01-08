@@ -7,3 +7,8 @@ vim.cmd[[augroup xresources]]
   vim.cmd[[autocmd!]]
   vim.cmd[[autocmd BufWritePost *Xresources,*Xdefaults !xrdb -load %]]
 vim.cmd[[augroup END]]
+
+vim.cmd[[augroup lsp]]
+    vim.cmd[[au!]]
+    vim.cmd[[au FileType java lua require'jdtls_config']]
+vim.cmd[[augroup end]]

@@ -17,11 +17,12 @@ set 'autoread'
 set 'undofile'
 set ('swapfile', false)
 set ('backup', false)
-set ('completeopt', 'menuone,noselect,noinsert')
+set ('completeopt', 'menuone,noselect,noinsert,longest')
 
 -- Tabs configuration
-set ('softtabstop', 4)
-set ('shiftwidth', 4)
+set ('softtabstop', 2)
+set ('shiftwidth', 2)
+set 'expandtab'
 set 'autoindent'
 set 'cindent'
 
@@ -66,6 +67,7 @@ vim.g.UltiSnipsExpandTrigger="<C-l>"
 vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
 vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
 vim.g.enable_finder_native_sorter = true
+vim.g.cheat_default_window_layout = 'split'
 
 -- require'plugins'
 require'vim_plug'

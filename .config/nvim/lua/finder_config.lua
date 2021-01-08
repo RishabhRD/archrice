@@ -85,7 +85,7 @@ finderMap('<leader>fb', 'buffers')
 finderMap('<leader>fL', 'grep')
 finderMap('<A-y>', 'help')
 finderMap('<C-y>', 'colors')
-finderDirectMap('<leader>fBL', 'buffer_lines')
+finderDirectMap('<leader>fk', 'buffer_lines')
 finderDirectMap('<leader>fm', 'man_pages')
 finderDirectMap('<leader>fc', 'finder_commands')
 
