@@ -44,6 +44,7 @@ set 'showcmd'
 set ('showmode', false)
 set ('colorcolumn', '80')
 
+
 local fo = require'table_opts':new('formatoptions')
 fo = fo
    + 't'    -- auto-wrap text using textwidth
@@ -57,6 +58,9 @@ fo = fo
    + 'j'    -- Join comments smartly
 set ('joinspaces', false)
 
+local shortmess = require'table_opts':new('shortmess')
+shortmess = shortmess + 'c'
+
 
 
 vim.g.text_flavor = "latex"
@@ -66,7 +70,7 @@ vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 vim.g.UltiSnipsExpandTrigger="<C-l>"
 vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
 vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
-vim.g.enable_finder_native_sorter = true
+-- vim.g.enable_finder_native_sorter = true
 vim.g.cheat_default_window_layout = 'split'
 
 -- require'plugins'
@@ -79,3 +83,4 @@ require'ts_config'
 require'statusline'
 require'colorscheme_config'
 require'finder_config'
+require('telescope').load_extension('fzy_native')

@@ -7,4 +7,4 @@ vim.g.gruvbox_invert_selection='0'
 o.termguicolors = true
 o.background = 'dark'
 colorscheme 'nvim-rdark'
--- colorscheme 'gruvbox'
+-- colorscheme 'ayu'

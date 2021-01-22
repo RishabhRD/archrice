@@ -163,14 +163,14 @@ require'compe'.setup {
   preselect = 'disable',
 
   source = {
+    ultisnips = {
+      priority = 9
+    },
     path = {
 	priority = 9
     },
     buffer = {
 	priority = 8
-    },
-    vsnip = {
-	priority = 9
     },
     nvim_lsp = {
 	priority = 10,
@@ -179,6 +179,9 @@ require'compe'.setup {
     -- nvim_lua = { ... overwrite source configuration ... };
   };
 }
+
+-- vim.cmd[[autocmd BufEnter * lua require'completion'.on_attach()]]
+-- vim.g.completion_enable_snippet = 'UltiSnips'
 
 return{
     lsp_reload = lsp_reload,

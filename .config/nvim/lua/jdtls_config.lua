@@ -1,5 +1,8 @@
 local M = {}
 function M.setup()
+  vim.cmd[[set softtabstop=4]]
+  vim.cmd[[set shiftwidth=4]]
+  vim.cmd[[set noexpandtab]]
   require('jdtls').start_or_attach({cmd = {'launch_jdtls'}})
   -- Utility servers
   local map = function(type, key, value)
@@ -32,7 +35,7 @@ function M.setup()
   map('n', [[<leader>av]], [[<Cmd>lua require('jdtls').extract_variable()<CR>]])
   map('v', [[<leader>av]], [[<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>]])
   map('v', [[<leader>am]], [[<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>]])
-  map('n', [[<leader>ar]], [[<Cmd>lua require('jdtls').code_action(false, 'refactor')<CR>]])
+  map('n', [[<leader>aR]], [[<Cmd>lua require('jdtls').code_action(false, 'refactor')<CR>]])
 
   local jdtls_ui = require'jdtls.ui'
   function jdtls_ui.pick_one_async(items, _, _, cb)

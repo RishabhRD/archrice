@@ -7,6 +7,7 @@ local function plug(t)
 end
 
 plug {
+  'hrsh7th/vim-vsnip',
   'RishabhRD/nvim-finder',
   'RishabhRD/nvim-lsputils',
   'RishabhRD/popfix',
@@ -32,5 +33,9 @@ plug {
   'norcalli/nvim-colorizer.lua',
   'honza/vim-snippets',
   'SirVer/ultisnips',
-  'mfussenegger/nvim-jdtls'
+  'mfussenegger/nvim-jdtls',
+  'nvim-lua/popup.nvim',
+  -- 'nvim-lua/completion-nvim',
+  'nvim-telescope/telescope.nvim',
+  'nvim-telescope/telescope-fzy-native.nvim',
 }
