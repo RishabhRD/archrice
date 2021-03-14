@@ -17,7 +17,7 @@ set 'autoread'
 set 'undofile'
 set ('swapfile', false)
 set ('backup', false)
-set ('completeopt', 'menuone,noselect,noinsert,longest')
+set ('completeopt', 'menu,menuone,noselect')
 
 -- Tabs configuration
 set ('softtabstop', 2)
@@ -82,5 +82,7 @@ require'lsp_config'
 require'ts_config'
 require'statusline'
 require'colorscheme_config'
+require'lsputils'
+require'completion'
 require'finder_config'
 require('telescope').load_extension('fzy_native')

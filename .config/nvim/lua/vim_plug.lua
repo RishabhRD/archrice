@@ -27,7 +27,6 @@ plug {
   'tjdevries/express_line.nvim',
   'glacambre/firenvim',
   'szw/vim-maximizer',
-  'lervag/vimtex',
   'ryanoasis/vim-devicons',
   'mhinz/vim-startify',
   'norcalli/nvim-colorizer.lua',
