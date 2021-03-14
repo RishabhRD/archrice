@@ -46,6 +46,12 @@ nmap('<leader>ll', [[:<C-p>]])
 imap('<C-Space>', [[compe#complete()]], true)
 imap('<CR>', [[compe#confirm('<CR>')]], true)
 imap('<C-e>',[[compe#close('<C-e>')]], true)
+nmap('<C-c>', [[:cclose<CR>]])
+nmap('<C-l>', [[:lclose<CR>]])
+nmap('<C-n>', [[:cnext<CR>]])
+nmap('<C-p>', [[:cprev<CR>]])
+nmap('<leader>n', [[:lnext<CR>]])
+nmap('<leader>p', [[:lprev<CR>]])
 
 return {
     nmap = nmap,
