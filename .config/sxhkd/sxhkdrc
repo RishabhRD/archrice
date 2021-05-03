@@ -1,94 +1,102 @@
 super + shift + space
-	dmenuemoji 
+    dmenuemoji 
 super + r
-	source ~/.config/zsh/lficons.sh;$TERMINAL -e lf;
+    source ~/.config/zsh/lficons.sh;$TERMINAL -e lf;
 super + shift + b
-	$BROWSER
+    $BROWSER
 Print
-	screenshot.sh
+    screenshot.sh
 super + shift + r
-	record screen; pkill -RTMIN+14 $BAR
+    record screen; pkill -RTMIN+14 $BAR
 super + ctrl + r
-	record screencastpause; pkill -RTMIN+14 $BAR
+    record screencastpause; pkill -RTMIN+14 $BAR
 super + space
-	$TERMINAL -e ncmpcpp
+    $TERMINAL -e ncmpcpp
 super + control + b
-	wallpaper.sh
+    wallpaper.sh
 super + shift + Return
-	samedir
+    samedir
 super + m
-	$TERMINAL -e neomutt
+    $TERMINAL -e neomutt
 super + p
-	$TERMINAL -e htop
+    $TERMINAL -e htop
 super + control + n
-	mailsync 
+    mailsync 
 super + shift + k
-	killall screenkey || screenkey -p fixed -g 20%x6%-1%-1% -t 0.5
+    killall screenkey || screenkey -p fixed -g 20%x6%-1%-1% -t 0.5
 super + y
-	$TERMINAL -e youtube-download.sh
+    $TERMINAL -e youtube-download.sh
 super + control + d
-	display-select.sh
+    display-select.sh
 super + F3
-	dmenumount
+    dmenumount
 super + F4
-	dmenuumount
+    dmenuumount
 super + a
-	st -e nvim $HOME/.local/share/jumps/copytext
+    st -e nvim $HOME/.local/share/jumps/copytext
 super + c
-	select.sh $HOME/.local/share/jumps/copytext
+    select.sh $HOME/.local/share/jumps/copytext
 super + shift + c
-	record webcam
+    record webcam
 super + ctrl + c
-	record androidcam
+    record androidcam
 super + ctrl + shift + c
-	record androiddmenu
+    record androiddmenu
 super + t
-	showtray.sh
+    showtray.sh
 XF86AudioLowerVolume
-	volume.sh down && pkill -RTMIN+10 $BAR
+    volume.sh down && pkill -RTMIN+10 $BAR
 XF86AudioRaiseVolume
-	volume.sh up && pkill -RTMIN+10 $BAR
+    volume.sh up && pkill -RTMIN+10 $BAR
 super + ctrl + minus
-	volume.sh down && pkill -RTMIN+10 $BAR
+    volume.sh down && pkill -RTMIN+10 $BAR
 super + ctrl + equal
-	volume.sh up && pkill -RTMIN+10 $BAR
+    volume.sh up && pkill -RTMIN+10 $BAR
 XF86AudioMute
-	volume.sh mute && pkill -RTMIN+10 $BAR
+    volume.sh mute && pkill -RTMIN+10 $BAR
 super + ctrl + shift + equal
-	volume.sh mute && pkill -RTMIN+10 $BAR
+    volume.sh mute && pkill -RTMIN+10 $BAR
 XF86MonBrightnessUp
-	xbacklight -inc 5 && pkill -RTMIN+11 $BAR
+    xbacklight -inc 5 && pkill -RTMIN+11 $BAR
 XF86MonBrightnessDown
-	xbacklight -dec 5 && pkill -RTMIN+11 $BAR
+    xbacklight -dec 5 && pkill -RTMIN+11 $BAR
 super + shift + equal
-	xbacklight -inc 5 && pkill -RTMIN+11 $BAR
+    xbacklight -inc 5 && pkill -RTMIN+11 $BAR
 super + shift + minus
-	xbacklight -dec 5 && pkill -RTMIN+11 $BAR
+    xbacklight -dec 5 && pkill -RTMIN+11 $BAR
 super + g
-	mpc toggle ; pkill -RTMIN+12 $BAR
+    mpc toggle ; pkill -RTMIN+12 $BAR
 super + control + g
-	mpc stop ; pkill -RTMIN+12 $BAR
+    mpc stop ; pkill -RTMIN+12 $BAR
 super + n
-	mpc next ; pkill -RTMIN+12 $BAR
+    mpc next ; pkill -RTMIN+12 $BAR
 super + shift + n
-	mpc prev ; pkill -RTMIN+12 $BAR
+    mpc prev ; pkill -RTMIN+12 $BAR
 super + u
-	mpd_update
+    mpd_update
 super + shift + g
-	mpd_load.sh ; pkill -RTMIN+12 $BAR
+    mpd_load.sh ; pkill -RTMIN+12 $BAR
 Caps_Lock
-	pkill -RTMIN+15 $BAR
+    pkill -RTMIN+15 $BAR
 Print
-	screeenshot.sh
+    screeenshot.sh
 super + Print
-	dmenu_run;sleep 0.25;echo "screenshot-rect.sh" | xargs xdotool type
+    dmenu_run;sleep 0.25;echo "screenshot-rect.sh" | xargs xdotool type
 super + shift + t
-	turnOnCompton.sh
+    turnOnCompton.sh
 super + control + m
-	mailsync
+    mailsync
 super + control + f
-	hover right 
+    hover right 
 super + shift + s
-	st -e bibsearch
+    st -e bibsearch
 super + shift + p
-	passmenu
+    passmenu
+super + shift + a
+    bookmark.sh add
+super + shift + y
+    bookmark.sh get
+super + semicolon
+    playlistmenu
+super + shift + semicolon
+    musicmenu
