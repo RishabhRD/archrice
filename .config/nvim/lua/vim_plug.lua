@@ -31,7 +31,7 @@ plug {
   'mhinz/vim-startify',
   'norcalli/nvim-colorizer.lua',
   'honza/vim-snippets',
-  'SirVer/ultisnips',
+  -- 'SirVer/ultisnips',
   'mfussenegger/nvim-jdtls',
   'nvim-lua/popup.nvim',
   -- 'nvim-lua/completion-nvim',

@@ -1,8 +1,8 @@
 local M = {}
 function M.setup()
-  vim.cmd[[set softtabstop=4]]
-  vim.cmd[[set shiftwidth=4]]
-  vim.cmd[[set noexpandtab]]
+  -- vim.cmd[[set softtabstop=4]]
+  -- vim.cmd[[set shiftwidth=4]]
+  -- vim.cmd[[set noexpandtab]]
   require('jdtls').start_or_attach({cmd = {'launch_jdtls'}})
   -- Utility servers
   local map = function(type, key, value)

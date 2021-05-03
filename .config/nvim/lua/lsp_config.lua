@@ -56,6 +56,7 @@ local on_attach_clangd = function(client)
 end
 lsp.clangd.setup{
   on_attach = on_attach_clangd,
+  cmd = { "clangd", "--background-index", "--completion-style=detailed"},
 }
 lsp.tsserver.setup{on_attach=on_attach_common}
 lsp.html.setup{
@@ -106,6 +107,10 @@ lsp.texlab.setup{
       }
     }
   }
+}
+
+require'lspconfig'.gopls.setup{
+  on_attach = on_attach_common,
 }
 
 

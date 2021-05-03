@@ -86,3 +86,4 @@ require'lsputils'
 require'completion'
 require'finder_config'
 require('telescope').load_extension('fzy_native')
+require'custom_treesitter_lang'
