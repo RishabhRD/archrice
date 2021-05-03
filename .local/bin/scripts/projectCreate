@@ -1,12 +1,12 @@
 #!/bin/sh
 
 function help(){
-  echo "usage: projectCreate -l lang "
+  echo "usage: projectCreate -l lang -p projectName -c className"
   echo "optional : -g intialise a git repo inside project folder"
   echo "         : -h show this help message"
-  echo "         : -p projectName -c className -e executableName"
 }
 
+[[ -z $1 ]] && help
 
 git_init='false'
 
@@ -33,13 +33,13 @@ while getopts "l:hgp:c:e:" flag; do
     esac
 done
 
-[[  -z $lang ]] && printf "Enter Language Name : " && read lang
-[[  -z $project_name ]] && printf "Enter project Name : " && read project_name
 
-function gradle_init(){
+function gradle_init(){ # pass project name and class name
 
+    echo "$project_name"
+    echo "$class_name"
 
-  [[  -z $class_name ]] && printf "Enter class Name : " && read class_name
+  [[  -z $project_name || -z $class_name ]] && help && exit
 
   mkdir -p $project_name || exit
   mkdir -p $project_name/src/main/java
@@ -71,10 +71,9 @@ function gradle_init(){
   [ "$git_init" == "true" ] && git init $project_name
 }
 
-function cpp_init(){
+function cpp_init(){ # pass pname and exe_name
 
-
-  [[  -z $exe_name ]] && printf "Enter executable Name : " && read exe_name
+  [[  -z "$project_name" || -z "$exe_name" ]] && help && exit
 
   mkdir $project_name || exit
 
@@ -153,6 +152,8 @@ function cpp_init(){
 
 function py_init(){
 
+  [[  -z "$project_name" ]] && help && exit
+  echo $project_name
   mkdir $project_name || exit
   _project_name=$(echo $project_name | sed -e 's/-/_/g')
   mkdir -p $project_name/docs

@@ -1,0 +1,3 @@
+#!/bin/sh
+/usr/lib/kdeconnectd &
+indicator-kdeconnect &

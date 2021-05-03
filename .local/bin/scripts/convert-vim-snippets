@@ -1,0 +1,9 @@
+#!/bin/sh
+files=$(ls /home/rishabh/.vim/plugged/vim-snippets/UltiSnips/)
+
+for file in $files; do
+    filename=$(basename -- "$file")
+    filename="${filename%.*}"
+    convert-snippets /home/rishabh/.vim/plugged/vim-snippets/UltiSnips/$file /home/rishabh/.local/share/nvim/.snippets/$filename.json
+done
+
