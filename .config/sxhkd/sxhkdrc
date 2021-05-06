@@ -1,7 +1,7 @@
 super + shift + space
     dmenuemoji 
 super + r
-    source ~/.config/zsh/lficons.sh;$TERMINAL -e lf;
+    $TERMINAL -e ranger;
 super + shift + b
     $BROWSER
 Print
@@ -33,7 +33,7 @@ super + F3
 super + F4
     dmenuumount
 super + a
-    st -e nvim $HOME/.local/share/jumps/copytext
+    alacritty -e nvim $HOME/.local/share/jumps/copytext
 super + c
     select.sh $HOME/.local/share/jumps/copytext
 super + shift + c
@@ -89,7 +89,7 @@ super + control + m
 super + control + f
     hover right 
 super + shift + s
-    st -e bibsearch
+    alacritty -e bibsearch
 super + shift + p
     passmenu
 super + shift + a

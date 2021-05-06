@@ -25,14 +25,25 @@ alias p='sudo pacman'
 alias vi='nvim'
 alias ni='nvim'
 alias vim='nvim'
-alias r='lf'
+alias r='ranger'
 alias xre="nvim  $HOME/.config/X11/Xresources"
+alias t='tmux a'
+alias td='tmux new -s default'
+alias pdev='popfixDev.sh'
+alias ga='git add'
+alias gc='git commit'
+alias w='nvim ~/.local/share/jumps/work-paths'
+alias lxa='lxc-attach --clear-env'
+alias sk='setupKeyboard'
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 se(){
 	find "$HOME/.local/bin/scripts/" -type f | fzf --height=30% --border=horizontal | xargs -r -o nvim
 }
 o(){
 	cd `cat ~/.local/share/jumps/work-paths | fzf --height=20% --border=sharp `
+}
+n(){
+	cd ~/.vim/plugged/`ls ~/.vim/plugged/ | fzf --height=20% --border=sharp `
 }
 cdd() {
 	local dir
@@ -75,3 +86,5 @@ bindkey -v '^?' backward-delete-char
 
 export KEYTIMEOUT=1
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
