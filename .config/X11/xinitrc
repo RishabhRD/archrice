@@ -8,4 +8,5 @@ xinput.sh &
 dwmblocks &
 xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
 sxhkd &
+compton &
 exec dwm
