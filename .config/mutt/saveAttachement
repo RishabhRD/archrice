@@ -8,7 +8,7 @@ if [ -a "$ATT_LF_FILE" ]; then
 	notify-send "📧 Saving Failed" "Another client is saving attachement"
 else
 	touch "$ATT_LF_FILE"
-	lf
+        ranger
 	sed -i "s/^/s/g" "$ATT_LF_FILE"
 	first_line="$(head -1 < "$ATT_LF_FILE")"
 	xdotool type "$first_line"

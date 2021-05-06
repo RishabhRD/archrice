@@ -3,4 +3,4 @@ text/*; nvim %s &
 image/*; sxiv %s &
 video/*; mpv %s &
 application/pdf; zathura %s &
-application/pgp; urxvt -e pgp -d &
+application/pgp; alacritty -e pgp -d &
