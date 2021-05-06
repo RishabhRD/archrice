@@ -91,6 +91,29 @@ local function man()
 }:find()
 end
 
+local function colorscheme()
+  local opts = {}
+  local colors = vim.list_extend(opts.colors or {}, vim.fn.getcompletion('', 'color'))
+  pickers.new(opts,{
+    prompt = 'Change Colorscheme',
+    finder = finders.new_table {
+      results = colors
+    },
+    -- TODO: better preview?
+    sorter = conf.generic_sorter(opts),
+    attach_mappings = function(prompt_bufnr)
+      actions.select_default:replace(function()
+        local selection = action_state.get_selected_entry()
+
+        actions.close(prompt_bufnr)
+        require'colorscheme_config'.colorscheme(selection.value)
+      end)
+
+      return true
+    end
+  }):find()
+end
+
 local function apply_config()
   require('telescope').setup{
     defaults = {
@@ -111,7 +134,7 @@ local function do_general_mappings()
   nmap('<leader>ft', '<cmd>Telescope builtin<CR>')
   nmap('<leader>fo', '<cmd>Telescope file_browser<CR>')
   nmap('<leader>fm', [[<cmd>lua require'telescope_config'.man()<CR>]])
-  nmap('<C-y>', '<cmd>Telescope colorscheme<CR>')
+  nmap('<C-y>', [[<cmd>lua require'telescope_config'.colorscheme()<CR>]])
   nmap('<A-y>', '<cmd>Telescope help_tags<CR>')
 end
 
@@ -120,4 +143,5 @@ return {
   do_lsp_mappings = do_lsp_mappings,
   apply_config = apply_config,
   man = man,
+  colorscheme = colorscheme
 }
