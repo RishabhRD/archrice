@@ -1,3 +1,4 @@
+local mapping = require'mappings'
 local function colorscheme(str)
     vim.cmd(string.format('colorscheme %s', str))
 end
@@ -8,3 +9,21 @@ vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_invert_selection='0'
 vim.cmd[[let ayucolor="dark"]]
 colorscheme 'ayu'
+
+local transparent = false
+
+local function toggle_transparency()
+  if transparent == false then
+    vim.cmd[[hi Normal guibg=NONE ctermbg=NONE]]
+    transparent = true
+  else
+    vim.o.background = 'dark'
+    transparent = false
+  end
+end
+
+mapping.nmap('<leader>t', [[<cmd>lua require'colorscheme_config'.toggle_transparency()<CR>]])
+
+return {
+  toggle_transparency = toggle_transparency
+}
