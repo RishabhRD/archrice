@@ -1,3 +1,4 @@
+local telescope = require'telescope_config'
 local lsp = require'lspconfig'
 
 -- Utility servers
@@ -26,16 +27,11 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 local on_attach_common = function(_)
   print("LSP started.");
 
+  telescope.do_lsp_mappings()
   -- GOTO mappings
-  map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
-  map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
   map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
-  map('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
   map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
-  map('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
   map('n','<leader>gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
-  map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
-  map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
   -- ACTION mappings
   map('n','<leader>ah',  '<cmd>lua vim.lsp.buf.hover()<CR>')
   map('n','<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')

@@ -13,6 +13,7 @@ plug {
   'RishabhRD/popfix',
   'RishabhRD/nvim-rdark',
   'RishabhRD/nvim-gruvbox',
+  'ayu-theme/ayu-vim',
   'RishabhRD/nvim-cheat.sh',
   'neovim/nvim-lspconfig',
   'hrsh7th/nvim-compe', -- TODO: unstable but he knows what we want.
@@ -31,10 +32,11 @@ plug {
   'mhinz/vim-startify',
   'norcalli/nvim-colorizer.lua',
   'honza/vim-snippets',
-  -- 'SirVer/ultisnips',
   'mfussenegger/nvim-jdtls',
   'nvim-lua/popup.nvim',
-  -- 'nvim-lua/completion-nvim',
   'nvim-telescope/telescope.nvim',
   'nvim-telescope/telescope-fzy-native.nvim',
+  'rafamadriz/friendly-snippets',
+  'hrsh7th/vim-vsnip',
+  'kyazdani42/nvim-web-devicons',
 }

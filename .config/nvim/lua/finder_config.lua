@@ -68,16 +68,16 @@ function M.files_nvim(str)
     }
 end
 
-finderMap('<leader>ff', 'files')
-finderMap('<leader>fn', 'files_nvim')
-finderMap('<leader>fgf', 'git_files')
-finderMap('<leader>fl', 'fuzzy_grep')
-finderMap('<leader>fb', 'buffers')
-finderMap('<leader>fL', 'grep')
-finderMap('<A-y>', 'help')
-finderMap('<C-y>', 'colors')
-finderDirectMap('<leader>fk', 'buffer_lines')
-finderDirectMap('<leader>fm', 'man_pages')
-finderDirectMap('<leader>fc', 'finder_commands')
+-- finderMap('<leader>ff', 'files')
+-- finderMap('<leader>fn', 'files_nvim')
+-- finderMap('<leader>fgf', 'git_files')
+-- finderMap('<leader>fl', 'fuzzy_grep')
+-- finderMap('<leader>fb', 'buffers')
+-- finderMap('<leader>fL', 'grep')
+-- finderMap('<A-y>', 'help')
+-- finderMap('<C-y>', 'colors')
+-- finderDirectMap('<leader>fk', 'buffer_lines')
+-- finderDirectMap('<leader>fm', 'man_pages')
+-- finderDirectMap('<leader>fc', 'finder_commands')
 
 return M
