@@ -111,3 +111,10 @@ colors:
     cyan: '#95E6CB'
     white: '#FFFFFF'
 
+key_bindings:
+  - { key: C, mods: Alt, action: Copy }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: K, mods: Control|Alt, action: IncreaseFontSize }
+  - { key: J, mods: Control|Alt, action: DecreaseFontSize }
+  - { key: Equals, mods: Control, action: ResetFontSize }
+
