@@ -3,6 +3,7 @@ local function plug(t)
   for _,v in ipairs(t) do
     vim.cmd(string.format([[Plug '%s']], v))
   end
+  vim.cmd[[Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }]]
   vim.cmd[[call plug#end()]]
 end
 
@@ -41,4 +42,6 @@ plug {
   'ray-x/lsp_signature.nvim',
   'kyazdani42/nvim-web-devicons',
   'folke/lsp-colors.nvim',
+  'junegunn/fzf.vim',
+  'kosayoda/nvim-lightbulb',
 }

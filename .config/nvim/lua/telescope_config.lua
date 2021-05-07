@@ -127,8 +127,8 @@ end
 
 local function do_general_mappings()
   nmap('<leader>ff', '<cmd>Telescope find_files<CR>')
-  nmap('<leader>fL', [[<cmd>Telescope grep_string<CR>]])
-  nmap('<leader>fl', '<cmd>Telescope live_grep<CR>')
+  nmap('<leader>fl', [[<cmd>Rg<CR>]])
+  nmap('<leader>fL', '<cmd>Telescope live_grep<CR>')
   nmap('<leader>fk', '<cmd>Telescope current_buffer_fuzzy_find<CR>')
   nmap('<leader>fb', '<cmd>Telescope buffers<CR>')
   nmap('<leader>ft', '<cmd>Telescope builtin<CR>')

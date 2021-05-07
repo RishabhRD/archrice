@@ -11,4 +11,6 @@ vim.cmd[[augroup END]]
 vim.cmd[[augroup lsp]]
     vim.cmd[[au!]]
     vim.cmd[[au FileType java lua require'jdtls_config'.setup()]]
+    vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
 vim.cmd[[augroup end]]
+
