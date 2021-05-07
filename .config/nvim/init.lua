@@ -16,6 +16,7 @@ set 'wrap'
 set 'autoread'
 set 'undofile'
 set ('swapfile', false)
+set ('signcolumn', 'yes')
 set ('backup', false)
 set ('completeopt', 'menu,menuone,noselect')
 

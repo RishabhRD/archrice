@@ -36,7 +36,7 @@ local on_attach_common = function(_)
     hint_scheme = "String",
 
     handler_opts = {
-      border = "shadow"   -- double, single, shadow, none
+      border = "none"   -- double, single, shadow, none
     },
     decorator = {"`", "`"}  -- or decorator = {"***", "***"}  decorator = {"**", "**"} see markdown help
 
@@ -54,12 +54,12 @@ local on_attach_common = function(_)
   map('n','<leader>ar',  '<cmd>lua vim.lsp.buf.rename()<CR>')
   -- Few language severs support these three
   map('n','<leader>=',  '<cmd>lua vim.lsp.buf.formatting()<CR>')
-  map('n','<leader>ai',  '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
-  map('n','<leader>ao',  '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+  map('n','<leader>aI',  '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
+  map('n','<leader>aO',  '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
   -- Diagnostics mapping
   map('n','<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('n','<leader>en', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-  map('n','<leader>ep', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  map('n','<leader>en', [[<cmd>lua require'lsp_config'.next_diagnostic()<CR>]])
+  map('n','<leader>ep', [[<cmd>lua require'lsp_config'.prev_diagnostic()<CR>]])
 
 end
 local on_attach_clangd = function(client)
@@ -136,8 +136,93 @@ local function lsp_stop(buffer)
   vim.lsp.stop_client(vim.lsp.get_active_clients(buffer))
 end
 
+local function get_pos_from_diag(diag)
+  return {diag.range.start.line + 1, diag.range.start.character}
+end
+
+local function is_high(pos1, pos2)
+  if pos1[1] > pos2[1] then
+    return true
+  end
+  if pos1[1] == pos2[1] then
+    if pos1[2] > pos2[2] then
+      return true
+    end
+  end
+  return false
+end
+
+local function is_less(pos1, pos2)
+  if pos1[1] < pos2[1] then
+    return true
+  end
+  if pos1[1] == pos2[1] then
+    if pos1[2] < pos2[2] then
+      return true
+    end
+  end
+  return false
+end
+
+local function get_next_index(list)
+  if #list == 0 then
+    return
+  end
+  local current_pos = vim.api.nvim_win_get_cursor(0)
+  for cur_index, value in ipairs(list) do
+    local diag_pos = get_pos_from_diag(value)
+    if is_high(diag_pos, current_pos) then
+      return cur_index
+    end
+  end
+  return 1
+end
+
+local function get_prev_index(list)
+  if #list == 0 then
+    return
+  end
+  local current_pos = vim.api.nvim_win_get_cursor(0)
+  for cur_index, value in ipairs(list) do
+    local diag_pos = get_pos_from_diag(value)
+    if is_less(diag_pos, current_pos) then
+      return cur_index
+    end
+  end
+  return 1
+end
+
+local function reverse(tbl)
+  for i=1, math.floor(#tbl / 2) do
+    local tmp = tbl[i]
+    tbl[i] = tbl[#tbl - i + 1]
+    tbl[#tbl - i + 1] = tmp
+  end
+end
+
+local function next_diagnostic()
+  local diagnostic_list = vim.lsp.diagnostic.get(0)
+  local next_index = get_next_index(diagnostic_list)
+  if next_index == nil then
+    return
+  end
+  vim.api.nvim_win_set_cursor(0, get_pos_from_diag(diagnostic_list[next_index]))
+end
+
+local function prev_diagnostic()
+  local diagnostic_list = vim.lsp.diagnostic.get(0)
+  reverse(diagnostic_list)
+  local next_index = get_prev_index(diagnostic_list)
+  if next_index == nil then
+    return
+  end
+  vim.api.nvim_win_set_cursor(0, get_pos_from_diag(diagnostic_list[next_index]))
+end
+
 return{
   lsp_reload = lsp_reload,
-  lsp_stop = lsp_stop
+  lsp_stop = lsp_stop,
+  next_diagnostic = next_diagnostic,
+  prev_diagnostic =prev_diagnostic,
 }
 

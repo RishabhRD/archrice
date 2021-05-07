@@ -5,9 +5,6 @@ require'compe'.setup {
   preselect = 'disable',
 
   source = {
-    ultisnips = {
-      priority = 9
-    },
     path = {
       priority = 9
     },
@@ -17,6 +14,9 @@ require'compe'.setup {
     nvim_lsp = {
       priority = 10,
       sort = false
+    },
+    vsnip = {
+      priority = 9
     },
     -- nvim_lua = { ... overwrite source configuration ... };
   };
