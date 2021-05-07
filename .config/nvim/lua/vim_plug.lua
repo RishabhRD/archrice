@@ -8,23 +8,19 @@ local function plug(t)
 end
 
 plug {
+  -- 'puremourning/vimspector',
   'hrsh7th/vim-vsnip',
   'RishabhRD/nvim-finder',
   'RishabhRD/nvim-lsputils',
   'RishabhRD/popfix',
-  'RishabhRD/nvim-rdark',
-  'RishabhRD/nvim-gruvbox',
-  'gruvbox-community/gruvbox',
-  'ayu-theme/ayu-vim',
   'RishabhRD/nvim-cheat.sh',
   'neovim/nvim-lspconfig',
-  'hrsh7th/nvim-compe', -- TODO: unstable but he knows what we want.
-  'tjdevries/colorbuddy.nvim',
+  'hrsh7th/nvim-compe',
   'tpope/vim-fugitive',
   'tpope/vim-commentary',
-  -- 'puremourning/vimspector',
   'mbbill/undotree',
   'nvim-treesitter/nvim-treesitter',
+  'nvim-treesitter/nvim-treesitter-textobjects',
   'nvim-lua/plenary.nvim',
   'glepnir/galaxyline.nvim',
   'glacambre/firenvim',
@@ -44,4 +40,12 @@ plug {
   'folke/lsp-colors.nvim',
   'junegunn/fzf.vim',
   'kosayoda/nvim-lightbulb',
+  -- colorschemes
+  'ayu-theme/ayu-vim',
+  'marko-cerovac/material.nvim',
+  'ChristianChiarulli/nvcode-color-schemes.vim',
+  'folke/tokyonight.nvim',
+  'gruvbox-community/gruvbox',
+  'bluz71/vim-nightfly-guicolors',
+  'bluz71/vim-moonfly-colors',
 }

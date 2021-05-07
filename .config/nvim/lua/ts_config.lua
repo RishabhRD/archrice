@@ -12,14 +12,21 @@ require'nvim-treesitter.configs'.setup {
 	["if"] = "@function.inner",
 	["ac"] = "@class.outer",
 	["ic"] = "@class.inner",
-
-	-- Or you can define your own textobjects like this
-	["iF"] = {
-	  python = "(function_definition) @function",
-	  cpp = "(function_definition) @function",
-	  c = "(function_definition) @function",
-	  java = "(method_declaration) @function",
-	},
+	["ab"] = "@block.outer",
+	["ib"] = "@block.inner",
+	["as"] = "@scopename.outer",
+	["is"] = "@scopename.inner",
+	["al"] = "@loop.outer",
+	["il"] = "@loop.inner",
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<leader>a"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<leader>A"] = "@parameter.inner",
       },
     },
   },
