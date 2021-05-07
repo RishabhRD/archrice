@@ -21,7 +21,7 @@ plug {
   'tjdevries/colorbuddy.nvim',
   'tpope/vim-fugitive',
   'tpope/vim-commentary',
-  'puremourning/vimspector',
+  -- 'puremourning/vimspector',
   'mbbill/undotree',
   'nvim-treesitter/nvim-treesitter',
   'nvim-lua/plenary.nvim',
@@ -38,5 +38,7 @@ plug {
   'nvim-telescope/telescope-fzy-native.nvim',
   'rafamadriz/friendly-snippets',
   'hrsh7th/vim-vsnip',
+  'ray-x/lsp_signature.nvim',
   'kyazdani42/nvim-web-devicons',
+  'folke/lsp-colors.nvim',
 }

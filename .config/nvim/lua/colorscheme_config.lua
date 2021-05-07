@@ -1,5 +1,5 @@
 local mapping = require'mappings'
-local transparent = false
+local transparent = true
 local function colorscheme(str)
     vim.cmd(string.format('colorscheme %s', str))
     if transparent == true then
@@ -26,6 +26,14 @@ local function toggle_transparency()
 end
 
 mapping.nmap('<leader>t', [[<cmd>lua require'colorscheme_config'.toggle_transparency()<CR>]])
+
+-- colors for LSP
+require("lsp-colors").setup({
+  Error = "#db4b4b",
+  Warning = "#e0af68",
+  Information = "#0db9d7",
+  Hint = "#10B981"
+})
 
 return {
   toggle_transparency = toggle_transparency,
