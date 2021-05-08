@@ -28,8 +28,8 @@ function M.setup()
   map('n','<leader>ao',  '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
   -- Diagnostics mapping
   map('n','<leader>ee', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-  map('n','<leader>en', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-  map('n','<leader>ep', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+  map('n','<leader>en', [[<cmd>lua require'lsp_config'.next_diagnostic()<CR>]])
+  map('n','<leader>ep', [[<cmd>lua require'lsp_config'.prev_diagnostic()<CR>]])
 
   map('n', [[<leader>ai]], [[<Cmd>lua require'jdtls'.organize_imports()<CR>]])
   map('n', [[<leader>av]], [[<Cmd>lua require('jdtls').extract_variable()<CR>]])

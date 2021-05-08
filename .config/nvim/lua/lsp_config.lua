@@ -192,16 +192,11 @@ local function get_prev_index(list)
   return 1
 end
 
-local function reverse(tbl)
-  for i=1, math.floor(#tbl / 2) do
-    local tmp = tbl[i]
-    tbl[i] = tbl[#tbl - i + 1]
-    tbl[#tbl - i + 1] = tmp
-  end
-end
-
 local function next_diagnostic()
   local diagnostic_list = vim.lsp.diagnostic.get(0)
+  table.sort(diagnostic_list, function(left, right)
+    return is_less(get_pos_from_diag(left), get_pos_from_diag(right))
+  end)
   local next_index = get_next_index(diagnostic_list)
   if next_index == nil then
     return
@@ -211,7 +206,9 @@ end
 
 local function prev_diagnostic()
   local diagnostic_list = vim.lsp.diagnostic.get(0)
-  reverse(diagnostic_list)
+  table.sort(diagnostic_list, function(left, right)
+    return is_high(get_pos_from_diag(left), get_pos_from_diag(right))
+  end)
   local next_index = get_prev_index(diagnostic_list)
   if next_index == nil then
     return

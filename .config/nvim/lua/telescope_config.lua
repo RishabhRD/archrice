@@ -19,8 +19,8 @@ local function do_lsp_mappings()
   nmap('gw', '<cmd>Telescope lsp_document_symbols<CR>')
   nmap('gW', '<cmd>Telescope lsp_workspace_symbols<CR>')
   nmap('gq', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')
-  nmap('ad', '<cmd>Telescope lsp_document_diagnostics<CR>')
-  nmap('aD', '<cmd>Telescope lsp_workspace_diagnostics<CR>')
+  nmap('<leader>ad', '<cmd>Telescope lsp_document_diagnostics<CR>')
+  nmap('<leader>aD', '<cmd>Telescope lsp_workspace_diagnostics<CR>')
   vmap('af', '<cmd>Telescope lsp_range_code_actions<CR>')
 end
 
