@@ -12,7 +12,7 @@ vim.cmd[[set termguicolors]]
 vim.cmd[[let g:gruvbox_contrast_dark = "hard"]]
 vim.g.gruvbox_invert_selection='0'
 vim.cmd[[let ayucolor="dark"]]
-colorscheme 'ayu'
+colorscheme 'gruvbox'
 
 
 local function toggle_transparency()

@@ -32,11 +32,11 @@ local on_attach_common = function(_)
     doc_lines = 0, -- only show one line of comment set to 0 if you do not want API comments be shown
 
     hint_enable = true, -- virtual hint enable
-    hint_prefix = "🐼 ",  -- Panda for parameter
+    hint_prefix = "",  -- Panda for parameter
     hint_scheme = "String",
 
     handler_opts = {
-      border = "none"   -- double, single, shadow, none
+      border = "single"   -- double, single, shadow, none
     },
     decorator = {"`", "`"}  -- or decorator = {"***", "***"}  decorator = {"**", "**"} see markdown help
 
@@ -70,6 +70,9 @@ lsp.clangd.setup{
   on_attach = on_attach_clangd,
   cmd = { "clangd", "--background-index", "--completion-style=detailed"},
 }
+-- lsp.ccls.setup{
+--   on_attach = on_attach_common,
+-- }
 lsp.tsserver.setup{on_attach=on_attach_common}
 lsp.html.setup{
   on_attach=on_attach_common,

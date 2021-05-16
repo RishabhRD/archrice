@@ -39,7 +39,6 @@ plug {
   'kyazdani42/nvim-web-devicons',
   'folke/lsp-colors.nvim',
   'junegunn/fzf.vim',
-  'kosayoda/nvim-lightbulb',
   -- colorschemes
   'ayu-theme/ayu-vim',
   'marko-cerovac/material.nvim',
