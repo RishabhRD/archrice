@@ -195,6 +195,10 @@ local function get_prev_index(list)
   return 1
 end
 
+local function save_current_location()
+  vim.cmd("mark '");
+end
+
 local function next_diagnostic()
   local diagnostic_list = vim.lsp.diagnostic.get(0)
   table.sort(diagnostic_list, function(left, right)
@@ -204,6 +208,7 @@ local function next_diagnostic()
   if next_index == nil then
     return
   end
+  save_current_location()
   vim.api.nvim_win_set_cursor(0, get_pos_from_diag(diagnostic_list[next_index]))
 end
 
@@ -216,6 +221,7 @@ local function prev_diagnostic()
   if next_index == nil then
     return
   end
+  save_current_location()
   vim.api.nvim_win_set_cursor(0, get_pos_from_diag(diagnostic_list[next_index]))
 end
 
