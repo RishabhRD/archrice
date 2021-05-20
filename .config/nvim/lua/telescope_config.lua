@@ -17,7 +17,7 @@ local function do_lsp_mappings()
   nmap('gD', '<cmd>Telescope lsp_declarations<CR>')
   nmap('gi', '<cmd>Telescope lsp_implementations<CR>')
   nmap('gw', '<cmd>Telescope lsp_document_symbols<CR>')
-  nmap('gW', '<cmd>Telescope lsp_workspace_symbols<CR>')
+  vim.cmd[[noremap gW :Telescope lsp_workspace_symbols query=]]
   nmap('gq', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>')
   nmap('<leader>ad', '<cmd>Telescope lsp_document_diagnostics<CR>')
   nmap('<leader>aD', '<cmd>Telescope lsp_workspace_diagnostics<CR>')
