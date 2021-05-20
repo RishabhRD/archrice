@@ -1,0 +1,1 @@
+b -vn clean update |& compiledb
