@@ -39,6 +39,7 @@ plug {
   'kyazdani42/nvim-web-devicons',
   'folke/lsp-colors.nvim',
   'junegunn/fzf.vim',
+  'ThePrimeagen/harpoon',
   -- colorschemes
   'ayu-theme/ayu-vim',
   'marko-cerovac/material.nvim',
