@@ -26,7 +26,6 @@ plug {
   'glacambre/firenvim',
   'szw/vim-maximizer',
   'ryanoasis/vim-devicons',
-  'mhinz/vim-startify',
   'norcalli/nvim-colorizer.lua',
   'honza/vim-snippets',
   'mfussenegger/nvim-jdtls',
