@@ -86,6 +86,9 @@
       "  };",
       "}",
       "",
+      "template <typename T>",
+      "using lmt = std::numeric_limits<T>;",
+      "",
       ""
     ],
     "description": "Code for competitive programming"
