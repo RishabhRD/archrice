@@ -67,10 +67,6 @@ vim.g.text_flavor = "latex"
 
 vim.g.netrw_banner = 0
 vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-vim.g.UltiSnipsExpandTrigger="<C-l>"
-vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
-vim.g.UltiSnipsJumpBackwardTrigger="<c-k>"
--- vim.g.enable_finder_native_sorter = true
 vim.g.cheat_default_window_layout = 'split'
 
 -- require'plugins'
@@ -88,3 +84,4 @@ require'custom_treesitter_lang'
 require('telescope').load_extension('fzy_native')
 require'telescope_config'.do_general_mappings()
 require'telescope_config'.apply_config()
+vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
