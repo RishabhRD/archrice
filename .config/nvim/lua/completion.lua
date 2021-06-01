@@ -21,3 +21,5 @@ require'compe'.setup {
     -- nvim_lua = { ... overwrite source configuration ... };
   };
 }
+vim.cmd[[command! CompeEnable  call compe#setup(g:compe, 0)]]
+vim.cmd[[command! CompeDisable call compe#setup({'enabled': v:false}, 0)]]
