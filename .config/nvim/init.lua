@@ -80,8 +80,3 @@ require'statusline'
 require'colorscheme_config'
 require'lsputils'
 require'completion'
-require'custom_treesitter_lang'
-require('telescope').load_extension('fzy_native')
-require'telescope_config'.do_general_mappings()
-require'telescope_config'.apply_config()
-vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'

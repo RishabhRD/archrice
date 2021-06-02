@@ -9,6 +9,7 @@ end
 
 plug {
   -- 'puremourning/vimspector',
+  'folke/todo-comments.nvim',
   'hrsh7th/vim-vsnip',
   'RishabhRD/nvim-finder',
   'RishabhRD/nvim-lsputils',
@@ -46,3 +47,10 @@ plug {
   'bluz71/vim-nightfly-guicolors',
   'bluz71/vim-moonfly-colors',
 }
+
+-- common plugin configuration that needs one line or two
+require("todo-comments").setup {}
+require('telescope').load_extension('fzy_native')
+require'telescope_config'.do_general_mappings()
+require'telescope_config'.apply_config()
+vim.g.vsnip_snippet_dir = '~/.config/nvim/snippets'
