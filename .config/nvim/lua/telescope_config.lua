@@ -131,11 +131,12 @@ local function do_general_mappings()
   nmap('<leader>fL', '<cmd>Telescope live_grep<CR>')
   nmap('<leader>fk', '<cmd>Telescope current_buffer_fuzzy_find<CR>')
   nmap('<leader>fb', '<cmd>Telescope buffers<CR>')
-  nmap('<leader>ft', '<cmd>Telescope builtin<CR>')
+  nmap('<leader>fT', '<cmd>Telescope builtin<CR>')
   nmap('<leader>fo', '<cmd>Telescope file_browser<CR>')
   nmap('<leader>fm', [[<cmd>lua require'telescope_config'.man()<CR>]])
   nmap('<C-y>', [[<cmd>lua require'telescope_config'.colorscheme()<CR>]])
   nmap('<A-y>', '<cmd>Telescope help_tags<CR>')
+  nmap('<leader>ft', '<cmd>TodoTelescope<CR>')
 end
 
 return {

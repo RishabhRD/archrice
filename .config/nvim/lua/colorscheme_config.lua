@@ -6,12 +6,10 @@ local function colorscheme(str)
       vim.cmd[[hi Normal guibg=NONE ctermbg=NONE]]
     end
 end
-local o = vim.o
-o.background = 'dark'
 vim.cmd[[set termguicolors]]
-vim.cmd[[let g:gruvbox_contrast_dark = "hard"]]
+vim.o.background = 'dark'
 vim.g.gruvbox_invert_selection='0'
-vim.cmd[[let ayucolor="dark"]]
+vim.g.gruvbox_contrast_dark = 'hard'
 colorscheme 'gruvbox'
 
 
