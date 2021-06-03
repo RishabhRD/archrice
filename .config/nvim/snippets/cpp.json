@@ -48,7 +48,7 @@
 
       "template <typename T>",
       "constexpr auto accessor(T& t){",
-      "  return [&](int i) -> typename T::value_type&{",
+      "  return [&](int i) -> typename T::reference{",
       "    return t.at(i);",
       "  };",
       "}",
@@ -69,7 +69,7 @@
       "",
       "template <typename T>",
       "constexpr auto matrix_accessor(T& t){",
-      "  return [&](int i, int j) -> typename T::value_type::value_type&{",
+      "  return [&](int i, int j) -> typename T::value_type::reference{",
       "    return t.at(i).at(j);",
       "  };",
       "}",
