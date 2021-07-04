@@ -43,20 +43,21 @@ set ('updatetime', '1000')
 set 'showcmd'
 set ('showmode', false)
 set ('colorcolumn', '80')
+set ('signcolumn', 'yes')
 
 
-local fo = require'table_opts':new('formatoptions')
-fo = fo
-   + 't'    -- auto-wrap text using textwidth
-   + 'c'    -- auto-wrap comments using textwidth
-   + 'r'    -- auto insert comment leader on pressing enter
-   - 'o'    -- don't insert comment leader on pressing o
-   + 'q'    -- format comments with gq
-   - 'a'    -- don't autoformat the paragraphs (use some formatter instead)
-   + 'n'    -- autoformat numbered list
-   - '2'    -- I am a programmer and not a writer
-   + 'j'    -- Join comments smartly
-set ('joinspaces', false)
+-- local fo = require'table_opts':new('formatoptions')
+-- fo = fo
+--    + 't'    -- auto-wrap text using textwidth
+--    + 'c'    -- auto-wrap comments using textwidth
+--    + 'r'    -- auto insert comment leader on pressing enter
+--    - 'o'    -- don't insert comment leader on pressing o
+--    + 'q'    -- format comments with gq
+--    - 'a'    -- don't autoformat the paragraphs (use some formatter instead)
+--    + 'n'    -- autoformat numbered list
+--    - '2'    -- I am a programmer and not a writer
+--    + 'j'    -- Join comments smartly
+-- set ('joinspaces', false)
 
 local shortmess = require'table_opts':new('shortmess')
 shortmess = shortmess + 'c'

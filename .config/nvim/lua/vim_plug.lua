@@ -33,7 +33,7 @@ plug {
   'nvim-telescope/telescope.nvim',
   'nvim-telescope/telescope-fzy-native.nvim',
   'rafamadriz/friendly-snippets',
-  'ray-x/lsp_signature.nvim',
+  -- 'ray-x/lsp_signature.nvim',
   'kyazdani42/nvim-web-devicons',
   'folke/lsp-colors.nvim',
   'junegunn/fzf.vim',

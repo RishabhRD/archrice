@@ -119,7 +119,9 @@ local function apply_config()
     defaults = {
       color_devicons = true,
       set_env = { ['COLORTERM'] = 'truecolor' },
-      prompt_position = "top",
+      layout_config = {
+        prompt_position = "top",
+      },
       sorting_strategy = "ascending",
     }
   }

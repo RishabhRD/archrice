@@ -26,22 +26,22 @@ vim.lsp.diagnostic.on_publish_diagnostics, {
 -- configuring LSP servers
 local on_attach_common = function(_)
   print("LSP started.");
-  local cfg = {
-    bind = true, -- This is mandatory, otherwise border config won't get registered.
-    -- If you want to hook lspsaga or other signature handler, pls set to false
-    doc_lines = 0, -- only show one line of comment set to 0 if you do not want API comments be shown
+  -- local cfg = {
+  --   bind = true, -- This is mandatory, otherwise border config won't get registered.
+  --   -- If you want to hook lspsaga or other signature handler, pls set to false
+  --   doc_lines = 0, -- only show one line of comment set to 0 if you do not want API comments be shown
 
-    hint_enable = true, -- virtual hint enable
-    hint_prefix = "",  -- Panda for parameter
-    hint_scheme = "String",
+  --   hint_enable = true, -- virtual hint enable
+  --   hint_prefix = "",  -- Panda for parameter
+  --   hint_scheme = "String",
 
-    handler_opts = {
-      border = "single"   -- double, single, shadow, none
-    },
-    decorator = {"`", "`"}  -- or decorator = {"***", "***"}  decorator = {"**", "**"} see markdown help
+  --   handler_opts = {
+  --     border = "single"   -- double, single, shadow, none
+  --   },
+  --   decorator = {"`", "`"}  -- or decorator = {"***", "***"}  decorator = {"**", "**"} see markdown help
 
-  }
-  require'lsp_signature'.on_attach(cfg)
+  -- }
+  -- require'lsp_signature'.on_attach(cfg)
 
   telescope.do_lsp_mappings()
   -- GOTO mappings
@@ -68,7 +68,7 @@ local on_attach_clangd = function(client)
 end
 lsp.clangd.setup{
   on_attach = on_attach_clangd,
-  cmd = { "clangd", "--background-index", "--completion-style=detailed"},
+  -- cmd = { "clangd", "--background-index", "--completion-style=detailed"},
 }
 -- lsp.ccls.setup{
 --   on_attach = on_attach_common,

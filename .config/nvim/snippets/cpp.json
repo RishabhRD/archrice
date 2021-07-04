@@ -91,6 +91,11 @@
       "template <typename T>",
       "using lmt = std::numeric_limits<T>;",
       "",
+      "template <typename T, std::size_t N>",
+      "constexpr std::size_t array_size(const T (&)[N]) noexcept{",
+      "  return N;",
+      "}",
+      "",
       ""
     ],
     "description": "Code for competitive programming"
