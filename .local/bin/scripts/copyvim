@@ -1,0 +1,3 @@
+cp ~/.config/nvim/* ~/git/archrice/.config/nvim/
+cd ~/git/archrice/.config/nvim
+nvim

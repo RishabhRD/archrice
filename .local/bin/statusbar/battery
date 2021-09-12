@@ -1,0 +1,23 @@
+#!/bin/sh
+# Give a battery name (e.g. BAT0) as an argument.
+
+capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
+status=$(cat /sys/class/power_supply/"$1"/status)
+icon=🔋
+if [ "$capacity" -ge 92 ]; then
+	if [ "$status" = "Charging" ]; then
+		notify-send --urgency="critical" "Battery Charged"
+	fi
+elif [ "$capacity" -le 9 ]; then
+	warn="Low"
+	if [ "$status" = "Discharging" ]; then
+		notify-send --urgency="critical" "Battery Low"
+	fi
+elif [ "$capacity" -l 3 ]; then
+	warn="Very Low"
+fi
+
+[ -z $warn ] && warn=" "
+
+res=$(printf "$icon %s%s%s"  "$(echo "$status" | sed -e "s/,//;s/Discharging/Discharging/;s/Not Charging/Not Charging/;s/Charging/Charging/;s/Unknown/Error/;s/Full/Full/;s/ 0*/ /g;s/ :/ /g")" " $warn " "$(echo "$capacity" | sed -e 's/$/%/')")
+echo $res

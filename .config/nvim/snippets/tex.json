@@ -1,0 +1,9 @@
+{
+  "section": {
+    "prefix": ["sc"],
+    "body": [
+      "\\section{}"
+    ],
+    "description": "Section"
+  }
+}

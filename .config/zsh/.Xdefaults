@@ -1,0 +1,62 @@
+!! URxvt Appearance
+URxvt.allow_bold: true
+URxvt.font: xft:Noto Sans Mono:style=Regular:size=11
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 12
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.cursorBlink: 1
+!*.shading:	5	
+!*.alpha: 0.8
+!*.transparent: 	true
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
+ URxvt.url-select.launcher:  brave
+ URxvt.url-select.underline: true
+ URxvt.keysym.M-u:           perl:url-select:select_next
+ URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+ URxvt.keysym.M-s:           perl:keyboard-select:search
+!URxvt.perl-ext-common: resize-font,default,matcher
+!URxvt.url-launcher: /usr/bin/qutebrowse:
+!URxvt.matcher.button: 1
+
+! special
+*.foreground:   #a9bcf7
+*.background:   #000000
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #303030
+*.color8:       #5f5f5f
+
+! red
+*.color1:       #c03000
+*.color9:       #ff3a78
+
+! green
+*.color2:       #b1d631
+*.color10:      #a6cd07
+
+! yellow
+*.color3:       #fecf35
+*.color11:      #b5c865
+
+! blue
+*.color4:       #426870
+*.color12:      #4a7781
+
+! magenta
+*.color5:       #6d506d
+*.color13:      #ff3b77
+
+! cyan
+*.color6:       #4bb5c1
+*.color14:      #4bb5c1
+
+! white
+*.color7:       #e2e2e5
+*.color15:      #e2e2e5

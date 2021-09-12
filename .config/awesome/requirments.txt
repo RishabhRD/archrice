@@ -1,0 +1,6 @@
+acpi
+pacmd
+amixer
+brightnessctl
+light
+jq

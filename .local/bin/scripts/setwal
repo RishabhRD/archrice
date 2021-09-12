@@ -1,0 +1,1 @@
+cat $HOME/Pictures/.curwal > $HOME/Pictures/.startWal

@@ -1,0 +1,95 @@
+*.highlightColor:#3A3F4B
+*.foreground:    #ebdbb2 
+*.font: monospace:size=11
+*.alpha: 0.92
+*.alphaUnfocussed: 0.90
+!*.background: #07080f
+*.cursorColor:   #fcfcd7
+
+!*.color0:	#073642 
+!*.color1:	#dc322f 
+!*.color2:	#b8bb26
+!*.color3:	#fabd2f
+!*.color4:        #61AFEF
+!*.color5:	#c678dd 
+!*.color6:	#2aa198 
+!*.color7:	#eee8d5 
+!*.color8:	#fdf6e3 
+!*.color9:	#cb4b16 
+!*.color10:       #98971a
+!*.color11:       #D19A66
+!*.color12:       #61afef
+!*.color13:       #C678DD
+!*.color14:       #56B6C2
+!*.color15:       #ebdbb2
+
+! *.color0: #1d2021 
+! *.color1: #cc241d 
+! *.color2: #98971a 
+! *.color3: #d79921 
+! *.color4: #458588 
+! *.color5: #b16286 
+! *.color6: #689d6a 
+! *.color7: #a89984 
+! *.color8: #928374 
+! *.color9: #fb4934 
+! *.color10: #b8bb26
+! *.color11: #fabd2f
+! *.color12: #83a598
+! *.color13: #d3869b
+! *.color14: #8ec07c
+! *.color15: #ebdbb2
+! *.color256: #1d2021 
+! *.color257: #ebdbb2 
+
+
+!gruvbox
+! hard contrast: *background: #1d2021
+*background: #1d2021
+*foreground: #ebdbb2
+*color0:  #282828
+*color1:  #cc241d
+*color2:  #98971a
+*color3:  #d79921
+*color4:  #458588
+*color5:  #b16286
+*color6:  #689d6a
+*color7:  #a89984
+*color8:  #928374
+*color9:  #fb4934
+*color10: #b8bb26
+*color11: #fabd2f
+*color12: #83a598
+*color13: #d3869b
+*color14: #8ec07c
+*color15: #ebdbb2
+
+
+URxvt.allow_bold: true
+URxvt.font: xft:Liberation Mono:size=22
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 12
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.cursorBlink: 1
+URxvt.keysym.M-k: command:\033]720;1\007
+URxvt.keysym.M-j: command:\033]721;1\007
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
+ URxvt.url-select.launcher:  brave
+ URxvt.url-select.underline: true
+ URxvt.keysym.M-u:           perl:url-select:select_next
+ URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+ URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+URxvt.keyboard-select.clipboard: true
+
+

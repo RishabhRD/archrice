@@ -1,0 +1,1 @@
+echo "$(xclip -out -selection clipboard)" >> $HOME/.local/share/i3/copytext

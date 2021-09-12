@@ -1,0 +1,11 @@
+#!/bin/sh
+name="$(mpc current)"
+if [ ! -z "$name" ]; then
+	status=$(mpc | sed '2q;d' | awk '{print $1}')
+	if [ "$status" == "[playing]" ]; then
+		icon="▶"
+	else
+		icon=""
+	fi
+	echo " $icon $name"
+fi

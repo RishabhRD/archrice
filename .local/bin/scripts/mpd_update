@@ -1,0 +1,13 @@
+function mpd_file_update {
+	dir=`basename $1`
+	ls -1 "$1" >> "$HOME/.config/mpd/playlists/${dir}.m3u"
+	mv $1/* ~/Music/
+}
+function update_all_files {
+        dirs=$(cat $HOME/.local/share/music/directories | grep Music)
+        while IFS= read -r line; do
+        mpd_file_update $line
+        done <<< "$dirs"
+}
+update_all_files
+mpc update

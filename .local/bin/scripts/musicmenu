@@ -1,0 +1,10 @@
+alias mpc='mpc -f "%file%\t[%artist% - ][%album% [#[##%track%#] ]- ][%title%|%file%]"'
+songs=$(mpc listall | sort -V)
+printf '%s\n' "$songs" \
+| awk -F'\t' '{print $2}' \
+| dmenu -i -l 10 \
+| while read selection
+do
+	printf '%s\n' "$songs" | awk -F'\t' "\$2==\"$selection\" {print \$1; exit}"
+done | mpc insert
+mpc next

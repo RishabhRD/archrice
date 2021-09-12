@@ -1,0 +1,24 @@
+#!/bin/sh
+export ATT_LF_FILE="/tmp/lf_save_attachement.xyz"
+if [ "$1" == "name" ]; then
+	printf "Enter filename: "
+	read fname
+fi
+if [ -a "$ATT_LF_FILE" ]; then
+	notify-send "📧 Saving Failed" "Another client is saving attachement"
+else
+	touch "$ATT_LF_FILE"
+        ranger
+	sed -i "s/^/s/g" "$ATT_LF_FILE"
+	first_line="$(head -1 < "$ATT_LF_FILE")"
+	xdotool type "$first_line"
+	if [ -z "$1" ]; then
+		xdotool key Return
+		xdotool type "y"
+	else
+		[ -z "$fname" ] && exit
+		xdotool type "/$fname"
+	fi
+	xdotool key Return
+	rm "$ATT_LF_FILE"
+fi

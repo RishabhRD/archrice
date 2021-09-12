@@ -1,0 +1,175 @@
+font:
+  normal:
+    family: monospace
+    style: Regular
+
+  bold:
+    family: monospace
+    style: Bold
+
+  italic:
+    family: monospace
+    style: Italic
+
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+
+  size: 8.5
+env:
+  TERM: xterm-256color
+
+background_opacity: 0.80
+
+# Gruvbox
+schemes:
+  gruvbox: &gruvbox
+    primary:
+      # hard contrast background - '#1d2021'
+      # background:        &gruvbox_dark_bg '#282828'
+      background:        &gruvbox_dark_bg '#1d2021'
+      # soft contrast background - '#32302f'
+      foreground:        '#fbf1c7'
+      bright_foreground: '#f9f5d7'
+      dim_foreground:    '#f2e5bc'
+    cursor:
+      text:   CellBackground
+      cursor: CellForeground
+    vi_mode_cursor:
+      text:   CellBackground
+      cursor: CellForeground
+    # search:
+    #   matches:
+    #     foreground: '#000000'
+    #     background: '#ffffff'
+    #   focused_match:
+    #    foreground: CellBackground
+    #    background: CellForeground
+    #   bar:
+    #     background: ''
+    #     foreground: ''
+    # line_indicator:
+    #   foreground: None
+    #   background: None
+    selection:
+      text:       CellBackground
+      background: CellForeground
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
+    normal:
+      black:   *gruvbox_dark_bg
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
+    dim:
+      black:   '#32302f'
+      red:     '#9d0006'
+      green:   '#79740e'
+      yellow:  '#b57614'
+      blue:    '#076678'
+      magenta: '#8f3f71'
+      cyan:    '#427b58'
+      white:   '#928374'
+    # indexed_colors: []
+  ayu: &ayu
+    primary:
+      background: '#0A0E14'
+      foreground: '#B3B1AD'
+
+    # Normal colors
+    normal:
+      black: '#01060E'
+      red: '#EA6C73'
+      green: '#91B362'
+      yellow: '#F9AF4F'
+      blue: '#53BDFA'
+      magenta: '#FAE994'
+      cyan: '#90E1C6'
+      white: '#C7C7C7'
+
+    # Bright colors
+    bright:
+      black: '#686868'
+      red: '#F07178'
+      green: '#C2D94C'
+      yellow: '#FFB454'
+      blue: '#59C2FF'
+      magenta: '#FFEE99'
+      cyan: '#95E6CB'
+      white: '#FFFFFF'
+  vscode: &vscode
+    # Default colors
+    primary:
+      background: '#1e1e1e' #Background from Dark Theme
+  
+    # Normal colors
+    normal:
+      black:   '#000000'
+      red:     '#cd3131'
+      green:   '#0dbc79'
+      yellow:  '#e5e510'
+      blue:    '#2472c8'
+      magenta: '#bc3fbc'
+      cyan:    '#11a8cd'
+      white:   '#e5e5e5'
+  
+    # Bright colors
+    bright:
+      black:   '#666666'
+      red:     '#f14c4c'
+      green:   '#23d18b'
+      yellow:  '#f5f543'
+      blue:    '#3b8eea'
+      magenta: '#d670d6'
+      cyan:    '#29b8db'
+      white:   '#e5e5e5'
+  tomorrow_night_bright: &tomorrow_night_bright
+    # Default colors
+    primary:
+      background: '#000000'
+      foreground: '#eaeaea'
+  
+    # Normal colors
+    normal:
+      black:   '#000000'
+      red:     '#d54e53'
+      green:   '#b9ca4a'
+      yellow:  '#e6c547'
+      blue:    '#7aa6da'
+      magenta: '#c397d8'
+      cyan:    '#70c0ba'
+      white:   '#424242'
+  
+    # Bright colors
+    bright:
+      black:   '#666666'
+      red:     '#ff3334'
+      green:   '#9ec400'
+      yellow:  '#e7c547'
+      blue:    '#7aa6da'
+      magenta: '#b77ee0'
+      cyan:    '#54ced6'
+      white:   '#2a2a2a'
+
+colors: *tomorrow_night_bright
+  # Default colors
+
+key_bindings:
+  - { key: C, mods: Alt, action: Copy }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: K, mods: Control|Alt, action: IncreaseFontSize }
+  - { key: J, mods: Control|Alt, action: DecreaseFontSize }
+  - { key: Equals, mods: Control, action: ResetFontSize }
+  - { key: C, mods: Control|Alt, command: {program: "change_terminal_coloscheme.py"} }
+

@@ -1,0 +1,6 @@
+text/html; brave %s &
+text/*; nvim %s &
+image/*; sxiv %s &
+video/*; mpv %s &
+application/pdf; zathura %s &
+application/pgp; alacritty -e pgp -d &

@@ -1,0 +1,5 @@
+#!/bin/bash
+value=$(xbacklight)
+value=${value%.*}
+
+printf "%s%%\\n" "$value"

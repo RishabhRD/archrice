@@ -1,0 +1,29 @@
+set statusbar-h-padding 0
+set recolor-darkcolor "#dcdccc"
+set statusbar-v-padding 0
+set page-padding 1
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+map P toggle_presentation
+map v change_mode visual
+set selection-clipboard clipboard
+
+map [presentation] l navigate next
+map [presentation] h navigate previous
+map [presentation] j navigate next
+map [presentation] k navigate previous
+map [presentation] R rotate rotate-ccw
+map [presentation] i recolor
+map [presentation] gg goto top
+map [presentation] G goto bottom
+map [presentation] <C-o> jumplist backward
+map [presentation] <C-i> jumplist forward
+map [presentation] m mark_add
+map [presentation] P toggle_presentation
