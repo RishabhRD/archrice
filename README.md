@@ -1,12 +1,12 @@
 # Arch Rice
-This repository is my ricing setup on my arch with dwm.
 
-You can use this setup after fresh arch installtion to rice your arch distro.
-NeoVim plugins are installed with vim-plug(in case you are interested).
+ArchRice is deprecated now. See [rdconfig](https://github.com/RishabhRD/rdconfig)
+for my dots.
 
+## Why?
 
-***For list of application I use in my arch and its dependecies refer to DEPENDENCIES file***
+- Because I started to maintain it in my first year of undergrad. It has so much
+mess in git history. Now I am stopping to maintain it in my final year of
+undergrad.
 
-For any recommendation of application to use send me a mail at **rishabhdwivedi17@gmail.com**
-
-For same type of changes in your root shell copy this configuration to `/root` folder.
+- I don't want to download 21 MB archrice just to maintain simple files.
